@@ -1,0 +1,47 @@
+{
+	"name": "i18n-iso-countries",
+	"version": "0.0.1",
+	"description": "i18n for ISO 3166-1 country codes",
+	"keywords": [
+		"i18n",
+		"iso 3166",
+		"iso 3166-1",
+		"country",
+		"countries"
+	],
+	"author": {
+		"name": "Andreas Wittig",
+		"email": "andreas.wittig@cinovo.de"
+	},
+	"contributors": [{
+			"name": "Michael Wittig",
+			"email": "michael.wittig@cinovo.de"
+	}],
+	"licenses": [{
+		"type": "Apache License, Version 2.0",
+		"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cinovo/node-i18n-iso-countries.git"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"assert-plus": "0.1.5",
+		"mocha": "1.15.1",
+		"jslint": "0.2.5",
+		"madge": "0.1.7",
+		"npmedge": "0.1.4"
+	},
+	"main": "index",
+	"engines": {
+		"node": ">= 0.6.0"
+	},
+	"scripts": {
+		"test": "make test"
+	},
+	"readmeFilename": "README.md",
+	"bugs": {
+		"url": "https://github.com/cinovo/node-i18n-iso-countries/issues"
+	}
+}
