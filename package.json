@@ -1,13 +1,15 @@
 {
 	"name": "i18n-iso-countries",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "i18n for ISO 3166-1 country codes",
 	"keywords": [
 		"i18n",
 		"iso 3166",
 		"iso 3166-1",
 		"country",
-		"countries"
+		"countries",
+		"de",
+		"en"
 	],
 	"author": {
 		"name": "Andreas Wittig",

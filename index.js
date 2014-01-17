@@ -12,3 +12,18 @@ exports.getName = function(iso, lang) {
 		return undefined;
 	}	
 };
+
+
+/*
+ * lang: language for country name
+ */
+exports.getNames = function(lang) {
+	"use strict";
+	try {
+		var l = require("./" + lang.toLowerCase());
+		return l.i18n();
+	} catch (err) {
+		return {};
+	}
+};
+
