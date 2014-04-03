@@ -149,7 +149,6 @@ var i18n = {
 	"NR": "Nauru",
 	"NP": "Nepal",
 	"NL": "Netherlands",
-	"AN": "Netherlands Antilles",
 	"NC": "New Caledonia",
 	"NZ": "New Zealand",
 	"NI": "Nicaragua",
@@ -187,7 +186,6 @@ var i18n = {
 	"ST": "Sao Tome and Principe",
 	"SA": "Saudi Arabia",
 	"SN": "Senegal",
-	"CS": "Serbia and Montenegro",
 	"SC": "Seychelles",
 	"SL": "Sierra Leone",
 	"SG": "Singapore",
@@ -237,7 +235,19 @@ var i18n = {
 	"EH": "Western Sahara",
 	"YE": "Yemen",
 	"ZM": "Zambia",
-	"ZW": "Zimbabwe"
+	"ZW": "Zimbabwe",
+	"AX": "Åland Islands",
+	"BQ": "Bonaire, Sint Eustatius and Saba",
+	"CW": "Curaçao",
+	"GG": "Guernsey",
+	"IM": "Isle of Man",
+	"JE": "Jersey",
+	"ME": "Montenegro",
+	"BL": "Saint Barthélemy",
+	"MF": "Saint Martin (French part)",
+	"RS": "Serbia",
+	"SX": "Sint Maarten (Dutch part)",
+	"SS": "South Sudan"
 };
 
 exports.i18n = function() {

@@ -50,8 +50,15 @@ describe("i18n for iso 3166-1", function () {
 				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-		it("get names", function () {
-			assert.equal(Object.keys(i18niso.getNames(lang)).length, 265);
+        it("complete (to less)", function() {
+			i18niso.getAlpha2Codes().forEach(function(code) {
+				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
+			});
+		});
+		it("complete (too much)", function() {
+			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
+				assert.notEqual(i18niso.getAlpha2Codes().indexOf(code), -1, "entry for " + code + " is too much");
+			});
 		});
 	});
 	describe("en", function () {
@@ -73,8 +80,15 @@ describe("i18n for iso 3166-1", function () {
 				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-		it("get names", function () {
-			assert.equal(Object.keys(i18niso.getNames(lang)).length, 239);
+        it("complete (to less)", function() {
+			i18niso.getAlpha2Codes().forEach(function(code) {
+				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
+			});
+		});
+		it("complete (too much)", function() {
+			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
+				assert.notEqual(i18niso.getAlpha2Codes().indexOf(code), -1, "entry for " + code + " is too much");
+			});
 		});
 	});
 	describe("unsupported language", function () {

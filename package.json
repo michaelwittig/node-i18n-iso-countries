@@ -1,11 +1,17 @@
 {
 	"name": "i18n-iso-countries",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "i18n for ISO 3166-1 country codes",
 	"keywords": [
 		"i18n",
+		"iso",
+		"3166",
 		"iso 3166",
 		"iso 3166-1",
+		"alpha",
+		"alpha-2",
+		"alpha-3",
+		"numeric",
 		"country",
 		"countries",
 		"de",

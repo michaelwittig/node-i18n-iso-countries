@@ -4,12 +4,14 @@ var fs = require("fs"),
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
-var alpha3 = {},
+var alpha2 = [],
+    alpha3 = {},
     numeric = {};
 /*jslint stupid: true */
 fs.readFileSync(path.resolve(__dirname, "codes.csv"), {encoding: "utf8"}).replace(/\r/g, "").split("\n").forEach(function(line) {
 	"use strict";
 	var s = line.split(";");
+	alpha2.push(s[0]);
 	alpha3[s[1]] = s[0];
 	numeric[parseInt(s[2], 10)] = s[0];
 });
@@ -74,7 +76,6 @@ exports.getName = function(code, lang) {
 	}	
 };
 
-
 /*
  * @param lang language for country name
  * @return hash
@@ -89,3 +90,26 @@ exports.getNames = function(lang) {
 	}
 };
 
+/*
+ * @return Array
+ */
+exports.getAlpha2Codes = function() {
+	"use strict";
+	return alpha2;
+};
+
+/*
+ * @return hash
+ */
+exports.getAlpha3Codes = function() {
+	"use strict";
+	return alpha3;
+};
+
+/*
+ * @return hash
+ */
+exports.getNumericCodes = function() {
+	"use strict";
+	return numeric;
+};
