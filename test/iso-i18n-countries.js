@@ -3,81 +3,87 @@ var assert = require("assert-plus"),
 
 describe("i18n for iso 3166-1", function () {
 	"use strict";
+	describe("Alpha-3 to Alpha-2 code", function() {
+		it("toAlpha2 DEU => DE", function() {
+			assert.equal(i18niso.toAlpha2("DEU"), "DE");
+		});
+		it("alpha3ToAlpha2 DEU => DE", function() {
+			assert.equal(i18niso.alpha3ToAlpha2("DEU"), "DE");
+		});
+	});
+	describe("Numeric to Alpha-2 code", function() {
+		it("toAlpha2 '276' => DE", function() {
+			assert.equal(i18niso.toAlpha2("276"), "DE");
+		});
+		it("toAlpha2 '004' => AF", function() {
+			assert.equal(i18niso.toAlpha2("004"), "AF");
+		});
+		it("toAlpha2 276 => DE", function() {
+			assert.equal(i18niso.toAlpha2(276), "DE");
+		});
+		it("numericToAlpha2 '276' => DE", function() {
+			assert.equal(i18niso.numericToAlpha2("276"), "DE");
+		});
+		it("numericToAlpha2 '004' => AF", function() {
+			assert.equal(i18niso.numericToAlpha2("004"), "AF");
+		});
+		it("numericToAlpha2 276 => DE", function() {
+			assert.equal(i18niso.numericToAlpha2(276), "DE");
+		});
+	});
 	describe("de", function () {
 		var lang = "de";
 		describe("get name", function () {
-			it("for de", function (done) {
-				assert.string(i18niso.getName("de", lang), "Deutschland");
-				done();
+			it("for de", function () {
+				assert.equal(i18niso.getName("de", lang), "Deutschland");
 			});
-			it("for cl", function (done) {
-				assert.string(i18niso.getName("cl", lang), "Chile");
-				done();
+			it("for cl", function () {
+				assert.equal(i18niso.getName("cl", lang), "Chile");
 			});
-			it("for CL", function (done) {
-				assert.string(i18niso.getName("CL", lang), "Chile");
-				done();
+			it("for CL", function () {
+				assert.equal(i18niso.getName("CL", lang), "Chile");
 			});
-			it("for cy", function (done) {
-				assert.string(i18niso.getName("cy", lang), "Zypern");
-				done();
+			it("for cy", function () {
+				assert.equal(i18niso.getName("cy", lang), "Zypern");
 			});
-			it("for af", function (done) {
-				assert.string(i18niso.getName("af", lang), "Afghanistan");
-				done();
+			it("for af", function () {
+				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-		describe("get names", function () {
-			it("for de", function (done) {
-				assert.equal(Object.keys(i18niso.getNames(lang)).length, 265);
-				done();
-			});
+		it("get names", function () {
+			assert.equal(Object.keys(i18niso.getNames(lang)).length, 265);
 		});
 	});
 	describe("en", function () {
 		var lang = "en";
 		describe("get name", function () {
-			it("for de", function (done) {
-				assert.string(i18niso.getName("de", lang), "Germany");
-				done();
+			it("for de", function () {
+				assert.equal(i18niso.getName("de", lang), "Germany");
 			});
-			it("for cl", function (done) {
-				assert.string(i18niso.getName("cl", lang), "Chile");
-				done();
+			it("for cl", function () {
+				assert.equal(i18niso.getName("cl", lang), "Chile");
 			});
-			it("for CL", function (done) {
-				assert.string(i18niso.getName("CL", lang), "Chile");
-				done();
+			it("for CL", function () {
+				assert.equal(i18niso.getName("CL", lang), "Chile");
 			});
-			it("for cy", function (done) {
-				assert.string(i18niso.getName("cy", lang), "Cypris");
-				done();
+			it("for cy", function () {
+				assert.equal(i18niso.getName("cy", lang), "Cyprus");
 			});
-			it("for af", function (done) {
-				assert.string(i18niso.getName("af", lang), "Afghanistan");
-				done();
+			it("for af", function () {
+				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-		describe("get names", function () {
-			it("for de", function (done) {
-				assert.equal(Object.keys(i18niso.getNames(lang)).length, 239);
-				done();
-			});
+		it("get names", function () {
+			assert.equal(Object.keys(i18niso.getNames(lang)).length, 239);
 		});
 	});
 	describe("unsupported language", function () {
 		var lang = "unsupported";
-		describe("get name", function () {
-			it("for de", function (done) {
-				assert.equal(i18niso.getName("de", lang), undefined);
-				done();
-			});
+		it("get name", function () {
+			assert.equal(i18niso.getName("de", lang), undefined);
 		});
-		describe("get names", function () {
-			it("for de", function (done) {
-				assert.equal(Object.keys(i18niso.getNames(lang)).length, 0);
-				done();
-			});
+		it("get names", function () {
+			assert.equal(Object.keys(i18niso.getNames(lang)).length, 0);
 		});
 	});
 });

@@ -5,45 +5,62 @@ var fs = require("fs"),
  * All codes map to ISO 3166-1 alpha-2
  */
 var alpha3 = {},
-    numeric = {},
-    iso31662 = {};
+    numeric = {};
+/*jslint stupid: true */
 fs.readFileSync(path.resolve(__dirname, "codes.csv"), {encoding: "utf8"}).replace(/\r/g, "").split("\n").forEach(function(line) {
 	"use strict";
 	var s = line.split(";");
 	alpha3[s[1]] = s[0];
 	numeric[parseInt(s[2], 10)] = s[0];
-	iso31662[s[3]] = s[0];
 });
+/*jslint stupid: false */
 
 /*
  * @param code Alpha-3 code
  * @return Alpha-2 code or undefined
  */
-exports.alpha3ToAlpha2 = function(code) {
+function alpha3ToAlpha2(code) {
 	"use strict";
 	return alpha3[code];
-};
+}
+exports.alpha3ToAlpha2 = alpha3ToAlpha2;
 
 /*
  * @param code Numeric code
  * @return Alpha-2 code or undefined
  */
-exports.numericToAlpha2 = function(code) {
+function numericToAlpha2(code) {
 	"use strict";
 	return numeric[parseInt(code, 10)];
-};
+}
+exports.numericToAlpha2 = numericToAlpha2;
 
 /*
- * @param code ISO 3166-2 code
- * @return Alpha-2 code or undefined
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return ISO 3166-1 alpha-2
  */
-exports.iso31662ToAlpha2 = function(code) {
-	"use strict";
-	return iso31662[code];
-};
+function toAlpha2(code) {
+        "use strict";
+        if (typeof code === "string") {
+		if (/^[0-9]*$/.test(code)) {
+			return numericToAlpha2(code);
+		}
+		if (code.length === 2) {
+			return code.toUpperCase();
+		}
+		if(code.length === 3) {
+			return alpha3ToAlpha2(code.toUpperCase());
+		}
+        }
+	if (typeof code === "number") {
+                return numericToAlpha2(code);
+        }
+	return undefined;
+}
+exports.toAlpha2 = toAlpha2;
 
 /*
- * @param code iso country code to resolve
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @param lang language for country name
  * @return name or undefined
  */
@@ -51,7 +68,7 @@ exports.getName = function(code, lang) {
 	"use strict";
 	try {
 		var l = require("./" + lang.toLowerCase());
-		return l.i18n()[code.toUpperCase()];
+		return l.i18n()[toAlpha2(code)];
 	} catch (err) {
 		return undefined;
 	}	
