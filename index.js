@@ -135,7 +135,7 @@ exports.getNames = function(lang) {
 };
 
 /*
- * @return Array
+ * @return hash (alpha-2 => alpha-3)
  */
 exports.getAlpha2Codes = function() {
 	"use strict";
@@ -143,7 +143,7 @@ exports.getAlpha2Codes = function() {
 };
 
 /*
- * @return hash
+ * @return hash (alpha-3 => alpha-2)
  */
 exports.getAlpha3Codes = function() {
 	"use strict";
@@ -151,7 +151,7 @@ exports.getAlpha3Codes = function() {
 };
 
 /*
- * @return hash
+ * @return hash (numeric => alpha-2)
  */
 exports.getNumericCodes = function() {
 	"use strict";

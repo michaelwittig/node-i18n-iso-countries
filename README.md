@@ -62,7 +62,7 @@ console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.getAlpha2Codes()); // [ 'AF', 'AX', [...], 'ZM', 'ZW' }
+console.log(countries.getAlpha2Codes()); // { 'AF': 'AFG', 'AX': 'ALA', [...], 'ZM': 'ZMB', 'ZW': 'ZWE' }
 `````
 
 ### Get all Alpha-3 codes
