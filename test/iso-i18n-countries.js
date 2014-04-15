@@ -3,6 +3,14 @@ var assert = require("assert-plus"),
 
 describe("i18n for iso 3166-1", function () {
 	"use strict";
+	describe("Alpha-2 to Alpha-3 code", function() {
+		it("toAlpha3 SG => SGP", function() {
+			assert.equal(i18niso.toAlpha3("SG"), "SGP");
+		});
+		it("alpha2ToAlpha3 SG => SGP", function() {
+			assert.equal(i18niso.alpha2ToAlpha3("SG"), "SGP");
+		});
+	});
 	describe("Alpha-3 to Alpha-2 code", function() {
 		it("toAlpha2 DEU => DE", function() {
 			assert.equal(i18niso.toAlpha2("DEU"), "DE");
@@ -31,6 +39,26 @@ describe("i18n for iso 3166-1", function () {
 			assert.equal(i18niso.numericToAlpha2(276), "DE");
 		});
 	});
+	describe("Numeric to Alpha-3 code", function() {
+		it("toAlpha3 '276' => DEU", function() {
+			assert.equal(i18niso.toAlpha3("276"), "DEU");
+		});
+		it("toAlpha3 '004' => AFG", function() {
+			assert.equal(i18niso.toAlpha3("004"), "AFG");
+		});
+		it("toAlpha3 276 => DEU", function() {
+			assert.equal(i18niso.toAlpha3(276), "DEU");
+		});
+		it("numericToAlpha3 '276' => DEU", function() {
+			assert.equal(i18niso.numericToAlpha3("276"), "DEU");
+		});
+		it("numericToAlpha3 '004' => AFG", function() {
+			assert.equal(i18niso.numericToAlpha3("004"), "AFG");
+		});
+		it("numericToAlpha3 276 => DEU", function() {
+			assert.equal(i18niso.numericToAlpha3(276), "DEU");
+		});
+	});
 	describe("de", function () {
 		var lang = "de";
 		describe("get name", function () {
@@ -51,13 +79,13 @@ describe("i18n for iso 3166-1", function () {
 			});
 		});
         it("complete (to less)", function() {
-			i18niso.getAlpha2Codes().forEach(function(code) {
+			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
 				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
 			});
 		});
 		it("complete (too much)", function() {
 			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
-				assert.notEqual(i18niso.getAlpha2Codes().indexOf(code), -1, "entry for " + code + " is too much");
+				assert.notEqual(i18niso.getAlpha2Codes()[code], -1, "entry for " + code + " is too much");
 			});
 		});
 	});
@@ -81,13 +109,13 @@ describe("i18n for iso 3166-1", function () {
 			});
 		});
         it("complete (to less)", function() {
-			i18niso.getAlpha2Codes().forEach(function(code) {
+			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
 				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
 			});
 		});
 		it("complete (too much)", function() {
 			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
-				assert.notEqual(i18niso.getAlpha2Codes().indexOf(code), -1, "entry for " + code + " is too much");
+				assert.notEqual(i18niso.getAlpha2Codes()[code], -1, "entry for " + code + " is too much");
 			});
 		});
 	});

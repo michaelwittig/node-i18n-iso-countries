@@ -4,14 +4,14 @@ var fs = require("fs"),
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
-var alpha2 = [],
+var alpha2 = {},
     alpha3 = {},
     numeric = {};
 /*jslint stupid: true */
 fs.readFileSync(path.resolve(__dirname, "codes.csv"), {encoding: "utf8"}).replace(/\r/g, "").split("\n").forEach(function(line) {
 	"use strict";
 	var s = line.split(";");
-	alpha2.push(s[0]);
+	alpha2[s[0]] = s[1];
 	alpha3[s[1]] = s[0];
 	numeric[parseInt(s[2], 10)] = s[0];
 });
@@ -28,6 +28,26 @@ function alpha3ToAlpha2(code) {
 exports.alpha3ToAlpha2 = alpha3ToAlpha2;
 
 /*
+ * @param code Alpha-2 code
+ * @return Alpha-3 code or undefined
+ */
+function alpha2ToAlpha3(code) {
+	"use strict";
+	return alpha2[code];
+}
+exports.alpha2ToAlpha3 = alpha2ToAlpha3;
+
+/*
+ * @param code Numeric code
+ * @return Alpha-3 code or undefined
+ */
+function numericToAlpha3(code) {
+	"use strict";
+	return alpha2ToAlpha3(numeric[parseInt(code, 10)]);
+}
+exports.numericToAlpha3 = numericToAlpha3;
+
+/*
  * @param code Numeric code
  * @return Alpha-2 code or undefined
  */
@@ -36,6 +56,30 @@ function numericToAlpha2(code) {
 	return numeric[parseInt(code, 10)];
 }
 exports.numericToAlpha2 = numericToAlpha2;
+
+/*
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return ISO 3166-1 alpha-3
+ */
+function toAlpha3(code) {
+        "use strict";
+        if (typeof code === "string") {
+		if (/^[0-9]*$/.test(code)) {
+			return numericToAlpha3(code);
+		}
+		if(code.length === 2) {
+			return alpha2ToAlpha3(code.toUpperCase());
+		}
+		if (code.length === 3) {
+			return code.toUpperCase();
+		}
+        }
+	if (typeof code === "number") {
+                return numericToAlpha3(code);
+        }
+	return undefined;
+}
+exports.toAlpha3 = toAlpha3;
 
 /*
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
