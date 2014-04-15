@@ -117,7 +117,7 @@ exports.getName = function(code, lang) {
 		return l.i18n()[toAlpha2(code)];
 	} catch (err) {
 		return undefined;
-	}	
+	}
 };
 
 /*

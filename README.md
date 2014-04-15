@@ -46,6 +46,18 @@ var countries = require("i18n-iso-countries");
 console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)"); // United States
 `````
 
+### Convert Alpha-2 to Alpha-3 coe
+`````javascript
+var countries = require("i18n-iso-countries");
+console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)"); // Germany
+`````
+
+### Convert Numeric to Alpha-3 code
+
+`````javascript
+var countries = require("i18n-iso-countries");
+console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)"); // United States
+
 ### Get all Alpha-2 codes
 
 `````javascript
