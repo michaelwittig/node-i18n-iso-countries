@@ -78,7 +78,7 @@ describe("i18n for iso 3166-1", function () {
 				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-        it("complete (to less)", function() {
+		it("complete (to less)", function() {
 			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
 				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
 			});
@@ -108,7 +108,7 @@ describe("i18n for iso 3166-1", function () {
 				assert.equal(i18niso.getName("af", lang), "Afghanistan");
 			});
 		});
-        it("complete (to less)", function() {
+		it("complete (to less)", function() {
 			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
 				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
 			});
@@ -119,10 +119,22 @@ describe("i18n for iso 3166-1", function () {
 			});
 		});
 	});
-
 	describe("nl", function () {
 		var lang = "nl";
-        it("complete (to less)", function() {
+		it("complete (to less)", function() {
+			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
+				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
+			});
+		});
+		it("complete (too much)", function() {
+			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
+				assert.notEqual(i18niso.getAlpha2Codes()[code], -1, "entry for " + code + " is too much");
+			});
+		});
+	});
+	describe("fr", function () {
+		var lang = "fr";
+		it("complete (to less)", function() {
 			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
 				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
 			});
