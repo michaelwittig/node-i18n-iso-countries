@@ -27,10 +27,7 @@
 			"name": "Michael Wittig",
 			"email": "post@michaelwittig.info"
 	}],
-	"licenses": [{
-		"type": "Apache License, Version 2.0",
-		"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-	}],
+	"license" : "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/michaelwittig/node-i18n-iso-countries.git"
