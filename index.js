@@ -1,5 +1,14 @@
 var fs = require("fs"),
-    path = require("path");
+    path = require("path"),
+    codes = require("./codes");
+
+var langs = {
+  "de" : require("./de"),
+  "en" : require("./en"),
+  "fr" : require("./fr"),
+  "nl" : require("./nl")
+};
+
 
 /*
  * All codes map to ISO 3166-1 alpha-2
@@ -8,9 +17,11 @@ var alpha2 = {},
     alpha3 = {},
     numeric = {};
 /*jslint stupid: true */
-fs.readFileSync(path.resolve(__dirname, "codes.csv"), {encoding: "utf8"}).replace(/\r/g, "").split("\n").forEach(function(line) {
+
+codes.getCodes().forEach(function(codeInformation) {
 	"use strict";
-	var s = line.split(";");
+
+	var s = codeInformation;
 	alpha2[s[0]] = s[1];
 	alpha3[s[1]] = s[0];
 	numeric[parseInt(s[2], 10)] = s[0];
@@ -113,7 +124,7 @@ exports.toAlpha2 = toAlpha2;
 exports.getName = function(code, lang) {
 	"use strict";
 	try {
-		var l = require("./" + lang.toLowerCase());
+		var l = langs[lang.toLowerCase()];
 		return l.i18n()[toAlpha2(code)];
 	} catch (err) {
 		return undefined;
