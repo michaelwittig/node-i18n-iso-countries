@@ -1,6 +1,6 @@
 {
 	"name": "i18n-iso-countries",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "i18n for ISO 3166-1 country codes",
 	"keywords": [
 		"i18n",
@@ -24,8 +24,8 @@
 		"email": "me@andreaswittig.info"
 	},
 	"contributors": [{
-			"name": "Michael Wittig",
-			"email": "post@michaelwittig.info"
+		"name": "Michael Wittig",
+		"email": "post@michaelwittig.info"
 	}],
 	"license" : "MIT",
 	"repository": {

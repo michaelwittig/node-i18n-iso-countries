@@ -31,6 +31,13 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 * `nl`: dutch
 * `fr`: french
 
+### Country to Code
+
+`````javascript
+var countries = require("i18n-iso-countries");
+console.log("United States => " + countries.getAlpha2Code('United States', 'en')); // US
+`````
+
 ## Codes
 
 ### Convert Alpha-3 to Alpha-2 code

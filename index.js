@@ -145,6 +145,11 @@ exports.getNames = function(lang) {
 	}
 };
 
+/*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-2 or undefined
+ */
 exports.getAlpha2Code = function(name, lang) {
 	"use strict";
 	try {
@@ -162,6 +167,7 @@ exports.getAlpha2Code = function(name, lang) {
 		return undefined;
 	}
 };
+
 /*
  * @return hash (alpha-2 => alpha-3)
  */
