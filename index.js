@@ -145,6 +145,23 @@ exports.getNames = function(lang) {
 	}
 };
 
+exports.getAlpha2Code = function(name, lang) {
+	"use strict";
+	try {
+		var p,
+		    codenames = langs[lang.toLowerCase()].i18n();
+		for (p in codenames) {
+			if (codenames.hasOwnProperty(p)) {
+				if (codenames[p].toLowerCase() === name.toLowerCase()) {
+					return p;
+				}
+			}
+		}
+		return undefined;
+	} catch (err) {
+		return undefined;
+	}
+};
 /*
  * @return hash (alpha-2 => alpha-3)
  */
