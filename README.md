@@ -65,6 +65,7 @@ console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
 `````javascript
 var countries = require("i18n-iso-countries");
 console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)"); // United States
+`````
 
 ### Get all Alpha-2 codes
 
