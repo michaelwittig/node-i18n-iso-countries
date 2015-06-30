@@ -15,7 +15,8 @@ var langs = {
  */
 var alpha2 = {},
     alpha3 = {},
-    numeric = {};
+    numeric = {},
+    invertedNumeric = {};
 /*jslint stupid: true */
 
 codes.getCodes().forEach(function(codeInformation) {
@@ -24,7 +25,8 @@ codes.getCodes().forEach(function(codeInformation) {
 	var s = codeInformation;
 	alpha2[s[0]] = s[1];
 	alpha3[s[1]] = s[0];
-	numeric[parseInt(s[2], 10)] = s[0];
+  numeric[parseInt(s[2], 10)] = s[0];
+	invertedNumeric[s[0]] = parseInt(s[2], 10);
 });
 /*jslint stupid: false */
 
@@ -47,6 +49,26 @@ function alpha2ToAlpha3(code) {
 	return alpha2[code];
 }
 exports.alpha2ToAlpha3 = alpha2ToAlpha3;
+
+/*
+ * @param code Alpha-3 code
+ * @return Numeric code or undefined
+ */
+function alpha3ToNumeric(code) {
+  "use strict";
+  return invertedNumeric[alpha3ToAlpha2(code)];
+}
+exports.alpha3ToNumeric = alpha3ToNumeric;
+
+/*
+ * @param code Alpha-2 code
+ * @return Numeric code or undefined
+ */
+function alpha2ToNumeric(code) {
+  "use strict";
+  return invertedNumeric[code];
+}
+exports.alpha2ToNumeric = alpha2ToNumeric;
 
 /*
  * @param code Numeric code
