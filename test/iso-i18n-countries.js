@@ -19,6 +19,22 @@ describe("i18n for iso 3166-1", function () {
 			assert.equal(i18niso.alpha3ToAlpha2("DEU"), "DE");
 		});
 	});
+	describe("Alpha-3 to Numeric code", function() {
+		it("alpha3ToNumeric SWE => 752", function() {
+			assert.equal(i18niso.alpha3ToNumeric("SWE"), 752);
+		});
+		it("alpha3ToNumeric DJI => 262", function() {
+			assert.equal(i18niso.alpha3ToNumeric("DJI"), 262);
+		});
+	});
+	describe("Alpha-2 to Numeric code", function() {
+		it("alpha2ToNumeric SE => 752", function() {
+			assert.equal(i18niso.alpha2ToNumeric("SE"), 752);
+		});
+		it("alpha2ToNumeric DJ => 262", function() {
+			assert.equal(i18niso.alpha2ToNumeric("DJ"), 262);
+		});
+	});
 	describe("Numeric to Alpha-2 code", function() {
 		it("toAlpha2 '276' => DE", function() {
 			assert.equal(i18niso.toAlpha2("276"), "DE");
