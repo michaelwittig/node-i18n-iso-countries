@@ -1,6 +1,4 @@
-var fs = require("fs"),
-    path = require("path"),
-    codes = require("./codes");
+var codes = require("./codes");
 
 var langs = {
   "de" : require("./de"),
