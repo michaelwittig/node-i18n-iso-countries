@@ -159,7 +159,7 @@ exports.getName = function(code, lang) {
 exports.getNames = function(lang) {
 	"use strict";
 	try {
-		var l = require("./" + lang.toLowerCase());
+		var l = langs[lang.toLowerCase()];
 		return l.i18n();
 	} catch (err) {
 		return {};
