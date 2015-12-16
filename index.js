@@ -6,7 +6,7 @@ var langs = {
   "fr" : require("./fr"),
   "nl" : require("./nl"),
   "sv" : require("./sv"),
-  "se" : require("./se")
+  "es" : require("./es")
 };
 
 
