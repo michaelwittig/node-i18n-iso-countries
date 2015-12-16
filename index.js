@@ -14,10 +14,9 @@ var langs = {
  * All codes map to ISO 3166-1 alpha-2
  */
 var alpha2 = {},
-    alpha3 = {},
-    numeric = {},
-    invertedNumeric = {};
-/*jslint stupid: true */
+  alpha3 = {},
+  numeric = {},
+  invertedNumeric = {};
 
 codes.getCodes().forEach(function(codeInformation) {
 	"use strict";
@@ -28,7 +27,6 @@ codes.getCodes().forEach(function(codeInformation) {
   numeric[parseInt(s[2], 10)] = s[0];
 	invertedNumeric[s[0]] = parseInt(s[2], 10);
 });
-/*jslint stupid: false */
 
 /*
  * @param code Alpha-3 code
@@ -95,8 +93,8 @@ exports.numericToAlpha2 = numericToAlpha2;
  * @return ISO 3166-1 alpha-3
  */
 function toAlpha3(code) {
-        "use strict";
-        if (typeof code === "string") {
+  "use strict";
+  if (typeof code === "string") {
 		if (/^[0-9]*$/.test(code)) {
 			return numericToAlpha3(code);
 		}
@@ -106,10 +104,10 @@ function toAlpha3(code) {
 		if (code.length === 3) {
 			return code.toUpperCase();
 		}
-        }
+  }
 	if (typeof code === "number") {
-                return numericToAlpha3(code);
-        }
+    return numericToAlpha3(code);
+  }
 	return undefined;
 }
 exports.toAlpha3 = toAlpha3;
@@ -119,8 +117,8 @@ exports.toAlpha3 = toAlpha3;
  * @return ISO 3166-1 alpha-2
  */
 function toAlpha2(code) {
-        "use strict";
-        if (typeof code === "string") {
+  "use strict";
+  if (typeof code === "string") {
 		if (/^[0-9]*$/.test(code)) {
 			return numericToAlpha2(code);
 		}
@@ -130,10 +128,10 @@ function toAlpha2(code) {
 		if(code.length === 3) {
 			return alpha3ToAlpha2(code.toUpperCase());
 		}
-        }
+  }
 	if (typeof code === "number") {
-                return numericToAlpha2(code);
-        }
+    return numericToAlpha2(code);
+  }
 	return undefined;
 }
 exports.toAlpha2 = toAlpha2;
@@ -176,7 +174,7 @@ exports.getAlpha2Code = function(name, lang) {
 	"use strict";
 	try {
 		var p,
-		    codenames = langs[lang.toLowerCase()].i18n();
+		  codenames = langs[lang.toLowerCase()].i18n();
 		for (p in codenames) {
 			if (codenames.hasOwnProperty(p)) {
 				if (codenames[p].toLowerCase() === name.toLowerCase()) {

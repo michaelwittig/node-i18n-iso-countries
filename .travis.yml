@@ -1,7 +1,9 @@
 language: node_js
+sudo: false
 node_js:
   - "0.12"
   - "0.11"
   - "0.10"
-  - "iojs"
-  - "iojs-v1.0.4" 
+  - "4"
+  - "4.2"
+  - "5"

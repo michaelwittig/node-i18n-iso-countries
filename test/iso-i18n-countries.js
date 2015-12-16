@@ -3,7 +3,18 @@ var assert = require("assert-plus"),
 
 describe("i18n for iso 3166-1", function () {
 	"use strict";
+	describe("Alpha-2 to Alpha-2 code", function() {
+		it("toAlpha2 SG => SG", function() {
+			assert.equal(i18niso.toAlpha2("SG"), "SG");
+		});
+	});
 	describe("Alpha-2 to Alpha-3 code", function() {
+		it("toAlpha3 true => undefined", function() {
+			assert.equal(i18niso.toAlpha3(true), undefined);
+		});
+		it("toAlpha3 XX => undefined", function() {
+			assert.equal(i18niso.toAlpha3("XX"), undefined);
+		});
 		it("toAlpha3 SG => SGP", function() {
 			assert.equal(i18niso.toAlpha3("SG"), "SGP");
 		});
@@ -11,7 +22,18 @@ describe("i18n for iso 3166-1", function () {
 			assert.equal(i18niso.alpha2ToAlpha3("SG"), "SGP");
 		});
 	});
+	describe("Alpha-3 to Alpha-3 code", function() {
+		it("toAlpha2 SGP => SGP", function() {
+			assert.equal(i18niso.toAlpha3("SGP"), "SGP");
+		});
+	});
 	describe("Alpha-3 to Alpha-2 code", function() {
+		it("toAlpha2 true => undefined", function() {
+			assert.equal(i18niso.toAlpha2(true), undefined);
+		});
+		it("toAlpha2 XXX => undefined", function() {
+			assert.equal(i18niso.toAlpha2("XXX"), undefined);
+		});
 		it("toAlpha2 DEU => DE", function() {
 			assert.equal(i18niso.toAlpha2("DEU"), "DE");
 		});
@@ -73,6 +95,29 @@ describe("i18n for iso 3166-1", function () {
 		});
 		it("numericToAlpha3 276 => DEU", function() {
 			assert.equal(i18niso.numericToAlpha3(276), "DEU");
+		});
+	});
+	describe("getAlpha2Codes", function() {
+		it("length", function() {
+			assert.equal(Object.keys(i18niso.getAlpha2Codes()).length, 249);
+		});
+	});
+	describe("getAlpha3Codes", function() {
+		it("length", function() {
+			assert.equal(Object.keys(i18niso.getAlpha3Codes()).length, 249);
+		});
+	});
+	describe("getNumericCodes", function() {
+		it("length", function() {
+			assert.equal(Object.keys(i18niso.getNumericCodes()).length, 249);
+		});
+	});
+	describe("getAlpha2Code", function() {
+		it("missing name", function() {
+			assert.equal(i18niso.getAlpha2Code("XXX", "de"), undefined);
+		});
+		it("missing land", function() {
+			assert.equal(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
 		});
 	});
 	describe("de", function () {
