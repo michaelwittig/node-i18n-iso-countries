@@ -251,5 +251,6 @@ var codes = [
 ];
 
 exports.getCodes = function() {
+  "use strict";
   return codes;
 };

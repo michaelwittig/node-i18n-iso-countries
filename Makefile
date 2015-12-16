@@ -2,7 +2,7 @@ default: test
 
 jshint:
 	@echo "jshint"
-	@find . -name "*.js" -not -path "./node_modules/*" -not -path "./coverage/*" -print0 | xargs -0 ./node_modules/.bin/jshint
+	@find . -name "*.js" -print0 | xargs -0 ./node_modules/.bin/jshint
 
 circular:
 	@echo "circular"
