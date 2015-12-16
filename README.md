@@ -31,6 +31,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 * `nl`: dutch
 * `fr`: french
 * `sv`: swedish
+* `es`: spanish
 
 ### Country to Code
 
