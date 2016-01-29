@@ -240,6 +240,19 @@ describe("i18n for iso 3166-1", function () {
 			});
 		});
 	});
+	describe("fi", function () {
+		var lang = "fi";
+		it("complete (to less)", function() {
+			Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
+				assert.notEqual(i18niso.getName(code, lang), undefined, "missing entry for " + code);
+			});
+		});
+		it("complete (too much)", function() {
+			Object.keys(i18niso.getNames(lang)).forEach(function(code) {
+				assert.notEqual(i18niso.getAlpha2Codes()[code], -1, "entry for " + code + " is too much");
+			});
+		});
+	});
   describe("pt", function () {
     var lang = "pt";
     it("complete (to less)", function() {
