@@ -204,7 +204,7 @@ var i18n = {
 	"SE": "Suecia",
 	"CH": "Suiza",
 	"SY": "República Árabe Siria",
-	"TW": "Taiwán (Provincia de China)",
+	"TW": "Taiwán",
 	"TJ": "Tayikistán",
 	"TZ": "Tanzania, República Unida de",
 	"TH": "Tailandia",
