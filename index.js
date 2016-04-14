@@ -8,7 +8,8 @@ var langs = {
   "sv" : require("./sv"),
   "es" : require("./es"),
   "pt" : require("./pt"),
-  "fi" : require("./fi")
+  "fi" : require("./fi"),
+  "et" : require("./et")
 };
 
 
