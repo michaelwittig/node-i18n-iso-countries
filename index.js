@@ -9,7 +9,8 @@ var langs = {
   "es" : require("./es"),
   "pt" : require("./pt"),
   "fi" : require("./fi"),
-  "et" : require("./et")
+  "et" : require("./et"),
+  "ar" : require("./ar")
 };
 
 

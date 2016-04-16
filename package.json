@@ -22,7 +22,8 @@
 		"es",
 		"pt",
 		"fi",
-		"et"
+		"et",
+                "ar"
 	],
 	"author": {
 		"name": "Andreas Wittig",
@@ -31,6 +32,9 @@
 	"contributors": [{
 		"name": "Michael Wittig",
 		"email": "post@michaelwittig.info"
+	},{
+		"name": "Bedis ElAcheche",
+		"email": "d4rk-5c0rp@ubuntu.com"
 	}],
 	"license" : "MIT",
 	"repository": {
