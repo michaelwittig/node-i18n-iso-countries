@@ -1,4 +1,4 @@
-var i18n = {
+{
   "AF": "Afghanistan",
   "EG": "Ägypten",
   "AX": "Åland",
@@ -248,9 +248,4 @@ var i18n = {
   "EH": "Westsahara",
   "CF": "Zentralafrikanische Republik",
   "CY": "Zypern"
-};
-
-exports.i18n = function() {
-	"use strict";
-	return i18n;
-};
+}

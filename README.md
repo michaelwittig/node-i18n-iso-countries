@@ -26,22 +26,23 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 
 ### Supported languages
 
-* `en`: english
-* `de`: german
-* `nl`: dutch
-* `fr`: french
-* `sv`: swedish
-* `es`: spanish
-* `pt`: portuguese
-* `fi`: finnish
-* `et`: estonian
 * `ar`: arabic
+* `de`: german
+* `en`: english
+* `es`: spanish
+* `et`: estonian
+* `fi`: finnish
+* `fr`: french
+* `nl`: dutch
+* `pt`: portuguese
+* `sv`: swedish
 
 ### Country to Code
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("United States => " + countries.getAlpha2Code('United States', 'en')); // US
+console.log("United States => " + countries.getAlpha2Code('United States', 'en'));
+// United States => US
 `````
 
 ## Codes
@@ -50,60 +51,80 @@ console.log("United States => " + countries.getAlpha2Code('United States', 'en')
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)"); // United States
+console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)");
+// USA (Alpha-3) => US (Alpha-2)
 `````
 
 ### Convert Numeric to Alpha-2 code
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)"); // United States
+console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)");
+// 840 (Numeric) => US (Alpha-2)
 `````
 
 ### Convert Alpha-2 to Alpha-3 coe
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)"); // Germany
+console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
+// DE (Alpha-2) => DEU (Alpha-3)
 `````
 
 ### Convert Numeric to Alpha-3 code
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)"); // United States
+console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)");
+// 840 (Numeric) => USA (Alpha-3)
 `````
 
 ### Convert Alpha-3 to Numeric code
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.alpha3ToNumeric("SWE")); // 752
+console.log(countries.alpha3ToNumeric("SWE"));
+// 752
 `````
 
 ### Convert Alpha-2 to Numeric code
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.alpha2ToNumeric("SE")); // 752
+console.log(countries.alpha2ToNumeric("SE"));
+// 752
 `````
 
 ### Get all Alpha-2 codes
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.getAlpha2Codes()); // { 'AF': 'AFG', 'AX': 'ALA', [...], 'ZM': 'ZMB', 'ZW': 'ZWE' }
+console.log(countries.getAlpha2Codes());
+// { 'AF': 'AFG', 'AX': 'ALA', [...], 'ZM': 'ZMB', 'ZW': 'ZWE' }
 `````
 
 ### Get all Alpha-3 codes
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.getAlpha3Codes()); // { 'AFG': 'AF', 'ALA': 'AX', [...], 'ZMB': 'ZM', 'ZWE': 'ZW' }
+console.log(countries.getAlpha3Codes());
+// { 'AFG': 'AF', 'ALA': 'AX', [...], 'ZMB': 'ZM', 'ZWE': 'ZW' }
 `````
 
 ### Get all Numeric codes
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log(countries.getNumericCodes()); // { '4': 'AF', '8': 'AL', [...], '887': 'YE', '894': 'ZM' }
+console.log(countries.getNumericCodes());
+// { '004': 'AF', '008': 'AL', [...], '887': 'YE', '894': 'ZM' }
 `````
+
+## Contribution
+
+To add a language:
+
+* add a json file under langs/
+* add an entry on langs.json
+* add language to section Supported languages in README.md
+* add language to keywords in package.json
+* run `npm install && make test` to make sure that tests are passing
+* open a PR on GitHub
