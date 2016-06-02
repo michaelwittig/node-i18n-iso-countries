@@ -1,64 +1,68 @@
 {
-	"name": "i18n-iso-countries",
-	"version": "0.14.1",
-	"description": "i18n for ISO 3166-1 country codes",
-	"keywords": [
-		"i18n",
-		"iso",
-		"3166",
-		"iso 3166",
-		"iso 3166-1",
-		"alpha",
-		"alpha-2",
-		"alpha-3",
-		"numeric",
-		"country",
-		"countries",
-		"de",
-		"en",
-		"nl",
-		"fr",
-		"sv",
-		"es",
-		"pt",
-		"fi",
-		"et",
-    "ar"
-	],
-	"author": {
-		"name": "Andreas Wittig",
-		"email": "me@andreaswittig.info"
-	},
-	"contributors": [{
-		"name": "Michael Wittig",
-		"email": "post@michaelwittig.info"
-	},{
-		"name": "Bedis ElAcheche",
-		"email": "d4rk-5c0rp@ubuntu.com"
-	}],
-	"license" : "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/michaelwittig/node-i18n-iso-countries.git"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"assert-plus": "0.2.0",
-		"mocha": "2.3.4",
-		"jshint": "2.8.0",
-		"madge": "0.5.3",
-		"npmedge": "0.2.2",
-		"istanbul": "0.4.1"
-	},
-	"main": "index",
-	"engines": {
-		"node": ">= 0.10.0"
-	},
-	"scripts": {
-		"test": "make test"
-	},
-	"readmeFilename": "README.md",
-	"bugs": {
-		"url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
-	}
+  "name": "i18n-iso-countries",
+  "version": "1.0.0",
+  "description": "i18n for ISO 3166-1 country codes",
+  "keywords": [
+    "i18n",
+    "iso",
+    "3166",
+    "iso 3166",
+    "iso 3166-1",
+    "alpha",
+    "alpha-2",
+    "alpha-3",
+    "numeric",
+    "country",
+    "countries",
+    "ar",
+    "de",
+    "en",
+    "es",
+    "et",
+    "fi",
+    "fr",
+    "nl",
+    "pt",
+    "sv"
+  ],
+  "author": {
+    "name": "Andreas Wittig",
+    "email": "me@andreaswittig.info"
+  },
+  "contributors": [
+    {
+      "name": "Michael Wittig",
+      "email": "post@michaelwittig.info"
+    },
+    {
+      "name": "Bedis ElAcheche",
+      "email": "d4rk-5c0rp@ubuntu.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelwittig/node-i18n-iso-countries.git"
+  },
+  "dependencies": {
+    "pad": "1.0.0"
+  },
+  "devDependencies": {
+    "assert-plus": "0.2.0",
+    "mocha": "2.3.4",
+    "jshint": "2.8.0",
+    "madge": "0.5.3",
+    "npmedge": "0.2.2",
+    "istanbul": "0.4.1"
+  },
+  "main": "index",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
+  }
 }

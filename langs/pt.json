@@ -1,4 +1,4 @@
-var i18n = {
+{
   "AF": "Afeganistão",
   "ZA": "África do Sul",
   "AL": "Albânia",
@@ -254,9 +254,4 @@ var i18n = {
   "WF": "Wallis e Futuna",
   "ZM": "Zâmbia",
   "ZW": "Zimbábue"
-};
-
-exports.i18n = function() {
-	"use strict";
-	return i18n;
-};
+}

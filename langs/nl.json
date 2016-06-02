@@ -1,4 +1,4 @@
-var i18n = {
+{
   "AF": "Afghanistan",
   "AL": "Albanië",
   "DZ": "Algerije",
@@ -248,9 +248,4 @@ var i18n = {
   "RS": "Servië",
   "SX": "Sint Maarten (Nederlands deel)",
   "SS": "Zuid-Soedan"
-};
-
-exports.i18n = function() {
-  "use strict";
-  return i18n;
-};
+}
