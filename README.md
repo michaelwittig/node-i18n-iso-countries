@@ -126,8 +126,8 @@ console.log(countries.getNumericCodes());
 To add a language:
 
 * add a json file under langs/
-* add an entry on langs.json
-* add language to section Supported languages in README.md
+* add the language to the `data` object in index.js at the top
+* add language to section **Supported languages** in README.md
 * add language to keywords in package.json
 * run `npm install && make test` to make sure that tests are passing
 * open a PR on GitHub

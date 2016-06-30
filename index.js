@@ -1,13 +1,21 @@
 var pad = require("pad");
 
 var codes = require("./codes.json");
-var langs = require("./langs.json");
-var data = {};
-
-langs.forEach(function(lang) {
-  "use strict";
-  data[lang] = require("./langs/" + lang + ".json");
-});
+var data = {
+  "ar": require("./langs/ar.json"),
+  "de": require("./langs/de.json"),
+  "en": require("./langs/en.json"),
+  "es": require("./langs/es.json"),
+  "et": require("./langs/et.json"),
+  "fi": require("./langs/fi.json"),
+  "fr": require("./langs/fr.json"),
+  "nb": require("./langs/nb.json"),
+  "nl": require("./langs/nl.json"),
+  "nn": require("./langs/nn.json"),
+  "pt": require("./langs/pt.json"),
+  "sv": require("./langs/sv.json"),
+  "tr": require("./langs/tr.json")
+};
 
 /*
  * All codes map to ISO 3166-1 alpha-2
@@ -220,5 +228,5 @@ exports.getNumericCodes = function() {
  */
 exports.langs = function() {
   "use strict";
-  return langs;
+  return Object.keys(data);
 };
