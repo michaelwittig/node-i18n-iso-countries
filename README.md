@@ -33,6 +33,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 * `et`: estonian
 * `fi`: finnish
 * `fr`: french
+* `it`: italian
 * `nb`: Norwegian Bokmål
 * `nl`: dutch
 * `nn`: Norwegian Nynorsk

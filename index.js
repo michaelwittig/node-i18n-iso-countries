@@ -9,6 +9,7 @@ var data = {
   "et": require("./langs/et.json"),
   "fi": require("./langs/fi.json"),
   "fr": require("./langs/fr.json"),
+  "it": require("./langs/it.json"),
   "nb": require("./langs/nb.json"),
   "nl": require("./langs/nl.json"),
   "nn": require("./langs/nn.json"),
