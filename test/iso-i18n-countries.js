@@ -142,7 +142,7 @@ describe("i18n for iso 3166-1", function () {
         });
         it("complete (too much)", function() {
           Object.keys(i18niso.getNames(lang)).forEach(function(code) {
-            assert.notEqual(i18niso.getAlpha2Codes()[code], -1, "entry for " + code + " is too much");
+            assert.notStrictEqual(i18niso.getAlpha2Codes()[code], void 0, "entry for " + code + " in lang " + lang + " is too much");
           });
         });
       }); 
