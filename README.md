@@ -27,6 +27,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 ### Supported languages
 
 * `ar`: arabic
+* `cs`: czech
 * `de`: german
 * `en`: english
 * `es`: spanish
