@@ -197,6 +197,34 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("pl", function () {
+      var lang = "pl";
+      describe("get Alpha-2 code", function() {
+        it("nameToAlpha2 Brazylia => BR", function() {
+          assert.equal(i18niso.getAlpha2Code("Brazylia", lang), "BR");
+        });
+        it("nameToAlpha2 Stany Zjednoczone => US", function() {
+          assert.equal(i18niso.getAlpha2Code("Stany Zjednoczone", lang), "US");
+        });
+      });
+      describe("get name", function () {
+        it("for af => Afganistan", function () {
+          assert.equal(i18niso.getName("af", lang), "Afganistan");
+        });
+        it("for ba => Bośnia i Hercegowina", function () {
+          assert.equal(i18niso.getName("ba", lang), "Bośnia i Hercegowina");
+        });
+        it("for cn => Chiny", function () {
+          assert.equal(i18niso.getName("cn", lang), "Chiny");
+        });
+        it("for cy => Cypr", function () {
+          assert.equal(i18niso.getName("cy", lang), "Cypr");
+        });
+        it("for de => Niemcy", function () {
+          assert.equal(i18niso.getName("de", lang), "Niemcy");
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name", function () {
