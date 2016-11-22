@@ -11,10 +11,10 @@ i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("US (Alpha-2) => " + countries.getName("US", "en")); // United States
+console.log("US (Alpha-2) => " + countries.getName("US", "en")); // United States of America
 console.log("US (Alpha-2) => " + countries.getName("US", "de")); // Vereinigte Staaten von Amerika
-console.log("USA (Alpha-3) => " + countries.getName("USA", "en")); // United States
-console.log("USA (Numeric) => " + countries.getName("840", "en")); // United States
+console.log("USA (Alpha-3) => " + countries.getName("USA", "en")); // United States of America
+console.log("USA (Numeric) => " + countries.getName("840", "en")); // United States of America
 `````
 
 ### Get all names by their ISO 3166-1 Alpha-2 code
@@ -49,8 +49,8 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 
 `````javascript
 var countries = require("i18n-iso-countries");
-console.log("United States => " + countries.getAlpha2Code('United States', 'en'));
-// United States => US
+console.log("United States of America => " + countries.getAlpha2Code('United States of America', 'en'));
+// United States of America => US
 `````
 
 ## Codes
