@@ -111,17 +111,17 @@ describe("i18n for iso 3166-1", function () {
   });
   describe("getAlpha2Codes", function() {
     it("length", function() {
-      assert.equal(Object.keys(i18niso.getAlpha2Codes()).length, 249);
+      assert.equal(Object.keys(i18niso.getAlpha2Codes()).length, 250);
     });
   });
   describe("getAlpha3Codes", function() {
     it("length", function() {
-      assert.equal(Object.keys(i18niso.getAlpha3Codes()).length, 249);
+      assert.equal(Object.keys(i18niso.getAlpha3Codes()).length, 250);
     });
   });
   describe("getNumericCodes", function() {
     it("length", function() {
-      assert.equal(Object.keys(i18niso.getNumericCodes()).length, 249);
+      assert.equal(Object.keys(i18niso.getNumericCodes()).length, 250);
     });
   });
   describe("getAlpha2Code", function() {
@@ -145,7 +145,7 @@ describe("i18n for iso 3166-1", function () {
             assert.notStrictEqual(i18niso.getAlpha2Codes()[code], void 0, "entry for " + code + " in lang " + lang + " is too much");
           });
         });
-      }); 
+      });
     });
   });
   describe("langs", function() {
