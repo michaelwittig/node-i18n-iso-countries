@@ -51,6 +51,9 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 var countries = require("i18n-iso-countries");
 console.log("United States of America => " + countries.getAlpha2Code('United States of America', 'en'));
 // United States of America => US
+
+console.log("United States of America => " + countries.getAlpha3Code('United States of America', 'en'));
+// United States of America => USA
 `````
 
 ## Codes
