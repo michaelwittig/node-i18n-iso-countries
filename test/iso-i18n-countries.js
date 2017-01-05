@@ -132,6 +132,14 @@ describe("i18n for iso 3166-1", function () {
       assert.equal(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
     });
   });
+  describe("getAlpha3Code", function() {
+    it("missing name", function() {
+      assert.equal(i18niso.getAlpha3Code("XXX", "de"), undefined);
+    });
+    it("missing land", function() {
+      assert.equal(i18niso.getAlpha3Code("Deutschland", "xx"), undefined);
+    });
+  });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
       describe(lang + " completeness", function () {
