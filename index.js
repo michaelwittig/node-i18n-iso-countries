@@ -213,6 +213,21 @@ exports.getAlpha2Codes = function() {
 };
 
 /*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-3 or undefined
+ */
+exports.getAlpha3Code = function(name, lang) {
+  "use strict";
+  var alpha2 = this.getAlpha2Code(name, lang);
+  if (alpha2) {
+    return this.toAlpha3(alpha2);
+  } else {
+    return undefined;
+  }
+};
+
+/*
  * @return Array of alpha-3 codes
  */
 exports.getAlpha3Codes = function() {
