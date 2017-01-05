@@ -179,6 +179,14 @@ describe("i18n for iso 3166-1", function () {
           assert.equal(i18niso.getAlpha2Code("Brazil", lang), "BR");
         });
       });
+      describe("get Alpha-3 code", function() {
+        it("nameToAlpha3 United States of America => USA", function() {
+          assert.equal(i18niso.getAlpha3Code("United States of America", lang), "USA");
+        });
+        it("nameToAlpha3 Brazil => BRA", function() {
+          assert.equal(i18niso.getAlpha3Code("Brazil", lang), "BRA");
+        });
+      });
       describe("get name", function () {
         it("for de", function () {
           assert.equal(i18niso.getName("de", lang), "Germany");
@@ -206,9 +214,6 @@ describe("i18n for iso 3166-1", function () {
         it("nameToAlpha2 Stany Zjednoczone => US", function() {
           assert.equal(i18niso.getAlpha2Code("Stany Zjednoczone", lang), "US");
         });
-        it("nameToAlpha2 ThisIsNotACountryName => undefined", function() {
-          assert.equal(i18niso.getAlpha2Code("ThisIsNotACountryName", lang), undefined);
-        });
       });
       describe("get Alpha-3 code", function() {
         it("nameToAlpha3 Brazylia => BRA", function() {
@@ -216,9 +221,6 @@ describe("i18n for iso 3166-1", function () {
         });
         it("nameToAlpha3 Stany Zjednoczone => USA", function() {
           assert.equal(i18niso.getAlpha3Code("Stany Zjednoczone", lang), "USA");
-        });
-        it("nameToAlpha3 ThisIsNotACountryName => undefined", function() {
-          assert.equal(i18niso.getAlpha3Code("ThisIsNotACountryName", lang), undefined);
         });
       });
       describe("get name", function () {
