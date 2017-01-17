@@ -132,6 +132,14 @@ describe("i18n for iso 3166-1", function () {
       assert.equal(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
     });
   });
+  describe("getAlpha3Code", function() {
+    it("missing name", function() {
+      assert.equal(i18niso.getAlpha3Code("XXX", "de"), undefined);
+    });
+    it("missing land", function() {
+      assert.equal(i18niso.getAlpha3Code("Deutschland", "xx"), undefined);
+    });
+  });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
       describe(lang + " completeness", function () {
@@ -179,6 +187,14 @@ describe("i18n for iso 3166-1", function () {
           assert.equal(i18niso.getAlpha2Code("Brazil", lang), "BR");
         });
       });
+      describe("get Alpha-3 code", function() {
+        it("nameToAlpha3 United States of America => USA", function() {
+          assert.equal(i18niso.getAlpha3Code("United States of America", lang), "USA");
+        });
+        it("nameToAlpha3 Brazil => BRA", function() {
+          assert.equal(i18niso.getAlpha3Code("Brazil", lang), "BRA");
+        });
+      });
       describe("get name", function () {
         it("for de", function () {
           assert.equal(i18niso.getName("de", lang), "Germany");
@@ -205,6 +221,14 @@ describe("i18n for iso 3166-1", function () {
         });
         it("nameToAlpha2 Stany Zjednoczone => US", function() {
           assert.equal(i18niso.getAlpha2Code("Stany Zjednoczone", lang), "US");
+        });
+      });
+      describe("get Alpha-3 code", function() {
+        it("nameToAlpha3 Brazylia => BRA", function() {
+          assert.equal(i18niso.getAlpha3Code("Brazylia", lang), "BRA");
+        });
+        it("nameToAlpha3 Stany Zjednoczone => USA", function() {
+          assert.equal(i18niso.getAlpha3Code("Stany Zjednoczone", lang), "USA");
         });
       });
       describe("get name", function () {
