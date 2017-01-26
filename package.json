@@ -2,6 +2,7 @@
   "name": "i18n-iso-countries",
   "version": "1.8.1",
   "description": "i18n for ISO 3166-1 country codes",
+  "typings": "index.d.js",
   "keywords": [
     "i18n",
     "iso",
