@@ -9,3 +9,8 @@ export function getAlpha3Codes(): string[];
 export function getNumericCodes(): number[];
 export function getName(isoCodeOrNumericCode: string | number, iso639Code: string): string;
 export function getNames(iso639Code: string): any;
+export function toAlpha3(code: number | string): string;
+export function toAlpha2(code: number | string): string;
+export function getAlpha2Code(name: string, lang: string): string;
+export function getAlpha3Code(name: string, lang: string): string;
+export function langs(): string[];
