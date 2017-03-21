@@ -20,6 +20,7 @@ var data = {
   "ru": require("./langs/ru.json"),
   "sv": require("./langs/sv.json"),
   "tr": require("./langs/tr.json"),
+  "uk": require("./langs/uk.json"),
   "zh": require("./langs/zh.json")
 };
 
