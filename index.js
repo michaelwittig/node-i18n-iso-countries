@@ -12,6 +12,7 @@ var data = {
   "fr": require("./langs/fr.json"),
   "hu": require("./langs/hu.json"),
   "it": require("./langs/it.json"),
+  "ko": require("./langs/ko.json"),
   "nb": require("./langs/nb.json"),
   "nl": require("./langs/nl.json"),
   "nn": require("./langs/nn.json"),
