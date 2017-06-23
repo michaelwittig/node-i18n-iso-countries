@@ -4,6 +4,7 @@ var codes = require("./codes.json");
 var data = {
   "ar": require("./langs/ar.json"),
   "cs": require("./langs/cs.json"),
+  "da": require("./langs/da.json"),
   "de": require("./langs/de.json"),
   "en": require("./langs/en.json"),
   "es": require("./langs/es.json"),
