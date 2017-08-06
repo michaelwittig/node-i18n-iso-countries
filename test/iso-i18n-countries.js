@@ -249,6 +249,42 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("el", function () {
+      var lang = "el";
+      describe("get Alpha-2 code", function() {
+        it("nameToAlpha2 'Βραζιλία' => BR", function() {
+          assert.equal(i18niso.getAlpha2Code("Βραζιλία", lang), "BR");
+        });
+        it("nameToAlpha2 'Ηνωμένες Πολιτείες Αμερικής' => US", function() {
+          assert.equal(i18niso.getAlpha2Code("Ηνωμένες Πολιτείες Αμερικής", lang), "US");
+        });
+      });
+      describe("get Alpha-3 code", function() {
+        it("nameToAlpha3 'Βραζιλία' => BRA", function() {
+          assert.equal(i18niso.getAlpha3Code("Βραζιλία", lang), "BRA");
+        });
+        it("nameToAlpha3 'Ηνωμένες Πολιτείες Αμερικής' => USA", function() {
+          assert.equal(i18niso.getAlpha3Code("Ηνωμένες Πολιτείες Αμερικής", lang), "USA");
+        });
+      });
+      describe("get name", function () {
+        it("for af => Αφγανιστάν", function () {
+          assert.equal(i18niso.getName("af", lang), "Αφγανιστάν");
+        });
+        it("for ba => Βοσνία και Ερζεγοβίνη", function () {
+          assert.equal(i18niso.getName("ba", lang), "Βοσνία και Ερζεγοβίνη");
+        });
+        it("for cn => Κίνα", function () {
+          assert.equal(i18niso.getName("cn", lang), "Κίνα");
+        });
+        it("for cy => Κύπρος", function () {
+          assert.equal(i18niso.getName("cy", lang), "Κύπρος");
+        });
+        it("for de => Γερμανία", function () {
+          assert.equal(i18niso.getName("de", lang), "Γερμανία");
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name", function () {
