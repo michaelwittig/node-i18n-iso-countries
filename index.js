@@ -2,6 +2,7 @@ var pad = require("pad");
 
 var codes = require("./codes.json");
 var data = {
+  "gr": require("./langs/gr.json"),
   "ar": require("./langs/ar.json"),
   "cs": require("./langs/cs.json"),
   "da": require("./langs/da.json"),
