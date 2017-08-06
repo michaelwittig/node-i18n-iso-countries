@@ -249,8 +249,8 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
-    describe("el", function () {
-      var lang = "el";
+    describe("gr", function () {
+      var lang = "gr";
       describe("get Alpha-2 code", function() {
         it("nameToAlpha2 'Βραζιλία' => BR", function() {
           assert.equal(i18niso.getAlpha2Code("Βραζιλία", lang), "BR");

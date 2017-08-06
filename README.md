@@ -30,12 +30,12 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 * `cs`: czech
 * `da`: danish
 * `de`: german
-* `el`: greek
 * `en`: english
 * `es`: spanish
 * `et`: estonian
 * `fi`: finnish
 * `fr`: french
+* `gr`: greek
 * `hu`: hungarian
 * `it`: italian
 * `ko`: korean
