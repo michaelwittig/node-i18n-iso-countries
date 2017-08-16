@@ -25,7 +25,8 @@ var data = {
   "sv": require("./langs/sv.json"),
   "tr": require("./langs/tr.json"),
   "uk": require("./langs/uk.json"),
-  "zh": require("./langs/zh.json")
+  "zh": require("./langs/zh.json"),
+  "he": require("./langs/he.json")
 };
 
 /*
