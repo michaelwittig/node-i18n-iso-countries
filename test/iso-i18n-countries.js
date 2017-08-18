@@ -285,6 +285,14 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("fr", function () {
+      var lang = "fr";
+      describe("get name", function () {
+        it("for fr => France", function () {
+          assert.equal(i18niso.getName("fr", lang), "France");
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name", function () {
