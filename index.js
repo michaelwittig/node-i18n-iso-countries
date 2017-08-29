@@ -2,7 +2,6 @@ var pad = require("pad");
 
 var codes = require("./codes.json");
 var data = {
-  "gr": require("./langs/gr.json"),
   "ar": require("./langs/ar.json"),
   "cs": require("./langs/cs.json"),
   "da": require("./langs/da.json"),
@@ -12,6 +11,8 @@ var data = {
   "et": require("./langs/et.json"),
   "fi": require("./langs/fi.json"),
   "fr": require("./langs/fr.json"),
+  "el": require("./langs/el.json"),
+  "he": require("./langs/he.json"),
   "hu": require("./langs/hu.json"),
   "it": require("./langs/it.json"),
   "ja": require("./langs/ja.json"),
@@ -25,8 +26,7 @@ var data = {
   "sv": require("./langs/sv.json"),
   "tr": require("./langs/tr.json"),
   "uk": require("./langs/uk.json"),
-  "zh": require("./langs/zh.json"),
-  "he": require("./langs/he.json")
+  "zh": require("./langs/zh.json")
 };
 
 /*
