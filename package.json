@@ -1,6 +1,6 @@
 {
   "name": "i18n-iso-countries",
-  "version": "1.16.1",
+  "version": "2.0.0",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.js",
   "keywords": [
@@ -33,7 +33,6 @@
     "nb",
     "nl",
     "nn",
-    "no",
     "pl",
     "pt",
     "ru",
@@ -62,15 +61,15 @@
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries.git"
   },
   "dependencies": {
-    "pad": "1.0.0"
+    "pad": "1.1.0"
   },
   "devDependencies": {
-    "assert-plus": "0.2.0",
-    "mocha": "2.3.4",
-    "jshint": "2.8.0",
-    "madge": "0.5.3",
+    "assert-plus": "1.0.0",
+    "mocha": "3.5.0",
+    "jshint": "2.9.5",
+    "madge": "2.1.0",
     "npmedge": "0.2.2",
-    "istanbul": "0.4.1"
+    "istanbul": "0.4.5"
   },
   "main": "index",
   "engines": {

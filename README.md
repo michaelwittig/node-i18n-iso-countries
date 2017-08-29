@@ -24,33 +24,35 @@ var countries = require("i18n-iso-countries");
 console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
 `````
 
-### Supported languages
+### Supported languages (ISO 639-1)
 
-* `ar`: arabic
-* `cs`: czech
-* `da`: danish
-* `de`: german
-* `en`: english
-* `es`: spanish
-* `et`: estonian
-* `fi`: finnish
-* `fr`: french
-* `gr`: greek
-* `he`: hebrew
-* `hu`: hungarian
-* `it`: italian
-* `ja`: japanese
-* `ko`: korean
+* `ar`: Arabic
+* `cs`: Czech
+* `da`: Danish
+* `de`: German
+* `en`: English
+* `es`: Spanish
+* `et`: Estonian
+* `fi`: Finnish
+* `fr`: French
+* `el`: Greek
+* `he`: Hebrew
+* `hu`: Hungarian
+* `it`: Italian
+* `ja`: Japanese
+* `ko`: Korean
 * `nb`: Norwegian Bokmål
-* `nl`: dutch
+* `nl`: Dutch
 * `nn`: Norwegian Nynorsk
-* `pl`: polish
-* `pt`: portuguese
-* `ru`: russian
-* `se`: swedish
-* `tr`: turkish
-* `uk`: ukrainian
+* `pl`: Polish
+* `pt`: Portuguese
+* `ru`: Russian
+* `sv`: Swedish
+* `tr`: Turkish
+* `uk`: Ukrainian
 * `zh`: Chinese
+
+[List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ### Country to Code
 
