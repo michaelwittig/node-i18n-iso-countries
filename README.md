@@ -27,6 +27,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 ### Supported languages (ISO 639-1)
 
 * `ar`: Arabic
+* `az`: Azerbaijani
 * `cs`: Czech
 * `da`: Danish
 * `de`: German
@@ -40,6 +41,8 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 * `hu`: Hungarian
 * `it`: Italian
 * `ja`: Japanese
+* `ka`: Georgian
+* `kk`: Kazakh
 * `ko`: Korean
 * `nb`: Norwegian Bokmål
 * `nl`: Dutch
