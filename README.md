@@ -5,6 +5,20 @@
 
 i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
 
+## Installing
+
+Install it using npm: `npm install i18n-iso-countries`
+
+If used in a browser environment, you will need to manually install the local you wish to support.
+
+```javascript
+var countries = require("i18n-iso-countries");
+
+// Support french & english languages.
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
+```
+
 ## Code to Country
 
 ### Get the name of a country by it's ISO 3166-1 Alpha-2, Alpha-3 or Numeric code
@@ -146,7 +160,7 @@ console.log(countries.getNumericCodes());
 To add a language:
 
 * add a json file under langs/
-* add the language to the `data` object in index.js at the top
+* add the language to the `data` object in enty-node.js at the top
 * add language to section **Supported languages** in README.md
 * add language to keywords in package.json
 * run `npm install && make test` to make sure that tests are passing
