@@ -1,7 +1,5 @@
 "use strict";
 
-var pad = require("pad");
-
 var codes = require("./codes.json");
 var registeredLocales = {};
 
@@ -22,7 +20,7 @@ codes.forEach(function(codeInformation) {
 });
 
 function formatNumericCode(code) {
-  return pad(3, code, '0');
+  return String(code).padStart(3, "0");
 }
 
 function registerLocale(localeData) {
