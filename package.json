@@ -67,6 +67,7 @@
   "devDependencies": {
     "assert-plus": "1.0.0",
     "mocha": "3.5.0",
+    "core-js": "^2.5.1",
     "jshint": "2.9.5",
     "madge": "2.1.0",
     "npmedge": "0.2.2",
