@@ -1,3 +1,7 @@
+export function registerLocale(localeData: {
+    locale: string,
+    countries: object
+}): void;
 export function alpha2ToAlpha3(alpha2: string): string;
 export function alpha2ToNumeric(alpha2: string): number;
 export function alpha3ToAlpha2(alpha3: string): string;

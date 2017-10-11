@@ -1,4 +1,6 @@
 {
+  "locale": "tr",
+  "countries": {
     "AD": "Andorra",
     "AE": "Birleşik Arap Emirlikleri",
     "AF": "Afganistan",
@@ -249,4 +251,5 @@
     "ZM": "Zambiya",
     "ZW": "Zimbabve",
     "XK": "Kosova"
+  }
 }
