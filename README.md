@@ -44,31 +44,47 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 
 * `ar`: Arabic
 * `az`: Azerbaijani
+* `be`: Belorussian
+* `bg`: Bulgarian
+* `bs`: Bosnian
 * `cs`: Czech
 * `da`: Danish
 * `de`: German
 * `en`: English
 * `es`: Spanish
 * `et`: Estonian
+* `fa`: Persian
 * `fi`: Finnish
 * `fr`: French
 * `el`: Greek
 * `he`: Hebrew
+* `hr`: Croatian
 * `hu`: Hungarian
+* `hy`: Armenian
 * `it`: Italian
 * `ja`: Japanese
 * `ka`: Georgian
 * `kk`: Kazakh
 * `ko`: Korean
+* `ky`: Kyrgyz
+* `lt`: Lithuanian
+* `lv`: Latvian
+* `mk`: Macedonian
+* `mn`: Mongolian
 * `nb`: Norwegian Bokmål
 * `nl`: Dutch
 * `nn`: Norwegian Nynorsk
 * `pl`: Polish
 * `pt`: Portuguese
+* `ro`: Romanian
 * `ru`: Russian
+* `sk`: Slovak
+* `sr`: Serbian
+* `sr-ME`: Montenegrin
 * `sv`: Swedish
 * `tr`: Turkish
 * `uk`: Ukrainian
+* `uz`: Uzbek
 * `zh`: Chinese
 
 [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
