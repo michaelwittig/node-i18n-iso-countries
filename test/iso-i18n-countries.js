@@ -215,6 +215,44 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+
+    describe("id", function () {
+        var lang = "id";
+        describe("get Alpha-2 code", function() {
+            it("nameToAlpha2 Amerika Serika => AS", function() {
+                assert.equal(i18niso.getAlpha2Code("Amerika Serikat", lang), "AS");
+            });
+            it("nameToAlpha2 Brasil => BR", function() {
+                assert.equal(i18niso.getAlpha2Code("Brasil", lang), "BR");
+            });
+        });
+        describe("get Alpha-3 code", function() {
+            it("nameToAlpha3 Amerika Serikat => ASM", function() {
+                assert.equal(i18niso.getAlpha3Code("Amerika Serikat", lang), "ASM");
+            });
+            it("nameToAlpha3 Brasil => BRA", function() {
+                assert.equal(i18niso.getAlpha3Code("Brasil", lang), "BRA");
+            });
+        });
+        describe("get name", function () {
+            it("for de", function () {
+                assert.equal(i18niso.getName("de", lang), "Jerman");
+            });
+            it("for cl", function () {
+                assert.equal(i18niso.getName("cl", lang), "Chile");
+            });
+            it("for CL", function () {
+                assert.equal(i18niso.getName("CL", lang), "Chile");
+            });
+            it("for cy", function () {
+                assert.equal(i18niso.getName("cy", lang), "Siprus");
+            });
+            it("for af", function () {
+                assert.equal(i18niso.getName("af", lang), "Afghanistan");
+            });
+        });
+    });
+
     describe("pl", function () {
       var lang = "pl";
       describe("get Alpha-2 code", function() {
