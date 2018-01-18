@@ -6,6 +6,7 @@ var locales = [
   require("./langs/be.json"),
   require("./langs/bg.json"),
   require("./langs/bs.json"),
+  require("./langs/ca.json"),
   require("./langs/cs.json"),
   require("./langs/da.json"),
   require("./langs/de.json"),
