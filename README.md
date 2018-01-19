@@ -119,7 +119,7 @@ console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)
 // 840 (Numeric) => US (Alpha-2)
 `````
 
-### Convert Alpha-2 to Alpha-3 coe
+### Convert Alpha-2 to Alpha-3 code
 `````javascript
 var countries = require("i18n-iso-countries");
 console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
