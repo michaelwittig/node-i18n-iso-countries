@@ -155,6 +155,12 @@ describe("i18n for iso 3166-1", function () {
     it("isValid SGP => true", function() {
       assert.equal(i18niso.isValid("SGP"), true);
     });
+    it("isValid 702 => true", function() {
+      assert.equal(i18niso.isValid(702), true);
+    });
+    it("isValid 999 => false", function() {
+      assert.equal(i18niso.isValid(999), false);
+    });
   });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
