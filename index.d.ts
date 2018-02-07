@@ -33,3 +33,4 @@ export function toAlpha2(alpha3orNumeric: number | string): string;
 export function getAlpha2Code(name: string, lang: string): string;
 export function getAlpha3Code(name: string, lang: string): string;
 export function langs(): string[];
+export function isValid(alpha2orAlpha3orNumeric: string | number): boolean;

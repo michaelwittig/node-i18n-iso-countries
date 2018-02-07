@@ -142,6 +142,26 @@ describe("i18n for iso 3166-1", function () {
       assert.equal(i18niso.getAlpha3Code("Deutschland", "xx"), undefined);
     });
   });
+  describe("isValid", function() {
+    it("isValid true => false", function() {
+      assert.equal(i18niso.isValid(true), false);
+    });
+    it("isValid XX => false", function() {
+      assert.equal(i18niso.isValid("XX"), false);
+    });
+    it("isValid SG => true", function() {
+      assert.equal(i18niso.isValid("SG"), true);
+    });
+    it("isValid SGP => true", function() {
+      assert.equal(i18niso.isValid("SGP"), true);
+    });
+    it("isValid 702 => true", function() {
+      assert.equal(i18niso.isValid(702), true);
+    });
+    it("isValid 999 => false", function() {
+      assert.equal(i18niso.isValid(999), false);
+    });
+  });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
       describe(lang + " completeness", function () {
