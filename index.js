@@ -227,3 +227,11 @@ exports.getNumericCodes = function() {
 exports.langs = function() {
   return Object.keys(registeredLocales);
 };
+
+/*
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return Boolean
+ */
+exports.isValid = function(code) {
+  return this.toAlpha3(code) !== undefined;
+};

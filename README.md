@@ -175,6 +175,13 @@ console.log(countries.getNumericCodes());
 // { '004': 'AF', '008': 'AL', [...], '887': 'YE', '894': 'ZM' }
 `````
 
+### Validate country code
+``````javascript
+var countries = require("i18n-iso-countries");
+console.log(countries.isValid("US"), countries.isValid("USA"), countries.isValid("XX")));
+// true, true, false
+``````
+
 ## Contribution
 
 To add a language:
