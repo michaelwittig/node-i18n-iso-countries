@@ -9,10 +9,6 @@ i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes
 
 Install it using npm: `npm install i18n-iso-countries`
 
-This library requires that [String#padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) is available. If your environment does not support this method, you will need to [polyfill](https://www.npmjs.com/package/core-js) it.
-
-If used in a browser environment, you will need to manually install the local you wish to support.
-
 ```javascript
 var countries = require("i18n-iso-countries");
 

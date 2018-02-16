@@ -20,7 +20,7 @@ codes.forEach(function(codeInformation) {
 });
 
 function formatNumericCode(code) {
-  return String(code).padStart(3, "0");
+  return String('000'+(code ? code : '')).slice(-3);
 }
 
 function registerLocale(localeData) {
