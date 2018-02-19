@@ -1,5 +1,3 @@
-require('core-js/modules/es7.string.pad-start');
-
 var assert = require("assert-plus"),
   i18niso = require("../");
 
