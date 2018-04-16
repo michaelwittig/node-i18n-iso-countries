@@ -233,5 +233,6 @@ exports.langs = function() {
  * @return Boolean
  */
 exports.isValid = function(code) {
-  return this.toAlpha3(code) !== undefined;
+  return alpha3.hasOwnProperty(code) || alpha2.hasOwnProperty(code) ||
+    numeric.hasOwnProperty(code);
 };
