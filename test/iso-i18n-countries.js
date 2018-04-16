@@ -159,6 +159,9 @@ describe("i18n for iso 3166-1", function () {
     it("isValid 999 => false", function() {
       assert.equal(i18niso.isValid(999), false);
     });
+    it("isValid ... => false", function() {
+      assert.equal(i18niso.isValid('...'), false);
+    });
   });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
