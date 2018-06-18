@@ -11,7 +11,11 @@ Install it using npm: `npm install i18n-iso-countries`
 
 ```javascript
 var countries = require("i18n-iso-countries");
+```
 
+If you use `i18n-iso-countries` with Node.js your are done. If you use the package in a browser environment you also have to register the languages you want to use to minimize file size.
+
+```javascript
 // Support french & english languages.
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
@@ -23,6 +27,7 @@ countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("US (Alpha-2) => " + countries.getName("US", "en")); // United States of America
 console.log("US (Alpha-2) => " + countries.getName("US", "de")); // Vereinigte Staaten von Amerika
 console.log("USA (Alpha-3) => " + countries.getName("USA", "en")); // United States of America
@@ -33,6 +38,7 @@ console.log("USA (Numeric) => " + countries.getName("840", "en")); // United Sta
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
 `````
 
@@ -91,6 +97,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("United States of America => " + countries.getAlpha2Code('United States of America', 'en'));
 // United States of America => US
 
@@ -104,6 +111,7 @@ console.log("United States of America => " + countries.getAlpha3Code('United Sta
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)");
 // USA (Alpha-3) => US (Alpha-2)
 `````
@@ -112,6 +120,7 @@ console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)"
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)");
 // 840 (Numeric) => US (Alpha-2)
 `````
@@ -119,6 +128,7 @@ console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)
 ### Convert Alpha-2 to Alpha-3 code
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
 // DE (Alpha-2) => DEU (Alpha-3)
 `````
@@ -127,6 +137,7 @@ console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)");
 // 840 (Numeric) => USA (Alpha-3)
 `````
@@ -135,6 +146,7 @@ console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.alpha3ToNumeric("SWE"));
 // 752
 `````
@@ -143,6 +155,7 @@ console.log(countries.alpha3ToNumeric("SWE"));
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.alpha2ToNumeric("SE"));
 // 752
 `````
@@ -151,6 +164,7 @@ console.log(countries.alpha2ToNumeric("SE"));
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.getAlpha2Codes());
 // { 'AF': 'AFG', 'AX': 'ALA', [...], 'ZM': 'ZMB', 'ZW': 'ZWE' }
 `````
@@ -159,6 +173,7 @@ console.log(countries.getAlpha2Codes());
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.getAlpha3Codes());
 // { 'AFG': 'AF', 'ALA': 'AX', [...], 'ZMB': 'ZM', 'ZWE': 'ZW' }
 `````
@@ -167,6 +182,7 @@ console.log(countries.getAlpha3Codes());
 
 `````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.getNumericCodes());
 // { '004': 'AF', '008': 'AL', [...], '887': 'YE', '894': 'ZM' }
 `````
@@ -174,6 +190,7 @@ console.log(countries.getNumericCodes());
 ### Validate country code
 ``````javascript
 var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.isValid("US"), countries.isValid("USA"), countries.isValid("XX")));
 // true, true, false
 ``````
