@@ -19,6 +19,10 @@ If you use `i18n-iso-countries` with Node.js your are done. If you use the packa
 // Support french & english languages.
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
+
+// or
+countries.import("en");
+countries.import("fr");
 ```
 
 ## Code to Country
