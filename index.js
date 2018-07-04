@@ -40,7 +40,7 @@ exports.registerLocale = registerLocale;
 /**
  * Import a locale based on the code.
  *
- * @param {String} code
+ * @param lang language for country name
  */
 exports.import = function(code) {
   let localData = require(['./langs/', code, '.json'].join(''));
