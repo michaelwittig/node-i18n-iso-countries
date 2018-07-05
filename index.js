@@ -37,21 +37,6 @@ function registerLocale(localeData) {
 
 exports.registerLocale = registerLocale;
 
-/**
- * Import a locale based on the code.
- *
- * @param lang language for country name
- */
-exports.import = function(code) {
-  let localData = require(['./langs/', code, '.json'].join(''));
-
-  if (localData) {
-    registerLocale(localData);
-  } else {
-    throw new TypeError('Missing locale');
-  }
-};
-
 /*
  * @param code Alpha-3 code
  * @return Alpha-2 code or undefined
