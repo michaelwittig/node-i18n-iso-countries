@@ -162,6 +162,14 @@ describe("i18n for iso 3166-1", function () {
     it("isValid ... => false", function() {
       assert.equal(i18niso.isValid('...'), false);
     });
+    it("isValid is case insensitive", function() {
+      assert.equal(i18niso.isValid('fra'), true);
+      assert.equal(i18niso.isValid('fr'), true);
+    });
+    it("isValid works with undefined or null", function() {
+      assert.equal(i18niso.isValid(undefined), false);
+      assert.equal(i18niso.isValid(null), false);
+    });
   });
   describe("completeness", function () {
     i18niso.langs().forEach(function(lang) {
