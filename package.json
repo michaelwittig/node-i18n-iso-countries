@@ -90,10 +90,9 @@
   "dependencies": {},
   "devDependencies": {
     "assert-plus": "1.0.0",
-    "mocha": "4.0.1",
-    "jshint": "2.9.5",
-    "madge": "2.2.0",
-    "npmedge": "0.2.2",
+    "mocha": "5.2.0",
+    "jshint": "2.9.6",
+    "madge": "3.2.0",
     "istanbul": "0.4.5"
   },
   "main": "entry-node",

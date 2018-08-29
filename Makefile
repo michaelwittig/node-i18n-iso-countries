@@ -24,4 +24,4 @@ test: jshint circular mocha
 
 outdated:
 	@echo "outdated modules?"
-	@./node_modules/.bin/npmedge
+	@npm outdated
