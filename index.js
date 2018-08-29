@@ -233,6 +233,11 @@ exports.langs = function() {
  * @return Boolean
  */
 exports.isValid = function(code) {
-  return alpha3.hasOwnProperty(code) || alpha2.hasOwnProperty(code) ||
-    numeric.hasOwnProperty(code);
+  if (!code) {
+    return false;
+  }
+
+  const coerced = code.toString().toUpperCase();
+  return alpha3.hasOwnProperty(coerced) || alpha2.hasOwnProperty(coerced) ||
+    numeric.hasOwnProperty(coerced);
 };
