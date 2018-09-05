@@ -237,7 +237,7 @@ exports.isValid = function(code) {
     return false;
   }
 
-  const coerced = code.toString().toUpperCase();
+  var coerced = code.toString().toUpperCase();
   return alpha3.hasOwnProperty(coerced) || alpha2.hasOwnProperty(coerced) ||
     numeric.hasOwnProperty(coerced);
 };
