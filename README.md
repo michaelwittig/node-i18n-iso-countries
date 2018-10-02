@@ -42,7 +42,7 @@ var countries = require("i18n-iso-countries");
 console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
 ```
 
-### Supported languages (ISO 639-1)
+### Supported languages ([BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag))
 
 -   `ar`: Arabic
 -   `az`: Azerbaijani
@@ -90,8 +90,9 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 -   `uk`: Ukrainian
 -   `uz`: Uzbek
 -   `zh`: Chinese
+-   `zh-Hant`: traditional Chinese
 
-[List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+[The IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
 ### Country to Code
 
