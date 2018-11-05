@@ -8,7 +8,7 @@
     "iso",
     "3166",
     "iso 3166",
-    "iso 3166-1",
+    "iso 3166-1","itu","calling codes","idd",
     "alpha",
     "alpha-2",
     "alpha-3",
@@ -89,11 +89,14 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "JSONStream": "^1.3.5",
     "assert-plus": "1.0.0",
+    "event-stream": "^4.0.1",
     "mocha": "5.2.0",
     "jshint": "2.9.6",
     "madge": "2.2.0",
-    "istanbul": "0.4.5"
+    "istanbul": "0.4.5",
+    "typescript": "^2.0.10"
   },
   "main": "entry-node",
   "browser": "index",
@@ -101,6 +104,7 @@
     "node": ">= 4"
   },
   "scripts": {
+    "update-idd": "node ./mergeDialCodes.js",
     "test": "make test"
   },
   "bugs": {

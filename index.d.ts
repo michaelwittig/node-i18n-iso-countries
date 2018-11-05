@@ -10,10 +10,12 @@ export type LocaleData = {
 export function registerLocale(localeData: LocaleData): void;
 export function alpha2ToAlpha3(alpha2: string): string;
 export function alpha2ToNumeric(alpha2: string): number;
+export function alpha2ToIdd(alpha2: string): string | Array<string>;
 export function alpha3ToAlpha2(alpha3: string): string;
 export function alpha3ToNumeric(alpha3: string): number;
 export function numericToAlpha2(numeric: number | string): string;
 export function numericToAlpha3(numeric: number | string): string;
+export function iddToAlpha2(idd: string): string | Array<string>;
 /**
  * Returns object map where key is alpha 2 code and value is alpha 3 code
  */
@@ -26,6 +28,7 @@ export function getAlpha3Codes(): { [alpha3Key: string]: string };
  * Returns object map where key is numeric code and value is alpha 2 code
  */
 export function getNumericCodes(): { [numericKey: number]: string };
+export function getIddCodes(): { [iddKey: number]: string | Array<string> };
 export function getName(alpha2orAlpha3orNumeric: string | number, lang: string): string;
 export function getNames(lang: string): LocalizedCountryNames;
 export function toAlpha3(alpha2orNumeric: number | string): string;

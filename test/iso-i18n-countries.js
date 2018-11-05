@@ -109,19 +109,45 @@ describe("i18n for iso 3166-1", function () {
       assert.equal(i18niso.numericToAlpha3(4), "AFG");
     });
   });
+  describe("Alpha-2 code to IDD", function() {
+    it("alpha2ToIdd SG => SGP", function() {
+      assert.equal(i18niso.alpha2ToIdd("SG"), "+65");
+    });
+  });
+  describe("IDD to Alpha-2 code", function() {
+    it("toAlpha2 +93 => AF", function() {
+      assert.equal(i18niso.toAlpha2('+93'), "AF");
+    });
+    it("iddToAlpha2 '+49' => DE", function() {
+      assert.equal(i18niso.iddToAlpha2("+49"), "DE");
+    });
+  });
+  describe("IDD to Alpha-3 code", function() {
+    it("toAlpha3 +49 => DEU", function() {
+      assert.equal(i18niso.toAlpha3('+49'), "DEU");
+    });
+  });
   describe("getAlpha2Codes", function() {
     it("length", function() {
       assert.equal(Object.keys(i18niso.getAlpha2Codes()).length, 250);
+      assert.equal(Object.values(i18niso.getAlpha2Codes()).filter( function (r) { return typeof r === 'string'; } ).length, 250);
     });
   });
   describe("getAlpha3Codes", function() {
     it("length", function() {
       assert.equal(Object.keys(i18niso.getAlpha3Codes()).length, 250);
+      assert.equal(Object.values(i18niso.getAlpha3Codes()).filter( function (r) { return typeof r === 'string'; } ).length, 250);
     });
   });
   describe("getNumericCodes", function() {
     it("length", function() {
       assert.equal(Object.keys(i18niso.getNumericCodes()).length, 250);
+    });
+  });
+  describe("getIddCodes", function() {
+    it("length", function() {
+      assert.equal(Object.keys(i18niso.getIddCodes()).length, 238);
+      assert.equal(Object.values(i18niso.getIddCodes()).filter( function (r) { return (typeof r === 'string' || r instanceof Array); } ).length, 238);
     });
   });
   describe("getAlpha2Code", function() {
@@ -158,6 +184,12 @@ describe("i18n for iso 3166-1", function () {
     });
     it("isValid 999 => false", function() {
       assert.equal(i18niso.isValid(999), false);
+    });
+    it("isValid +39 => true", function() {
+      assert.equal(i18niso.isValid("+65"), true);
+    });
+    it("isValid +6 => false", function() {
+      assert.equal(i18niso.isValid("+6"), false);
     });
     it("isValid ... => false", function() {
       assert.equal(i18niso.isValid('...'), false);

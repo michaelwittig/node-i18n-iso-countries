@@ -6,17 +6,29 @@ var registeredLocales = {};
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
-var alpha2 = {},
-  alpha3 = {},
-  numeric = {},
-  invertedNumeric = {};
+var alpha2 = {},  // map<alpha2, [alpha3, numeric, _, idd]>
+  alpha3 = {},  // map<alpha3, alpha2>
+  numeric = {},  // map<numeric, alpha2>
+  idd = {};  // map<idd, alpha2>
 
 codes.forEach(function(codeInformation) {
   var s = codeInformation;
-  alpha2[s[0]] = s[1];
+  alpha2[s[0]] = s.slice(1);
   alpha3[s[1]] = s[0];
   numeric[s[2]] = s[0];
-  invertedNumeric[s[0]] = s[2];
+  if (s[4] instanceof Array) {
+    s[4].forEach( code => {
+      if (idd[code] !== undefined) {
+        if (idd[code] instanceof Array) {
+          idd[code].push(s[0]);
+        } else {
+          idd[code] = [idd[code], s[0]];
+        }
+      } else {
+        idd[code] = s[0];
+      }
+    });
+  }
 });
 
 function formatNumericCode(code) {
@@ -51,7 +63,7 @@ exports.alpha3ToAlpha2 = alpha3ToAlpha2;
  * @return Alpha-3 code or undefined
  */
 function alpha2ToAlpha3(code) {
-  return alpha2[code];
+  return alpha2[code] && alpha2[code][0];
 }
 exports.alpha2ToAlpha3 = alpha2ToAlpha3;
 
@@ -60,7 +72,8 @@ exports.alpha2ToAlpha3 = alpha2ToAlpha3;
  * @return Numeric code or undefined
  */
 function alpha3ToNumeric(code) {
-  return invertedNumeric[alpha3ToAlpha2(code)];
+  const a2code = alpha3ToAlpha2(code);
+  return a2code && alpha2[a2code] && alpha2[a2code][1];
 }
 exports.alpha3ToNumeric = alpha3ToNumeric;
 
@@ -69,7 +82,7 @@ exports.alpha3ToNumeric = alpha3ToNumeric;
  * @return Numeric code or undefined
  */
 function alpha2ToNumeric(code) {
-  return invertedNumeric[code];
+  return alpha2[code] && alpha2[code][1];
 }
 exports.alpha2ToNumeric = alpha2ToNumeric;
 
@@ -94,6 +107,24 @@ function numericToAlpha2(code) {
 exports.numericToAlpha2 = numericToAlpha2;
 
 /*
+ * @param code String code
+ * @return Alpha-2 code or undefined
+ */
+function iddToAlpha2(code) {
+  return idd[code];
+}
+exports.iddToAlpha2 = iddToAlpha2;
+
+/*
+ * @param code Alpha-2 code
+ * @return Alpha-3 code or undefined
+ */
+function alpha2ToIdd(code) {
+  return alpha2[code] && alpha2[code][3];
+}
+exports.alpha2ToIdd = alpha2ToIdd;
+
+/*
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @return ISO 3166-1 alpha-3
  */
@@ -101,6 +132,9 @@ function toAlpha3(code) {
   if (typeof code === "string") {
     if (/^[0-9]*$/.test(code)) {
       return numericToAlpha3(code);
+    }
+    if (/^\+/.test(code)) {
+      return alpha2ToAlpha3(iddToAlpha2(code));
     }
     if(code.length === 2) {
       return alpha2ToAlpha3(code.toUpperCase());
@@ -124,6 +158,9 @@ function toAlpha2(code) {
   if (typeof code === "string") {
     if (/^[0-9]*$/.test(code)) {
       return numericToAlpha2(code);
+    }
+    if (/^\+/.test(code)) {
+      return iddToAlpha2(code);
     }
     if (code.length === 2) {
       return code.toUpperCase();
@@ -190,7 +227,10 @@ exports.getAlpha2Code = function(name, lang) {
  * @return Object of alpha-2 codes mapped to alpha-3 codes
  */
 exports.getAlpha2Codes = function() {
-  return alpha2;
+  return Object.entries(alpha2).reduce( function (a, [k, v]) {
+    a[k] = v[0];
+    return a;
+  }, {});
 };
 
 /*
@@ -222,6 +262,13 @@ exports.getNumericCodes = function() {
 };
 
 /*
+ * @return Object of international dialing codes mapped to alpha-2 codes
+ */
+exports.getIddCodes = function() {
+  return idd;
+};
+
+/*
  * @return Array of supported languages
  */
 exports.langs = function() {
@@ -239,5 +286,5 @@ exports.isValid = function(code) {
 
   var coerced = code.toString().toUpperCase();
   return alpha3.hasOwnProperty(coerced) || alpha2.hasOwnProperty(coerced) ||
-    numeric.hasOwnProperty(coerced);
+    numeric.hasOwnProperty(coerced) || idd.hasOwnProperty(coerced);
 };
