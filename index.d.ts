@@ -2,9 +2,14 @@ export type LocalizedCountryNames = {
   [alpha2Key: string]: string 
 };
 
+export type LocalizedNationalities = { 
+  [alpha2Key: string]: string 
+};
+
 export type LocaleData = {
   locale: string,
   countries: LocalizedCountryNames
+  nationalities: LocalizedNationalities
 };
 
 export function registerLocale(localeData: LocaleData): void;
@@ -26,11 +31,11 @@ export function getAlpha3Codes(): { [alpha3Key: string]: string };
  * Returns object map where key is numeric code and value is alpha 2 code
  */
 export function getNumericCodes(): { [numericKey: number]: string };
-export function getName(alpha2orAlpha3orNumeric: string | number, lang: string): string;
-export function getNames(lang: string): LocalizedCountryNames;
+export function getName(alpha2orAlpha3orNumeric: string | number, lang: string, nationalities: boolean = false): string;
+export function getNames(lang: string, nationalities: boolean = false): LocalizedCountryNames;
 export function toAlpha3(alpha2orNumeric: number | string): string;
 export function toAlpha2(alpha3orNumeric: number | string): string;
-export function getAlpha2Code(name: string, lang: string): string;
-export function getAlpha3Code(name: string, lang: string): string;
+export function getAlpha2Code(name: string, lang: string, nationalities: boolean = false): string;
+export function getAlpha3Code(name: string, lang: string, nationalities: boolean = false): string;
 export function langs(): string[];
 export function isValid(alpha2orAlpha3orNumeric: string | number): boolean;

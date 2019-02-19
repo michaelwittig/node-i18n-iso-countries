@@ -131,6 +131,10 @@ describe("i18n for iso 3166-1", function () {
     it("missing land", function() {
       assert.equal(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
     });
+    it("nationality", function() {
+      assert.equal(i18niso.getAlpha2Code("Française", "FR", true), "FR");
+      assert.equal(i18niso.getAlpha2Code("Américaine", "FR", true), "US");
+    });
   });
   describe("getAlpha3Code", function() {
     it("missing name", function() {
@@ -184,6 +188,28 @@ describe("i18n for iso 3166-1", function () {
             assert.notStrictEqual(i18niso.getAlpha2Codes()[code], void 0, "entry for " + code + " in lang " + lang + " is too much");
           });
         });
+      });
+    });
+  });
+  describe("nationalities completeness and coherence", function() {
+    var lang = 'fr';
+    describe("fr completeness", function () {
+      it("complete (to less)", function() {
+        Object.keys(i18niso.getAlpha2Codes()).forEach(function(code) {
+          assert.notEqual(i18niso.getName(code, lang, true), undefined, "missing entry for " + code);
+        });
+      });
+      it("complete (too much)", function() {
+        Object.keys(i18niso.getNames(lang, true)).forEach(function(code) {
+          assert.notStrictEqual(i18niso.getAlpha2Codes()[code], void 0, "entry for " + code + " in lang " + lang + " is too much");
+        });
+      });
+    });
+    describe('fr coherence', function() {
+      var nat = i18niso.getNames(lang, true);
+      it('returns the nationalities', function() {
+        assert.equal(nat.FR, 'Française');
+        assert.equal(nat.US, 'Américaine');
       });
     });
   });

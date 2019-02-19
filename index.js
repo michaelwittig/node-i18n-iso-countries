@@ -1,5 +1,6 @@
 "use strict";
 
+var _ = require('lodash');
 var codes = require("./codes.json");
 var registeredLocales = {};
 
@@ -32,7 +33,10 @@ function registerLocale(localeData) {
     throw new TypeError('Missing localeData.countries');
   }
 
-  registeredLocales[localeData.locale] = localeData.countries;
+  registeredLocales[localeData.locale] = {
+    countries: localeData.countries,
+    nationalities: localeData.nationalities
+  };
 }
 
 exports.registerLocale = registerLocale;
@@ -144,9 +148,9 @@ exports.toAlpha2 = toAlpha2;
  * @param lang language for country name
  * @return name or undefined
  */
-exports.getName = function(code, lang) {
+exports.getName = function(code, lang, nationalities = false) {
   try {
-    var d = registeredLocales[lang.toLowerCase()];
+    var d = _.get(registeredLocales, [lang.toLowerCase(), nationalities ? 'nationalities' : 'countries']);
     return d[toAlpha2(code)];
   } catch (err) {
     return undefined;
@@ -157,8 +161,8 @@ exports.getName = function(code, lang) {
  * @param lang language for country names
  * @return Object of country code mapped to county name
  */
-exports.getNames = function(lang) {
-  var d = registeredLocales[lang.toLowerCase()];
+exports.getNames = function(lang, nationalities = false) {
+  var d = _.get(registeredLocales, [lang.toLowerCase(), nationalities ? 'nationalities' : 'countries']);
   if (d === undefined) {
     return {};
   }
@@ -170,9 +174,9 @@ exports.getNames = function(lang) {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
-exports.getAlpha2Code = function(name, lang) {
+exports.getAlpha2Code = function(name, lang, nationalities = false) {
   try {
-    var p, codenames = registeredLocales[lang.toLowerCase()];
+    var p, codenames = _.get(registeredLocales, [lang.toLowerCase(),  nationalities ? 'nationalities' : 'countries']);
     for (p in codenames) {
       if (codenames.hasOwnProperty(p)) {
         if (codenames[p].toLowerCase() === name.toLowerCase()) {
@@ -198,8 +202,8 @@ exports.getAlpha2Codes = function() {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-3 or undefined
  */
-exports.getAlpha3Code = function(name, lang) {
-  var alpha2 = this.getAlpha2Code(name, lang);
+exports.getAlpha3Code = function(name, lang, nationalities = false) {
+  var alpha2 = this.getAlpha2Code(name, lang, nationalities);
   if (alpha2) {
     return this.toAlpha3(alpha2);
   } else {

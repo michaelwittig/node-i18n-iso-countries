@@ -21,7 +21,7 @@ countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
 ```
 
-## Code to Country
+## Code to Country or nationality
 
 ### Get the name of a country by it's ISO 3166-1 Alpha-2, Alpha-3 or Numeric code
 
@@ -34,12 +34,28 @@ console.log("USA (Alpha-3) => " + countries.getName("USA", "en")); // United Sta
 console.log("USA (Numeric) => " + countries.getName("840", "en")); // United States of America
 ```
 
+### Get the nationality related to a country by it's ISO 3166-1 Alpha-2, Alpha-3 or Numeric code (only available for `lang: "fr"`)
+
+```javascript
+var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+console.log("US (Alpha-2) => " + countries.getName("US", "fr", true)); // Américaine
+console.log("USA (Numeric) => " + countries.getName("840", "fr", true)); // Américaine
+
 ### Get all names by their ISO 3166-1 Alpha-2 code
 
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
+```
+
+### Get all nationalities by their ISO 3166-1 Alpha-2 code (available only for `lang: "fr"`)
+
+```javascript
+var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+console.log(countries.getNames("fr", true)); // { 'AF': 'Afghane', 'AL': 'Albanaise', [...], 'ZM': 'Zambienne', 'ZW': 'Zimbabweenne' }
 ```
 
 ### Supported languages (ISO 639-1)
@@ -103,6 +119,15 @@ console.log("United States of America => " + countries.getAlpha2Code('United Sta
 
 console.log("United States of America => " + countries.getAlpha3Code('United States of America', 'en'));
 // United States of America => USA
+```
+
+### Nationality to Code (available only for `lang: "fr"`)
+
+```javascript
+var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+console.log("Américaine => " + countries.getAlpha2Code('Américaine', 'fr', true));
+// Américaine =>  => US
 ```
 
 ## Codes
