@@ -3,6 +3,8 @@
 
 # i18n-iso-countries
 
+> Version 4 drops support for node 4 and 5!
+
 i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from <http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements>
 
 ## Installing
