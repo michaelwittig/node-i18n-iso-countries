@@ -25,7 +25,7 @@ countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
 
 ## Code to Country
 
-### Get the name of a country by it's ISO 3166-1 Alpha-2, Alpha-3 or Numeric code
+### Get the name of a country by its ISO 3166-1 Alpha-2, Alpha-3 or Numeric code
 
 ```javascript
 var countries = require("i18n-iso-countries");
