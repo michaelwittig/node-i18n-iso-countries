@@ -132,12 +132,36 @@ describe("i18n for iso 3166-1", function () {
       assert.equal(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
     });
   });
+  describe("getSimpleAlpha2Code", function() {
+    it("works", function() {
+      assert.equal(i18niso.getSimpleAlpha2Code("belgie", "nl"), 'BE');
+      assert.equal(i18niso.getSimpleAlpha2Code("België", "nl"), 'BE');
+    });
+    it("missing name", function() {
+      assert.equal(i18niso.getSimpleAlpha2Code("XXX", "de"), undefined);
+    });
+    it("missing land", function() {
+      assert.equal(i18niso.getSimpleAlpha2Code("Deutschland", "xx"), undefined);
+    });
+  });
   describe("getAlpha3Code", function() {
     it("missing name", function() {
       assert.equal(i18niso.getAlpha3Code("XXX", "de"), undefined);
     });
     it("missing land", function() {
       assert.equal(i18niso.getAlpha3Code("Deutschland", "xx"), undefined);
+    });
+  });
+  describe("getSimpleAlpha3Code", function() {
+    it("works", function() {
+      assert.equal(i18niso.getSimpleAlpha3Code("belgie", "nl"), 'BEL');
+      assert.equal(i18niso.getSimpleAlpha3Code("België", "nl"), 'BEL');
+    });
+    it("missing name", function() {
+      assert.equal(i18niso.getSimpleAlpha3Code("XXX", "de"), undefined);
+    });
+    it("missing land", function() {
+      assert.equal(i18niso.getSimpleAlpha3Code("Deutschland", "xx"), undefined);
     });
   });
   describe("isValid", function() {
