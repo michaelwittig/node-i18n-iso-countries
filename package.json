@@ -1,6 +1,6 @@
 {
-  "name": "i18n-iso-countries",
-  "version": "4.2.1",
+  "name": "@dior/i18n-iso-countries",
+  "version": "4.2.2",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.ts",
   "keywords": [
@@ -94,10 +94,10 @@
   },
   "devDependencies": {
     "assert-plus": "1.0.0",
-    "mocha": "6.1.4",
+    "istanbul": "0.4.5",
     "jshint": "2.10.2",
     "madge": "3.4.4",
-    "istanbul": "0.4.5"
+    "mocha": "6.1.4"
   },
   "main": "entry-node",
   "browser": "index",
