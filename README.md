@@ -88,6 +88,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 -   `sl`: Slovene
 -   `sr`: Serbian
 -   `sv`: Swedish
+-   `th`: Thai
 -   `tr`: Turkish
 -   `uk`: Ukrainian
 -   `ur`: Urdu
