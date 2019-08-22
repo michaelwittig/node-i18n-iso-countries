@@ -207,7 +207,6 @@ console.log(countries.isValid("US"), countries.isValid("USA"), countries.isValid
 To add a language:
 
 -   add a json file under langs/
--   add the language to the `data` object in enty-node.js at the top
 -   add language to section **Supported languages** in README.md
 -   add language to keywords in package.json
 -   run `npm install && make test` to make sure that tests are passing
