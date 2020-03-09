@@ -94,7 +94,6 @@
     "diacritics": "1.3.0"
   },
   "devDependencies": {
-    "assert-plus": "1.0.0",
     "mocha": "7.1.0",
     "jshint": "2.11.0",
     "madge": "3.7.0"
