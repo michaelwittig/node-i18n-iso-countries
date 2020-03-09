@@ -13,11 +13,6 @@ mocha:
 	@./node_modules/.bin/mocha test/*.js
 	@echo
 
-coverage:
-	@echo "coverage"
-	@./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*
-	@echo
-
 test: jshint circular mocha
 	@echo "test"
 	@echo
