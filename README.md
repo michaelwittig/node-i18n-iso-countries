@@ -77,6 +77,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 -   `lv`: Latvian
 -   `mk`: Macedonian
 -   `mn`: Mongolian
+-   `ms`: Malay
 -   `nb`: Norwegian Bokmål
 -   `nl`: Dutch
 -   `nn`: Norwegian Nynorsk
