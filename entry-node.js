@@ -19,6 +19,7 @@ var locales = [
   require("./langs/fa.json"),
   require("./langs/fi.json"),
   require("./langs/fr.json"),
+  require("./langs/gl.json"),
   require("./langs/el.json"),
   require("./langs/he.json"),
   require("./langs/hr.json"),
