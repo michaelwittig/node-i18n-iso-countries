@@ -50,6 +50,7 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 -   `az`: Azerbaijani
 -   `be`: Belorussian
 -   `bg`: Bulgarian
+-   `bn`: Bengali
 -   `bs`: Bosnian
 -   `ca`: Catalan
 -   `cs`: Czech
