@@ -1,0 +1,16 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "env": {
+        "mocha": true
+      }
+    }
+  ]
+}

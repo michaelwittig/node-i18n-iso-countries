@@ -1,8 +1,8 @@
 default: test
 
-jshint:
-	@echo "jshint"
-	@find . -name "*.js" -not -path "./node_modules/*" -print0 | xargs -0 ./node_modules/.bin/jshint
+eslint:
+	@echo "eslint"
+	@yarn lint
 
 circular:
 	@echo "circular"
@@ -13,7 +13,7 @@ mocha:
 	@./node_modules/.bin/mocha test/*.js
 	@echo
 
-test: jshint circular mocha
+test: eslint circular mocha
 	@echo "test"
 	@echo
 

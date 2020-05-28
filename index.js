@@ -1,7 +1,7 @@
 "use strict";
 
 var codes = require("./codes.json");
-var removeDiacritics = require('diacritics').remove;
+var removeDiacritics = require("diacritics").remove;
 var registeredLocales = {};
 
 /*
@@ -12,7 +12,7 @@ var alpha2 = {},
   numeric = {},
   invertedNumeric = {};
 
-codes.forEach(function(codeInformation) {
+codes.forEach(function (codeInformation) {
   var s = codeInformation;
   alpha2[s[0]] = s[1];
   alpha3[s[1]] = s[0];
@@ -21,16 +21,16 @@ codes.forEach(function(codeInformation) {
 });
 
 function formatNumericCode(code) {
-  return String('000'+(code ? code : '')).slice(-3);
+  return String("000" + (code ? code : "")).slice(-3);
 }
 
 function registerLocale(localeData) {
   if (!localeData.locale) {
-    throw new TypeError('Missing localeData.locale');
+    throw new TypeError("Missing localeData.locale");
   }
 
   if (!localeData.countries) {
-    throw new TypeError('Missing localeData.countries');
+    throw new TypeError("Missing localeData.countries");
   }
 
   registeredLocales[localeData.locale] = localeData.countries;
@@ -103,7 +103,7 @@ function toAlpha3(code) {
     if (/^[0-9]*$/.test(code)) {
       return numericToAlpha3(code);
     }
-    if(code.length === 2) {
+    if (code.length === 2) {
       return alpha2ToAlpha3(code.toUpperCase());
     }
     if (code.length === 3) {
@@ -129,7 +129,7 @@ function toAlpha2(code) {
     if (code.length === 2) {
       return code.toUpperCase();
     }
-    if(code.length === 3) {
+    if (code.length === 3) {
       return alpha3ToAlpha2(code.toUpperCase());
     }
   }
@@ -145,7 +145,7 @@ exports.toAlpha2 = toAlpha2;
  * @param lang language for country name
  * @return name or undefined
  */
-exports.getName = function(code, lang) {
+exports.getName = function (code, lang) {
   try {
     const codeMaps = registeredLocales[lang.toLowerCase()];
     const names = codeMaps[toAlpha2(code)];
@@ -159,7 +159,7 @@ exports.getName = function(code, lang) {
  * @param lang language for country names
  * @return Object of country code mapped to county name
  */
-exports.getNames = function(lang) {
+exports.getNames = function (lang) {
   var d = registeredLocales[lang.toLowerCase()];
   if (d === undefined) {
     return {};
@@ -172,14 +172,14 @@ exports.getNames = function(lang) {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
-exports.getAlpha2Code = function(name, lang) {
+exports.getAlpha2Code = function (name, lang) {
   const normalizeString = (string) => string.toLowerCase();
   const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
 
   try {
     const codenames = registeredLocales[lang.toLowerCase()];
     for (const p in codenames) {
-      if (!codenames.hasOwnProperty(p)) {
+      if (!hasOwnProperty(codenames, p)) {
         continue;
       }
       if (typeof codenames[p] === "string") {
@@ -206,14 +206,14 @@ exports.getAlpha2Code = function(name, lang) {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
-exports.getSimpleAlpha2Code = function(name, lang) {
+exports.getSimpleAlpha2Code = function (name, lang) {
   const normalizeString = (string) => removeDiacritics(string.toLowerCase());
   const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
-  
+
   try {
     const codenames = registeredLocales[lang.toLowerCase()];
     for (const p in codenames) {
-      if (!codenames.hasOwnProperty(p)) {
+      if (!hasOwnProperty(codenames, p)) {
         continue;
       }
       if (typeof codenames[p] === "string") {
@@ -238,7 +238,7 @@ exports.getSimpleAlpha2Code = function(name, lang) {
 /*
  * @return Object of alpha-2 codes mapped to alpha-3 codes
  */
-exports.getAlpha2Codes = function() {
+exports.getAlpha2Codes = function () {
   return alpha2;
 };
 
@@ -247,7 +247,7 @@ exports.getAlpha2Codes = function() {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-3 or undefined
  */
-exports.getAlpha3Code = function(name, lang) {
+exports.getAlpha3Code = function (name, lang) {
   var alpha2 = this.getAlpha2Code(name, lang);
   if (alpha2) {
     return this.toAlpha3(alpha2);
@@ -261,7 +261,7 @@ exports.getAlpha3Code = function(name, lang) {
  * @param lang language for country name
  * @return ISO 3166-1 alpha-3 or undefined
  */
-exports.getSimpleAlpha3Code = function(name, lang) {
+exports.getSimpleAlpha3Code = function (name, lang) {
   var alpha2 = this.getSimpleAlpha2Code(name, lang);
   if (alpha2) {
     return this.toAlpha3(alpha2);
@@ -273,21 +273,21 @@ exports.getSimpleAlpha3Code = function(name, lang) {
 /*
  * @return Object of alpha-3 codes mapped to alpha-2 codes
  */
-exports.getAlpha3Codes = function() {
+exports.getAlpha3Codes = function () {
   return alpha3;
 };
 
 /*
  * @return Object of numeric codes mapped to alpha-2 codes
  */
-exports.getNumericCodes = function() {
+exports.getNumericCodes = function () {
   return numeric;
 };
 
 /*
  * @return Array of supported languages
  */
-exports.langs = function() {
+exports.langs = function () {
   return Object.keys(registeredLocales);
 };
 
@@ -295,12 +295,23 @@ exports.langs = function() {
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @return Boolean
  */
-exports.isValid = function(code) {
+exports.isValid = function (code) {
   if (!code) {
     return false;
   }
 
   var coerced = code.toString().toUpperCase();
-  return alpha3.hasOwnProperty(coerced) || alpha2.hasOwnProperty(coerced) ||
-    numeric.hasOwnProperty(coerced);
+  return (
+    hasOwnProperty(alpha3, coerced) ||
+    hasOwnProperty(alpha2, coerced) ||
+    hasOwnProperty(numeric, coerced)
+  );
 };
+
+/**
+ * Avoid using obj.hasOwnProperty directly as `hasOwnProperty` could be a
+ * property in itself ({ hasOwnProperty: 1 }) and cause weird bugs
+ * https://eslint.org/docs/rules/no-prototype-builtins
+ */
+const hasOwnProperty = (object, property) =>
+  Object.prototype.hasOwnProperty.call(object, property);

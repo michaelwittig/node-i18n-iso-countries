@@ -46,59 +46,59 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 
 ### Supported languages (ISO 639-1)
 
--   `ar`: Arabic
--   `az`: Azerbaijani
--   `be`: Belorussian
--   `bg`: Bulgarian
--   `bn`: Bengali
--   `bs`: Bosnian
--   `ca`: Catalan
--   `cs`: Czech
--   `da`: Danish
--   `de`: German
--   `en`: English
--   `es`: Spanish
--   `et`: Estonian
--   `fa`: Persian
--   `fi`: Finnish
--   `fr`: French
--   `gl`: Galician
--   `el`: Greek
--   `he`: Hebrew
--   `hi`: Hindi
--   `hr`: Croatian
--   `hu`: Hungarian
--   `hy`: Armenian
--   `it`: Italian
--   `id`: Indonesian
--   `ja`: Japanese
--   `ka`: Georgian
--   `kk`: Kazakh
--   `ko`: Korean
--   `ky`: Kyrgyz
--   `lt`: Lithuanian
--   `lv`: Latvian
--   `mk`: Macedonian
--   `mn`: Mongolian
--   `ms`: Malay
--   `nb`: Norwegian Bokmål
--   `nl`: Dutch
--   `nn`: Norwegian Nynorsk
--   `pl`: Polish
--   `pt`: Portuguese
--   `ro`: Romanian
--   `ru`: Russian
--   `sk`: Slovak
--   `sl`: Slovene
--   `sr`: Serbian
--   `sv`: Swedish
--   `th`: Thai
--   `tr`: Turkish
--   `uk`: Ukrainian
--   `ur`: Urdu
--   `uz`: Uzbek
--   `zh`: Chinese
--   `vi`: Vietnamese
+- `ar`: Arabic
+- `az`: Azerbaijani
+- `be`: Belorussian
+- `bg`: Bulgarian
+- `bn`: Bengali
+- `bs`: Bosnian
+- `ca`: Catalan
+- `cs`: Czech
+- `da`: Danish
+- `de`: German
+- `en`: English
+- `es`: Spanish
+- `et`: Estonian
+- `fa`: Persian
+- `fi`: Finnish
+- `fr`: French
+- `gl`: Galician
+- `el`: Greek
+- `he`: Hebrew
+- `hi`: Hindi
+- `hr`: Croatian
+- `hu`: Hungarian
+- `hy`: Armenian
+- `it`: Italian
+- `id`: Indonesian
+- `ja`: Japanese
+- `ka`: Georgian
+- `kk`: Kazakh
+- `ko`: Korean
+- `ky`: Kyrgyz
+- `lt`: Lithuanian
+- `lv`: Latvian
+- `mk`: Macedonian
+- `mn`: Mongolian
+- `ms`: Malay
+- `nb`: Norwegian Bokmål
+- `nl`: Dutch
+- `nn`: Norwegian Nynorsk
+- `pl`: Polish
+- `pt`: Portuguese
+- `ro`: Romanian
+- `ru`: Russian
+- `sk`: Slovak
+- `sl`: Slovene
+- `sr`: Serbian
+- `sv`: Swedish
+- `th`: Thai
+- `tr`: Turkish
+- `uk`: Ukrainian
+- `ur`: Urdu
+- `uz`: Uzbek
+- `zh`: Chinese
+- `vi`: Vietnamese
 
 [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
@@ -107,10 +107,16 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log("United States of America => " + countries.getAlpha2Code('United States of America', 'en'));
+console.log(
+  "United States of America => " +
+    countries.getAlpha2Code("United States of America", "en")
+);
 // United States of America => US
 
-console.log("United States of America => " + countries.getAlpha3Code('United States of America', 'en'));
+console.log(
+  "United States of America => " +
+    countries.getAlpha3Code("United States of America", "en")
+);
 // United States of America => USA
 ```
 
@@ -121,7 +127,9 @@ console.log("United States of America => " + countries.getAlpha3Code('United Sta
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)");
+console.log(
+  "USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)"
+);
 // USA (Alpha-3) => US (Alpha-2)
 ```
 
@@ -130,7 +138,9 @@ console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)"
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)");
+console.log(
+  "840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)"
+);
 // 840 (Numeric) => US (Alpha-2)
 ```
 
@@ -148,7 +158,9 @@ console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)");
+console.log(
+  "840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)"
+);
 // 840 (Numeric) => USA (Alpha-3)
 ```
 
@@ -202,7 +214,11 @@ console.log(countries.getNumericCodes());
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(countries.isValid("US"), countries.isValid("USA"), countries.isValid("XX"));
+console.log(
+  countries.isValid("US"),
+  countries.isValid("USA"),
+  countries.isValid("XX")
+);
 // true, true, false
 ```
 
@@ -210,11 +226,11 @@ console.log(countries.isValid("US"), countries.isValid("USA"), countries.isValid
 
 To add a language:
 
--   add a json file under langs/
--   add the language to the `data` object in entry-node.js at the top
--   add language to section **Supported languages** in README.md
--   add language to keywords in package.json
--   run `npm install && make test` to make sure that tests are passing
--   open a PR on GitHub
+- add a json file under langs/
+- add the language to the `data` object in entry-node.js at the top
+- add language to section **Supported languages** in README.md
+- add language to keywords in package.json
+- run `yarn && yarn test` to make sure that tests are passing
+- open a PR on GitHub
 
 You can check codes here: https://www.iso.org/obp/ui/#home
