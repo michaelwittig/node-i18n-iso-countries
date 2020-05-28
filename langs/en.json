@@ -176,7 +176,7 @@
     "QA": "Qatar",
     "RE": "Reunion",
     "RO": "Romania",
-    "RU": "Russian Federation",
+    "RU": ["Russian Federation", "Russia"],
     "RW": "Rwanda",
     "SH": "Saint Helena",
     "KN": "Saint Kitts and Nevis",
