@@ -128,40 +128,46 @@ describe("i18n for iso 3166-1", function () {
     it("missing name", function() {
       assert.strictEqual(i18niso.getAlpha2Code("XXX", "de"), undefined);
     });
-    it("missing land", function() {
+    it("missing lang", function() {
       assert.strictEqual(i18niso.getAlpha2Code("Deutschland", "xx"), undefined);
     });
   });
   describe("getSimpleAlpha2Code", function() {
     it("works", function() {
-      assert.strictEqual(i18niso.getSimpleAlpha2Code("belgie", "nl"), 'BE');
-      assert.strictEqual(i18niso.getSimpleAlpha2Code("België", "nl"), 'BE');
+      assert.strictEqual(i18niso.getSimpleAlpha2Code("belgie", "nl"), "BE");
+      assert.strictEqual(i18niso.getSimpleAlpha2Code("België", "nl"), "BE");
     });
     it("missing name", function() {
       assert.strictEqual(i18niso.getSimpleAlpha2Code("XXX", "de"), undefined);
     });
-    it("missing land", function() {
+    it("missing lang", function() {
       assert.strictEqual(i18niso.getSimpleAlpha2Code("Deutschland", "xx"), undefined);
+    });
+    it("alternative name spellings", function() {
+      assert.strictEqual(i18niso.getSimpleAlpha2Code("Estados Unidos da América", "pt"), "US");
     });
   });
   describe("getAlpha3Code", function() {
     it("missing name", function() {
       assert.strictEqual(i18niso.getAlpha3Code("XXX", "de"), undefined);
     });
-    it("missing land", function() {
+    it("missing lang", function() {
       assert.strictEqual(i18niso.getAlpha3Code("Deutschland", "xx"), undefined);
     });
   });
   describe("getSimpleAlpha3Code", function() {
     it("works", function() {
-      assert.strictEqual(i18niso.getSimpleAlpha3Code("belgie", "nl"), 'BEL');
-      assert.strictEqual(i18niso.getSimpleAlpha3Code("België", "nl"), 'BEL');
+      assert.strictEqual(i18niso.getSimpleAlpha3Code("belgie", "nl"), "BEL");
+      assert.strictEqual(i18niso.getSimpleAlpha3Code("België", "nl"), "BEL");
     });
     it("missing name", function() {
       assert.strictEqual(i18niso.getSimpleAlpha3Code("XXX", "de"), undefined);
     });
-    it("missing land", function() {
+    it("missing lang", function() {
       assert.strictEqual(i18niso.getSimpleAlpha3Code("Deutschland", "xx"), undefined);
+    });
+    it("alternative name spellings", function() {
+      assert.strictEqual(i18niso.getSimpleAlpha3Code("Estados Unidos da América", "pt"), "USA");
     });
   });
   describe("isValid", function() {
@@ -386,6 +392,35 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    
+    describe("pt", function () {
+      var lang = "pt";
+      describe("get Alpha-2 code", function() {
+        it("nameToAlpha2 Estados Unidos => US", function() {
+          assert.strictEqual(i18niso.getAlpha2Code("Estados Unidos", lang), "US");
+        });
+        it("nameToAlpha2 Estados Unidos da América => US", function() {
+          assert.strictEqual(i18niso.getAlpha2Code("Estados Unidos da América", lang), "US");
+        });
+      });
+      describe("get Alpha-3 code", function() {
+        it("nameToAlpha3 Estados Unidos => USA", function() {
+          assert.strictEqual(i18niso.getAlpha3Code("Estados Unidos", lang), "USA");
+        });
+        it("nameToAlpha3 Estados Unidos da América => USA", function() {
+          assert.strictEqual(i18niso.getAlpha3Code("Estados Unidos da América", lang), "USA");
+        });
+      });
+      describe("get name", function () {
+        it("for br => Brasil", function () {
+          assert.strictEqual(i18niso.getName("br", lang), "Brasil");
+        });
+        it("for us => Estados Unidos", function () {
+          assert.strictEqual(i18niso.getName("us", lang), "Estados Unidos");
+        });
+      });
+    });
+
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name", function () {

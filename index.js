@@ -147,8 +147,9 @@ exports.toAlpha2 = toAlpha2;
  */
 exports.getName = function(code, lang) {
   try {
-    var d = registeredLocales[lang.toLowerCase()];
-    return d[toAlpha2(code)];
+    const codeMaps = registeredLocales[lang.toLowerCase()];
+    const names = codeMaps[toAlpha2(code)];
+    return Array.isArray(names) ? names[0] : names;
   } catch (err) {
     return undefined;
   }
@@ -172,12 +173,25 @@ exports.getNames = function(lang) {
  * @return ISO 3166-1 alpha-2 or undefined
  */
 exports.getAlpha2Code = function(name, lang) {
+  const normalizeString = (string) => string.toLowerCase();
+  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
+
   try {
-    var p, codenames = registeredLocales[lang.toLowerCase()];
-    for (p in codenames) {
-      if (codenames.hasOwnProperty(p)) {
-        if (codenames[p].toLowerCase() === name.toLowerCase()) {
+    const codenames = registeredLocales[lang.toLowerCase()];
+    for (const p in codenames) {
+      if (!codenames.hasOwnProperty(p)) {
+        continue;
+      }
+      if (typeof codenames[p] === "string") {
+        if (areSimilar(codenames[p], name)) {
           return p;
+        }
+      }
+      if (Array.isArray(codenames[p])) {
+        for (const mappedName of codenames[p]) {
+          if (areSimilar(mappedName, name)) {
+            return p;
+          }
         }
       }
     }
@@ -193,12 +207,25 @@ exports.getAlpha2Code = function(name, lang) {
  * @return ISO 3166-1 alpha-2 or undefined
  */
 exports.getSimpleAlpha2Code = function(name, lang) {
+  const normalizeString = (string) => removeDiacritics(string.toLowerCase());
+  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
+  
   try {
-    var p, codenames = registeredLocales[lang.toLowerCase()];
-    for (p in codenames) {
-      if (codenames.hasOwnProperty(p)) {
-        if (removeDiacritics(codenames[p].toLowerCase()) === removeDiacritics(name.toLowerCase())) {
+    const codenames = registeredLocales[lang.toLowerCase()];
+    for (const p in codenames) {
+      if (!codenames.hasOwnProperty(p)) {
+        continue;
+      }
+      if (typeof codenames[p] === "string") {
+        if (areSimilar(codenames[p], name)) {
           return p;
+        }
+      }
+      if (Array.isArray(codenames[p])) {
+        for (const mappedName of codenames[p]) {
+          if (areSimilar(mappedName, name)) {
+            return p;
+          }
         }
       }
     }

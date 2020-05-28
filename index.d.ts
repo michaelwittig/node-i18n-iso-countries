@@ -1,5 +1,5 @@
 export type LocalizedCountryNames = {
-  [alpha2Key: string]: string
+  [alpha2Key: string]: string | string[]
 };
 
 export type LocaleData = {
