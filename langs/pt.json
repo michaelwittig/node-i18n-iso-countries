@@ -46,7 +46,7 @@
     "CN": "China",
     "CY": "Chipre",
     "VA": "Cidade do Vaticano",
-    "SG": "Cingapura",
+    "SG": ["Singapura", "Cingapura"],
     "CO": "Colômbia",
     "KM": "Comores",
     "CG": "Congo - Brazzaville",
