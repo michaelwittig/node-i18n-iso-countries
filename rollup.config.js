@@ -5,20 +5,31 @@ import copy from "rollup-plugin-copy";
 
 const langModules = fs.readdirSync("./langs").map((langJson) => {
   const lang = langJson.split(".")[0];
-  return {
-    input: `langs/${lang}.json`,
-    output: {
-      file: `dist/langs/${lang}.mjs`,
-      format: "es",
+  return [
+    {
+      input: `langs/${lang}.json`,
+      output: {
+        file: `dist/langs/${lang}.js`,
+        format: "cjs",
+        exports: "named",
+      },
+      plugins: [json()],
     },
-    plugins: [
-      copy({
-        targets: [{ src: `langs/${lang}.json`, dest: `dist/langs` }],
-        verbose: true,
-      }),
-      json(),
-    ],
-  };
+    {
+      input: `langs/${lang}.json`,
+      output: {
+        file: `dist/langs/${lang}.mjs`,
+        format: "es",
+      },
+      plugins: [
+        copy({
+          targets: [{ src: `langs/${lang}.json`, dest: `dist/langs` }],
+          verbose: true,
+        }),
+        json(),
+      ],
+    },
+  ];
 });
 
 export default [
@@ -51,6 +62,7 @@ export default [
     output: {
       file: "dist/codes.mjs",
       format: "es",
+      exports: "named",
     },
     plugins: [
       json(),
@@ -61,6 +73,14 @@ export default [
     ],
   },
   {
+    input: "codes.json",
+    output: {
+      file: "dist/codes.js",
+      format: "cjs",
+    },
+    plugins: [json()],
+  },
+  {
     input: "src/entry-node.js",
     output: {
       file: "dist/entry-node.mjs",
@@ -68,5 +88,5 @@ export default [
     },
     plugins: [commonjs(), json()],
   },
-  ...langModules,
+  ...langModules.reduce((arr, elem) => [...arr, ...elem], []),
 ];
