@@ -113,13 +113,14 @@
   "main": "dist/entry-node.js",
   "module": "dist/entry-node.mjs",
   "browser": {
-    "./dist/index.js": "./dist/index.js",
-    "./dist/index.mjs": "./dist/index.mjs"
+    "./dist/entry-node.js": "./dist/index.js",
+    "./dist/entry-node.mjs": "./dist/index.mjs"
   },
   "exports": {
     "./": "./dist/index.mjs",
     "./codes": "./dist/codes.mjs",
-    "./bundled": "./dist/entry-node.mjs"
+    "./bundled": "./dist/entry-node.mjs",
+    "./langs/": "./dist/langs/"
   },
   "engines": {
     "node": ">= 10"
