@@ -98,21 +98,36 @@
     "diacritics": "1.3.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "madge": "3.7.0",
     "mocha": "7.1.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "rollup": "^2.20.0",
+    "rollup-plugin-copy": "^3.3.0"
   },
-  "main": "entry-node",
-  "browser": "index",
+  "main": "dist/entry-node.js",
+  "module": "dist/entry-node.mjs",
+  "browser": {
+    "./dist/index.js": "./dist/index.js",
+    "./dist/index.mjs": "./dist/index.mjs"
+  },
+  "exports": {
+    "./": "./dist/index.mjs",
+    "./codes": "./dist/codes.mjs",
+    "./bundled": "./dist/entry-node.mjs"
+  },
   "engines": {
     "node": ">= 10"
   },
   "scripts": {
     "test": "make test",
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint '**/*.js'",
+    "build": "make build"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"

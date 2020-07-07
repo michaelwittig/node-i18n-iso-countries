@@ -1,19 +1,18 @@
-"use strict";
+import codes from "../codes.json";
+import diacritics from "diacritics";
 
-var codes = require("./codes.json");
-var removeDiacritics = require("diacritics").remove;
-var registeredLocales = {};
+const registeredLocales = {};
 
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
-var alpha2 = {},
+const alpha2 = {},
   alpha3 = {},
   numeric = {},
   invertedNumeric = {};
 
 codes.forEach(function (codeInformation) {
-  var s = codeInformation;
+  const s = codeInformation;
   alpha2[s[0]] = s[1];
   alpha3[s[1]] = s[0];
   numeric[s[2]] = s[0];
@@ -94,7 +93,7 @@ function filterNameBy(type, countryNameList) {
  * @example countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
  * @return void
  */
-exports.registerLocale = function (localeData) {
+export function registerLocale(localeData) {
   if (!localeData.locale) {
     throw new TypeError("Missing localeData.locale");
   }
@@ -104,69 +103,63 @@ exports.registerLocale = function (localeData) {
   }
 
   registeredLocales[localeData.locale] = localeData.countries;
-};
+}
 
 /*
  * @param code Alpha-3 code
  * @return Alpha-2 code or undefined
  */
-function alpha3ToAlpha2(code) {
+export function alpha3ToAlpha2(code) {
   return alpha3[code];
 }
-exports.alpha3ToAlpha2 = alpha3ToAlpha2;
 
 /*
  * @param code Alpha-2 code
  * @return Alpha-3 code or undefined
  */
-function alpha2ToAlpha3(code) {
+export function alpha2ToAlpha3(code) {
   return alpha2[code];
 }
-exports.alpha2ToAlpha3 = alpha2ToAlpha3;
 
 /*
  * @param code Alpha-3 code
  * @return Numeric code or undefined
  */
-function alpha3ToNumeric(code) {
+export function alpha3ToNumeric(code) {
   return invertedNumeric[alpha3ToAlpha2(code)];
 }
-exports.alpha3ToNumeric = alpha3ToNumeric;
 
 /*
  * @param code Alpha-2 code
  * @return Numeric code or undefined
  */
-function alpha2ToNumeric(code) {
+export function alpha2ToNumeric(code) {
   return invertedNumeric[code];
 }
-exports.alpha2ToNumeric = alpha2ToNumeric;
 
 /*
  * @param code Numeric code
  * @return Alpha-3 code or undefined
  */
-function numericToAlpha3(code) {
+export function numericToAlpha3(code) {
   var padded = formatNumericCode(code);
   return alpha2ToAlpha3(numeric[padded]);
 }
-exports.numericToAlpha3 = numericToAlpha3;
 
 /*
  * @param code Numeric code
  * @return Alpha-2 code or undefined
  */
-function numericToAlpha2(code) {
+export function numericToAlpha2(code) {
   var padded = formatNumericCode(code);
   return numeric[padded];
 }
-exports.numericToAlpha2 = numericToAlpha2;
 
 /*
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @return ISO 3166-1 alpha-3
  */
-function toAlpha3(code) {
+export function toAlpha3(code) {
   if (typeof code === "string") {
     if (/^[0-9]*$/.test(code)) {
       return numericToAlpha3(code);
@@ -183,13 +176,12 @@ function toAlpha3(code) {
   }
   return undefined;
 }
-exports.toAlpha3 = toAlpha3;
 
 /*
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @return ISO 3166-1 alpha-2
  */
-function toAlpha2(code) {
+export function toAlpha2(code) {
   if (typeof code === "string") {
     if (/^[0-9]*$/.test(code)) {
       return numericToAlpha2(code);
@@ -206,7 +198,6 @@ function toAlpha2(code) {
   }
   return undefined;
 }
-exports.toAlpha2 = toAlpha2;
 
 /**
  * @param {string | number | Alpha2Code | Alpha3Code} code
@@ -214,7 +205,7 @@ exports.toAlpha2 = toAlpha2;
  * @param {GetNameOptions} options
  * @return {String | String[] | undefined}  name
  */
-exports.getName = function (code, lang, options = {}) {
+export function getName(code, lang, options = {}) {
   if (!("select" in options)) {
     options.select = "official";
   }
@@ -225,7 +216,7 @@ exports.getName = function (code, lang, options = {}) {
   } catch (err) {
     return undefined;
   }
-};
+}
 
 /**
  * @param {String} lang             language for country names
@@ -233,7 +224,7 @@ exports.getName = function (code, lang, options = {}) {
  * @return {LocalizedCountryNames}  country code
  *                                  mapped to county name
  */
-exports.getNames = function (lang, options = {}) {
+export function getNames(lang, options = {}) {
   if (!("select" in options)) {
     options.select = "official";
   }
@@ -242,14 +233,14 @@ exports.getNames = function (lang, options = {}) {
   return localeFilter(localeList, function (nameList) {
     return filterNameBy(options.select, nameList);
   });
-};
+}
 
 /*
  * @param name name
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
-exports.getAlpha2Code = function (name, lang) {
+export function getAlpha2Code(name, lang) {
   const normalizeString = (string) => string.toLowerCase();
   const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
 
@@ -276,15 +267,15 @@ exports.getAlpha2Code = function (name, lang) {
   } catch (err) {
     return undefined;
   }
-};
+}
 
 /*
  * @param name name
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
-exports.getSimpleAlpha2Code = function (name, lang) {
-  const normalizeString = (string) => removeDiacritics(string.toLowerCase());
+export function getSimpleAlpha2Code(name, lang) {
+  const normalizeString = (string) => diacritics.remove(string.toLowerCase());
   const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
 
   try {
@@ -310,69 +301,69 @@ exports.getSimpleAlpha2Code = function (name, lang) {
   } catch (err) {
     return undefined;
   }
-};
+}
 
 /*
  * @return Object of alpha-2 codes mapped to alpha-3 codes
  */
-exports.getAlpha2Codes = function () {
+export function getAlpha2Codes() {
   return alpha2;
-};
+}
 
 /*
  * @param name name
  * @param lang language for country name
  * @return ISO 3166-1 alpha-3 or undefined
  */
-exports.getAlpha3Code = function (name, lang) {
+export function getAlpha3Code(name, lang) {
   var alpha2 = this.getAlpha2Code(name, lang);
   if (alpha2) {
     return this.toAlpha3(alpha2);
   } else {
     return undefined;
   }
-};
+}
 
 /*
  * @param name name
  * @param lang language for country name
  * @return ISO 3166-1 alpha-3 or undefined
  */
-exports.getSimpleAlpha3Code = function (name, lang) {
+export function getSimpleAlpha3Code(name, lang) {
   var alpha2 = this.getSimpleAlpha2Code(name, lang);
   if (alpha2) {
     return this.toAlpha3(alpha2);
   } else {
     return undefined;
   }
-};
+}
 
 /*
  * @return Object of alpha-3 codes mapped to alpha-2 codes
  */
-exports.getAlpha3Codes = function () {
+export function getAlpha3Codes() {
   return alpha3;
-};
+}
 
 /*
  * @return Object of numeric codes mapped to alpha-2 codes
  */
-exports.getNumericCodes = function () {
+export function getNumericCodes() {
   return numeric;
-};
+}
 
 /*
  * @return Array of supported languages
  */
-exports.langs = function () {
+export function langs() {
   return Object.keys(registeredLocales);
-};
+}
 
 /*
  * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
  * @return Boolean
  */
-exports.isValid = function (code) {
+export function isValid(code) {
   if (!code) {
     return false;
   }
@@ -383,4 +374,4 @@ exports.isValid = function (code) {
     hasOwnProperty(alpha2, coerced) ||
     hasOwnProperty(numeric, coerced)
   );
-};
+}
