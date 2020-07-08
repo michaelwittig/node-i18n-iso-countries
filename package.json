@@ -129,7 +129,7 @@
     "test": "make test",
     "lint": "eslint '**/*.js'",
     "build": "make build",
-    "postinstall": "([ ! -d './node_modules/rollup' ] && node -e 'const p = require(\"./package.json\"); process.exit(p._from && p._from.startsWith(\"github:\") ? 0 : 1)' && npm i && npm run build) || echo 'nothing to do'"
+    "prepare": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
