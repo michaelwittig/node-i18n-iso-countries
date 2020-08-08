@@ -1,8 +1,0 @@
-language: node_js
-os: linux
-dist: xenial
-node_js:
-  - "10"
-  - "12"
-  - "13" # TODO: Remove this after 2020-06-01 (https://nodejs.org/en/about/releases/)
-  - "14"
