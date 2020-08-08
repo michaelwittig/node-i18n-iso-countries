@@ -2,7 +2,7 @@ default: test
 
 eslint:
 	@echo "eslint"
-	@npm lint
+	@npm run lint
 
 circular:
 	@echo "circular"
@@ -16,7 +16,3 @@ mocha:
 test: eslint circular mocha
 	@echo "test"
 	@echo
-
-outdated:
-	@echo "outdated modules?"
-	@npm outdated
