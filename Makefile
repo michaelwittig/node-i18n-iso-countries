@@ -2,7 +2,7 @@ default: test
 
 eslint:
 	@echo "eslint"
-	@yarn lint
+	@npm lint
 
 circular:
 	@echo "circular"
