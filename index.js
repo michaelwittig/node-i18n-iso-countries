@@ -168,14 +168,21 @@ exports.getNames = function (lang) {
 };
 
 /*
+ * Internal helper to compare strings (case insensitive)
+ * @return bool
+ */
+function areSimilarStrings(a, b) {
+  return (
+    removeDiacritics(a.toLowerCase()) === removeDiacritics(b.toLowerCase())
+  );
+}
+
+/*
  * @param name name
  * @param lang language for country name
  * @return ISO 3166-1 alpha-2 or undefined
  */
 exports.getAlpha2Code = function (name, lang) {
-  const normalizeString = (string) => string.toLowerCase();
-  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
-
   try {
     const codenames = registeredLocales[lang.toLowerCase()];
     for (const p in codenames) {
@@ -183,13 +190,13 @@ exports.getAlpha2Code = function (name, lang) {
         continue;
       }
       if (typeof codenames[p] === "string") {
-        if (areSimilar(codenames[p], name)) {
+        if (areSimilarStrings(codenames[p], name)) {
           return p;
         }
       }
       if (Array.isArray(codenames[p])) {
         for (const mappedName of codenames[p]) {
-          if (areSimilar(mappedName, name)) {
+          if (areSimilarStrings(mappedName, name)) {
             return p;
           }
         }
@@ -207,9 +214,6 @@ exports.getAlpha2Code = function (name, lang) {
  * @return ISO 3166-1 alpha-2 or undefined
  */
 exports.getSimpleAlpha2Code = function (name, lang) {
-  const normalizeString = (string) => removeDiacritics(string.toLowerCase());
-  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
-
   try {
     const codenames = registeredLocales[lang.toLowerCase()];
     for (const p in codenames) {
@@ -217,13 +221,13 @@ exports.getSimpleAlpha2Code = function (name, lang) {
         continue;
       }
       if (typeof codenames[p] === "string") {
-        if (areSimilar(codenames[p], name)) {
+        if (areSimilarStrings(codenames[p], name)) {
           return p;
         }
       }
       if (Array.isArray(codenames[p])) {
         for (const mappedName of codenames[p]) {
-          if (areSimilar(mappedName, name)) {
+          if (areSimilarStrings(mappedName, name)) {
             return p;
           }
         }
@@ -313,5 +317,6 @@ exports.isValid = function (code) {
  * property in itself ({ hasOwnProperty: 1 }) and cause weird bugs
  * https://eslint.org/docs/rules/no-prototype-builtins
  */
-const hasOwnProperty = (object, property) =>
+function hasOwnProperty(object, property) {
   Object.prototype.hasOwnProperty.call(object, property);
+}
