@@ -227,7 +227,6 @@ console.log(
 To add a language:
 
 - add a json file under langs/
-- add the language to the `data` object in entry-node.js at the top
 - add language to section **Supported languages** in README.md
 - add language to keywords in package.json
 - run `npm test` to make sure that tests are passing
