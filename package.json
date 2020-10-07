@@ -1,6 +1,6 @@
 {
   "name": "i18n-iso-countries",
-  "version": "4.3.1",
+  "version": "6.1.0",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.ts",
   "keywords": [
@@ -19,6 +19,7 @@
     "az",
     "be",
     "bg",
+    "bn",
     "bs",
     "ca",
     "cs",
@@ -31,7 +32,9 @@
     "fa",
     "fi",
     "fr",
+    "gl",
     "he",
+    "hi",
     "hr",
     "hu",
     "hy",
@@ -46,6 +49,7 @@
     "lv",
     "mk",
     "mn",
+    "ms",
     "nb",
     "nl",
     "nn",
@@ -91,22 +95,24 @@
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries.git"
   },
   "dependencies": {
-    "diacritics": "^1.3.0"
+    "diacritics": "1.3.0"
   },
   "devDependencies": {
-    "assert-plus": "1.0.0",
-    "mocha": "6.1.4",
-    "jshint": "2.10.2",
-    "madge": "3.4.4",
-    "istanbul": "0.4.5"
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "madge": "3.7.0",
+    "mocha": "7.1.0",
+    "prettier": "^2.0.5"
   },
   "main": "entry-node",
   "browser": "index",
   "engines": {
-    "node": ">= 6"
+    "node": ">= 10"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "lint": "eslint '**/*.js'"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
