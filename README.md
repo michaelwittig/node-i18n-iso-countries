@@ -5,7 +5,7 @@
 
 > ⚠️ Version 5 drops support for node 6 and 7!
 
-i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from '[Wikipedia: Officially assigned code elements][]'
+i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from ['Wikipedia: Officially assigned code elements'][wikipedia]
 
 ## Installing
 
@@ -235,4 +235,4 @@ To add a language:
 You can check codes here: https://www.iso.org/obp/ui/#home
 
 
-[Wikipedia: Officially assigned code elements]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+[wikipedia]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
