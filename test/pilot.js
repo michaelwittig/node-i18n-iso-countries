@@ -12,7 +12,7 @@ const samples = {
   "vn-eng": iso.getName("vn", "en"),
   "all-vie": iso.getNames("vi"),
   "ru-eng-alias": iso.getName("ru", "en", "alias"),
-  "all-gb-deu-alias": iso.getNames("de", "alias").GB
+  "all-gb-deu-alias": iso.getNames("de", "alias").GB,
 };
 
 const validQuery = (query) =>
