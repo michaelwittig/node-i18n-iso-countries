@@ -32,8 +32,8 @@ export function getAlpha3Codes(): { [alpha3Key: string]: string };
  */
 export function getNumericCodes(): { [numericKey: string]: string };
 
-export function getName(alpha2orAlpha3orNumeric: string | number | Alpha2Code | Alpha3Code, lang: string): string;
-export function getNames(lang: string): LocalizedCountryNames;
+export function getName(alpha2orAlpha3orNumeric: string | number | Alpha2Code | Alpha3Code, lang: string, type: LocaleNameType): string | string[];
+export function getNames(lang: string, type: LocaleNameType): LocalizedCountryNames;
 export function toAlpha3(alpha2orNumeric: number | string | Alpha2Code): string;
 export function toAlpha2(alpha3orNumeric: number | string | Alpha3Code): string;
 export function getAlpha2Code(name: string, lang: string): string;
@@ -297,7 +297,7 @@ export type Alpha2Code =
   | "XK"
 
 
-  export type Alpha3Code =
+export type Alpha3Code =
   | "AFG"
   | "ALB"
   | "DZA"
