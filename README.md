@@ -5,7 +5,7 @@
 
 > Version 5 drops support for node 6 and 7!
 
-i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from <http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements>
+i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from '[Wikipedia: Officially assigned code elements][]'
 
 ## Installing
 
@@ -15,7 +15,7 @@ Install it using npm: `npm install i18n-iso-countries`
 var countries = require("i18n-iso-countries");
 ```
 
-If you use `i18n-iso-countries` with Node.js your are done. If you use the package in a browser environment you also have to register the languages you want to use to minimize file size.
+If you use `i18n-iso-countries` with Node.js, you are done. If you use the package in a browser environment, you have to register the languages you want to use to minimize the file size.
 
 ```javascript
 // Support french & english languages.
@@ -233,3 +233,6 @@ To add a language:
 - open a PR on GitHub
 
 You can check codes here: https://www.iso.org/obp/ui/#home
+
+
+[Wikipedia: Officially assigned code elements]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
