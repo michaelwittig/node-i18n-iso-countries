@@ -7,6 +7,8 @@ export type LocaleData = {
   countries: LocalizedCountryNames
 };
 
+export type LocaleNameType = 'all' | 'official' | 'alias'
+
 export function registerLocale(localeData: LocaleData): void;
 export function alpha2ToAlpha3(alpha2: string | Alpha2Code): string;
 export function alpha2ToNumeric(alpha2: string | Alpha2Code): string;
@@ -14,18 +16,22 @@ export function alpha3ToAlpha2(alpha3: string | Alpha3Code): string;
 export function alpha3ToNumeric(alpha3: string | Alpha3Code): string;
 export function numericToAlpha2(numeric: number | string): string;
 export function numericToAlpha3(numeric: number | string): string;
+
 /**
  * Returns object map where key is alpha 2 code and value is alpha 3 code
  */
 export function getAlpha2Codes(): { [alpha2Key: string]: string };
+
 /**
  * Returns object map where key is alpha 3 code and value is alpha 2 code
  */
 export function getAlpha3Codes(): { [alpha3Key: string]: string };
+
 /**
  * Returns object map where key is numeric code and value is alpha 2 code
  */
 export function getNumericCodes(): { [numericKey: string]: string };
+
 export function getName(alpha2orAlpha3orNumeric: string | number | Alpha2Code | Alpha3Code, lang: string): string;
 export function getNames(lang: string): LocalizedCountryNames;
 export function toAlpha3(alpha2orNumeric: number | string | Alpha2Code): string;
@@ -38,7 +44,7 @@ export function langs(): string[];
 export function isValid(alpha2orAlpha3orNumeric: string | number): boolean;
 
 
-type Alpha2Code =
+export type Alpha2Code =
   | "AF"
   | "AL"
   | "DZ"
@@ -291,7 +297,7 @@ type Alpha2Code =
   | "XK"
 
 
-type Alpha3Code =
+  export type Alpha3Code =
   | "AFG"
   | "ALB"
   | "DZA"
