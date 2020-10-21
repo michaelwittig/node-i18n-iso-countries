@@ -226,9 +226,9 @@ console.log(
 
 To add a language:
 
-- add a json file under langs/
-- add language to section **Supported languages** in README.md
-- add language to keywords in package.json
+- add a json file under [langs/](langs)
+- add language to section **Supported languages** in [README.md](#supported-languages-iso-639-1)
+- add language to keywords in [package.json](package.json)
 - run `npm test` to make sure that tests are passing
 - open a PR on GitHub
 
