@@ -5,7 +5,7 @@
 
 > ⚠️ Version 5 drops support for node 6 and 7!
 
-i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from ['Wikipedia: Officially assigned code elements'][wikipedia]
+i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from ['Wikipedia: Officially assigned code elements'][iso:3166-1]
 
 ## Installing
 
@@ -45,6 +45,8 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 ```
 
 ### Supported languages (ISO 639-1)
+
+> In case you want to add new language, please refer [ISO 639-1 table][iso:639-1].
 
 - `ar`: Arabic
 - `az`: Azerbaijani
@@ -234,5 +236,5 @@ To add a language:
 
 You can check codes here: https://www.iso.org/obp/ui/#home
 
-
-[wikipedia]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+[iso:639-1]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+[iso:3166-1]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
