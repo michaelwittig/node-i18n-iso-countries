@@ -59,7 +59,7 @@ function localeFilter(localeList, filter) {
  * @private
  * Preserve for getName & getNames
  *
- * @param {LocaleNameType} type all | official | alias
+ * @param {GetNameOptions.select} type all | official | alias
  * @param countryNameList  string array of country's
  *                         official name and alias
  * @return {String | String[]} of a country name
@@ -211,14 +211,14 @@ exports.toAlpha2 = toAlpha2;
 /**
  * @param {string | number | Alpha2Code | Alpha3Code} code
  * @param {String} lang          language for country name
- * @param {LocaleNameType} type  all | official | alias
+ * @param {GetNameOptions} options
  * @return {String | String[] | undefined}  name
  */
-exports.getName = function (code, lang, type = "official") {
+exports.getName = function (code, lang, { select = "official" }) {
   try {
     const codeMaps = registeredLocales[lang.toLowerCase()];
     const nameList = codeMaps[toAlpha2(code)];
-    return filterNameBy(type, nameList);
+    return filterNameBy(select, nameList);
   } catch (err) {
     return undefined;
   }
@@ -226,15 +226,15 @@ exports.getName = function (code, lang, type = "official") {
 
 /**
  * @param {String} lang             language for country names
- * @param {LocaleNameType} type     all | official | alias
+ * @param {GetNameOptions} option   getNames Options
  * @return {LocalizedCountryNames}  country code
  *                                  mapped to county name
  */
-exports.getNames = function (lang, type = "official") {
+exports.getNames = function (lang, { select = "official" }) {
   var localeList = registeredLocales[lang.toLowerCase()];
   if (localeList === undefined) return {};
   return localeFilter(localeList, function (nameList) {
-    return filterNameBy(type, nameList);
+    return filterNameBy(select, nameList);
   });
 };
 
