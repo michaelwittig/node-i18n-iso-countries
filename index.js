@@ -226,7 +226,7 @@ exports.getName = function (code, lang, { select = "official" }) {
 
 /**
  * @param {String} lang             language for country names
- * @param {GetNameOptions} option   getNames Options
+ * @param {GetNameOptions} options   getNames Options
  * @return {LocalizedCountryNames}  country code
  *                                  mapped to county name
  */
