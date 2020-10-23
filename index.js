@@ -20,11 +20,81 @@ codes.forEach(function (codeInformation) {
   invertedNumeric[s[0]] = s[2];
 });
 
+/**
+ * @private
+ * @param {number} code
+ */
 function formatNumericCode(code) {
   return String("000" + (code ? code : "")).slice(-3);
 }
 
-function registerLocale(localeData) {
+/**
+ * @private
+ * Avoid using obj.hasOwnProperty directly as `hasOwnProperty` could be a
+ * property in itself ({ hasOwnProperty: 1 }) and cause weird bugs
+ * https://eslint.org/docs/rules/no-prototype-builtins
+ */
+function hasOwnProperty(object, property) {
+  return Object.prototype.hasOwnProperty.call(object, property);
+}
+
+/**
+ * @private
+ * Pass localeList through a filter and return a newLocaleList obj
+ * with the same structure of the old localeList.
+ *
+ * @param {LocalizedCountryNames} localeList  Local List in raw
+ * @param {Function} filter    callback to set filter rule
+ * @return {String | String[]} new filtered Local List
+ */
+function localeFilter(localeList, filter) {
+  return Object.keys(localeList).reduce(function (newLocaleList, alpha2) {
+    const nameList = localeList[alpha2];
+    newLocaleList[alpha2] = filter(nameList, alpha2);
+    return newLocaleList;
+  }, {});
+}
+
+/**
+ * @private
+ * Preserve for getName & getNames
+ *
+ * @param {GetNameOptions.select} type all | official | alias
+ * @param countryNameList  string array of country's
+ *                         official name and alias
+ * @return {String | String[]} of a country name
+ */
+function filterNameBy(type, countryNameList) {
+  switch (type) {
+    case "official":
+      return Array.isArray(countryNameList)
+        ? countryNameList[0]
+        : countryNameList;
+
+    case "all":
+      return typeof countryNameList === "string"
+        ? [countryNameList]
+        : countryNameList;
+
+    case "alias":
+      return Array.isArray(countryNameList)
+        ? countryNameList[1] || countryNameList[0]
+        : countryNameList;
+
+    default:
+      throw new TypeError(
+        "LocaleNameType must be one of these: all, official, alias!"
+      );
+  }
+}
+
+/**
+ * Register countries in browsers' environment:
+ * @param {object} localeData
+ * @example countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+ * @return void
+ */
+exports.registerLocale = function (localeData) {
   if (!localeData.locale) {
     throw new TypeError("Missing localeData.locale");
   }
@@ -34,9 +104,7 @@ function registerLocale(localeData) {
   }
 
   registeredLocales[localeData.locale] = localeData.countries;
-}
-
-exports.registerLocale = registerLocale;
+};
 
 /*
  * @param code Alpha-3 code
@@ -140,31 +208,34 @@ function toAlpha2(code) {
 }
 exports.toAlpha2 = toAlpha2;
 
-/*
- * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
- * @param lang language for country name
- * @return name or undefined
+/**
+ * @param {string | number | Alpha2Code | Alpha3Code} code
+ * @param {String} lang          language for country name
+ * @param {GetNameOptions} options
+ * @return {String | String[] | undefined}  name
  */
-exports.getName = function (code, lang) {
+exports.getName = function (code, lang, { select = "official" }) {
   try {
     const codeMaps = registeredLocales[lang.toLowerCase()];
-    const names = codeMaps[toAlpha2(code)];
-    return Array.isArray(names) ? names[0] : names;
+    const nameList = codeMaps[toAlpha2(code)];
+    return filterNameBy(select, nameList);
   } catch (err) {
     return undefined;
   }
 };
 
-/*
- * @param lang language for country names
- * @return Object of country code mapped to county name
+/**
+ * @param {String} lang             language for country names
+ * @param {GetNameOptions} options   getNames Options
+ * @return {LocalizedCountryNames}  country code
+ *                                  mapped to county name
  */
-exports.getNames = function (lang) {
-  var d = registeredLocales[lang.toLowerCase()];
-  if (d === undefined) {
-    return {};
-  }
-  return d;
+exports.getNames = function (lang, { select = "official" }) {
+  var localeList = registeredLocales[lang.toLowerCase()];
+  if (localeList === undefined) return {};
+  return localeFilter(localeList, function (nameList) {
+    return filterNameBy(select, nameList);
+  });
 };
 
 /*
@@ -307,11 +378,3 @@ exports.isValid = function (code) {
     hasOwnProperty(numeric, coerced)
   );
 };
-
-/**
- * Avoid using obj.hasOwnProperty directly as `hasOwnProperty` could be a
- * property in itself ({ hasOwnProperty: 1 }) and cause weird bugs
- * https://eslint.org/docs/rules/no-prototype-builtins
- */
-const hasOwnProperty = (object, property) =>
-  Object.prototype.hasOwnProperty.call(object, property);

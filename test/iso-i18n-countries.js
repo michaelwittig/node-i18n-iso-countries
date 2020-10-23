@@ -300,7 +300,6 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
-
     describe("id", function () {
       var lang = "id";
       describe("get Alpha-2 code", function () {
@@ -343,7 +342,6 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
-
     describe("pl", function () {
       var lang = "pl";
       describe("get Alpha-2 code", function () {
@@ -442,7 +440,6 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
-
     describe("pt", function () {
       var lang = "pt";
       describe("get Alpha-2 code", function () {
@@ -482,13 +479,29 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
-
+    describe("vi", function () {
+      var lang = "vi";
+      describe("get name", function () {
+        it("for eg (official name) => Ai Cập", function () {
+          assert.strictEqual(i18niso.getName("eg", lang), "Ai Cập");
+        });
+        it("for ru (alias) => Nga", function () {
+          assert.strictEqual(i18niso.getName("ru", lang, "alias"), "Nga");
+        });
+        it('for us (all available names) => ["Hợp chủng quốc Hoa Kỳ", "Mỹ"]', function () {
+          assert.deepStrictEqual(i18niso.getName("us", lang, "all"), [
+            "Hợp chủng quốc Hoa Kỳ",
+            "Mỹ",
+          ]);
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
-      it("get name", function () {
+      it("get name => undefined", function () {
         assert.strictEqual(i18niso.getName("de", lang), undefined);
       });
-      it("get names", function () {
+      it("get names => array.length == 0", function () {
         assert.strictEqual(Object.keys(i18niso.getNames(lang)).length, 0);
       });
     });

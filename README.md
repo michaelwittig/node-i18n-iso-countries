@@ -3,9 +3,9 @@
 
 # i18n-iso-countries
 
-> Version 5 drops support for node 6 and 7!
+> ⚠️ Version 5 drops support for node 6 and 7!
 
-i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from <http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements>
+i18n for ISO 3166-1 country codes. We support Alpha-2, Alpha-3 and Numeric codes from ['Wikipedia: Officially assigned code elements'][iso:3166-1]
 
 ## Installing
 
@@ -15,7 +15,7 @@ Install it using npm: `npm install i18n-iso-countries`
 var countries = require("i18n-iso-countries");
 ```
 
-If you use `i18n-iso-countries` with Node.js your are done. If you use the package in a browser environment you also have to register the languages you want to use to minimize file size.
+If you use `i18n-iso-countries` with Node.js, you are done. If you use the package in a browser environment, you have to register the languages you want to use to minimize the file size.
 
 ```javascript
 // Support french & english languages.
@@ -45,6 +45,8 @@ console.log(countries.getNames("en")); // { 'AF': 'Afghanistan', 'AL': 'Albania'
 ```
 
 ### Supported languages (ISO 639-1)
+
+> In case you want to add new language, please refer [ISO 639-1 table][iso:639-1].
 
 - `ar`: Arabic
 - `az`: Azerbaijani
@@ -226,10 +228,13 @@ console.log(
 
 To add a language:
 
-- add a json file under langs/
-- add language to section **Supported languages** in README.md
-- add language to keywords in package.json
+- add a json file under [langs/](langs)
+- add language to section **Supported languages** in [README.md](#supported-languages-iso-639-1)
+- add language to keywords in [package.json](package.json)
 - run `npm test` to make sure that tests are passing
 - open a PR on GitHub
 
 You can check codes here: https://www.iso.org/obp/ui/#home
+
+[iso:639-1]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+[iso:3166-1]: http://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
