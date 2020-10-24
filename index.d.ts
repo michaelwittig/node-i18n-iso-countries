@@ -1,6 +1,6 @@
 export interface GetNameOptions {
   select: 'all' | 'official' | 'alias';
-};
+}
 
 export type CountryName<T extends GetNameOptions> = T extends { select: 'all' } ? string[] : string
 
@@ -10,7 +10,9 @@ export type LocalizedCountryNames<T extends GetNameOptions> = {
 
 export type LocaleData = {
   locale: string,
-  countries: LocalizedCountryNames
+  countries: {
+    [alpha2Key: string]: string[] | string
+  }
 };
 
 
@@ -61,7 +63,7 @@ export function getName<T extends GetNameOptions>(
 /**
  * @param lang    ISO 639-1 format string
  */
-export function getNames(lang: string): LocalizedCountryNames;
+export function getNames(lang: string): LocalizedCountryNames<{ select: 'official' }>;
 
 /**
  * @param lang      ISO 639-1 format string
