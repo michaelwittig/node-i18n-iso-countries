@@ -482,17 +482,32 @@ describe("i18n for iso 3166-1", function () {
     describe("vi", function () {
       var lang = "vi";
       describe("get name", function () {
-        it("for eg (official name) => Ai Cập", function () {
+        it("for eg => Ai Cập", function () {
           assert.strictEqual(i18niso.getName("eg", lang), "Ai Cập");
         });
+        it("for eg (official name) => Ai Cập", function () {
+          assert.strictEqual(
+            i18niso.getName("eg", lang, {
+              select: "official",
+            }),
+            "Ai Cập"
+          );
+        });
         it("for ru (alias) => Nga", function () {
-          assert.strictEqual(i18niso.getName("ru", lang, "alias"), "Nga");
+          assert.strictEqual(
+            i18niso.getName("ru", lang, {
+              select: "alias",
+            }),
+            "Nga"
+          );
         });
         it('for us (all available names) => ["Hợp chủng quốc Hoa Kỳ", "Mỹ"]', function () {
-          assert.deepStrictEqual(i18niso.getName("us", lang, "all"), [
-            "Hợp chủng quốc Hoa Kỳ",
-            "Mỹ",
-          ]);
+          assert.deepStrictEqual(
+            i18niso.getName("us", lang, {
+              select: "all",
+            }),
+            ["Hợp chủng quốc Hoa Kỳ", "Mỹ"]
+          );
         });
       });
     });

@@ -214,11 +214,14 @@ exports.toAlpha2 = toAlpha2;
  * @param {GetNameOptions} options
  * @return {String | String[] | undefined}  name
  */
-exports.getName = function (code, lang, { select = "official" }) {
+exports.getName = function (code, lang, options = {}) {
+  if (!("select" in options)) {
+    options.select = "official";
+  }
   try {
     const codeMaps = registeredLocales[lang.toLowerCase()];
     const nameList = codeMaps[toAlpha2(code)];
-    return filterNameBy(select, nameList);
+    return filterNameBy(options.select, nameList);
   } catch (err) {
     return undefined;
   }
@@ -230,11 +233,14 @@ exports.getName = function (code, lang, { select = "official" }) {
  * @return {LocalizedCountryNames}  country code
  *                                  mapped to county name
  */
-exports.getNames = function (lang, { select = "official" }) {
+exports.getNames = function (lang, options = {}) {
+  if (!("select" in options)) {
+    options.select = "official";
+  }
   var localeList = registeredLocales[lang.toLowerCase()];
   if (localeList === undefined) return {};
   return localeFilter(localeList, function (nameList) {
-    return filterNameBy(select, nameList);
+    return filterNameBy(options.select, nameList);
   });
 };
 
