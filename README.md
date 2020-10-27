@@ -229,6 +229,7 @@ console.log(
 To add a language:
 
 - add a json file under [langs/](langs)
+- add the language to the `data` object in entry-node.js at the top
 - add language to section **Supported languages** in [README.md](#supported-languages-iso-639-1)
 - add language to keywords in [package.json](package.json)
 - run `npm test` to make sure that tests are passing
