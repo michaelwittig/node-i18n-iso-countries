@@ -23,7 +23,14 @@ const langModules = fs.readdirSync("./langs").map((langJson) => {
       },
       plugins: [
         copy({
-          targets: [{ src: `langs/${lang}.json`, dest: `dist/langs` }],
+          targets: [
+            { src: `langs/${lang}.json`, dest: `dist/langs` },
+            {
+              src: `src/lang-template.d.ts`,
+              dest: `dist/langs`,
+              rename: `${lang}.d.ts`,
+            },
+          ],
           verbose: true,
         }),
         json(),
@@ -39,7 +46,13 @@ export default [
       file: "dist/index.js",
       format: "cjs",
     },
-    plugins: [json()],
+    plugins: [
+      json(),
+      copy({
+        targets: [{ src: `src/*.d.ts`, dest: "dist" }],
+        verbose: true,
+      }),
+    ],
   },
   {
     input: "src/entry-node.js",
