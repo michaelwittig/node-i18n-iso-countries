@@ -117,10 +117,24 @@
     "./dist/entry-node.mjs": "./dist/index.mjs"
   },
   "exports": {
-    "./": "./dist/index.mjs",
-    "./codes": "./dist/codes.mjs",
-    "./bundled": "./dist/entry-node.mjs",
-    "./langs/": "./dist/langs/"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./codes": {
+      "import": "./dist/codes.mjs",
+      "require": "./dist/codes.js"
+    },
+    "./bundled": {
+      "import": "./dist/entry-node.mjs",
+      "require": "./dist/entry-node.js"
+    },
+    "./langs/*": {
+      "import": "./dist/langs/*.mjs",
+      "require": "./dist/langs/*.js"
+    },
+    "./dist/*": "./dist/*",
+    "./dist/": "./dist/"
   },
   "engines": {
     "node": ">= 10"
