@@ -1,5 +1,5 @@
 var assert = require("assert");
-var i18niso = require("../");
+var i18niso = require("../dist/entry-node");
 
 describe("i18n for iso 3166-1", function () {
   "use strict";

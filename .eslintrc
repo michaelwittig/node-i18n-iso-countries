@@ -11,6 +11,12 @@
       "env": {
         "mocha": true
       }
+    },
+    {
+      "files": ["**/*.mjs", "rollup.config.js"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
     }
   ]
 }

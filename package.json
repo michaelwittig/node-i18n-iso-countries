@@ -2,7 +2,7 @@
   "name": "i18n-iso-countries",
   "version": "6.2.2",
   "description": "i18n for ISO 3166-1 country codes",
-  "typings": "index.d.ts",
+  "typings": "dist/index.d.ts",
   "keywords": [
     "i18n",
     "iso",
@@ -98,23 +98,59 @@
     "diacritics": "1.3.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "madge": "3.7.0",
     "mocha": "7.1.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "rollup": "^2.20.0",
+    "rollup-plugin-copy": "^3.3.0"
   },
-  "main": "entry-node",
-  "browser": "index",
+  "main": "dist/entry-node.js",
+  "module": "dist/entry-node.mjs",
+  "browser": {
+    "./dist/entry-node.js": "./dist/index.js",
+    "./dist/entry-node.mjs": "./dist/index.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./codes": {
+      "import": "./dist/codes.mjs",
+      "require": "./dist/codes.js"
+    },
+    "./bundled": {
+      "import": "./dist/entry-node.mjs",
+      "require": "./dist/entry-node.js"
+    },
+    "./langs/*": {
+      "import": "./dist/langs/*.mjs",
+      "require": "./dist/langs/*.js"
+    },
+    "./dist/*": "./dist/*",
+    "./dist/": "./dist/"
+  },
   "engines": {
     "node": ">= 10"
   },
   "scripts": {
     "test": "make test",
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint '**/*.js'",
+    "build": "make build",
+    "prepare": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
-  }
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ]
 }
