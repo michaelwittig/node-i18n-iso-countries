@@ -71,6 +71,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `hr`: Croatian
 - `hu`: Hungarian
 - `hy`: Armenian
+- `is`: Icelandic
 - `it`: Italian
 - `id`: Indonesian
 - `ja`: Japanese
