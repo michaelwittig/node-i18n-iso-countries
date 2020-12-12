@@ -26,10 +26,10 @@ const invertedNumeric: Record<string, string> = {};
 // TODO: These could be strictly typed as below, to let users have
 // autocompletion options or make the compiler detect wrong codes beforehand.
 
-// const alpha2 = {} as
-// Record<Alpha2Code, Alpha3Code>; const alpha3 = {} as Record<Alpha3Code,
-// Alpha2Code>; const numeric = {} as Record<string, Alpha2Code>; const
-// invertedNumeric = {} as Record<Alpha2Code, string>;
+// const alpha2 = {} as Record<Alpha2Code, Alpha3Code>;
+// const alpha3 = {} as Record<Alpha3Code, Alpha2Code>;
+// const numeric = {} as Record<string, Alpha2Code>;
+// const invertedNumeric = {} as Record<Alpha2Code, string>;
 
 COUNTRY_CODES.forEach((codeInformation) => {
   const s = codeInformation;
@@ -41,7 +41,7 @@ COUNTRY_CODES.forEach((codeInformation) => {
 
 /**
  * @private
- * @param {number} code
+ * @param code
  */
 function formatNumericCode(code: number | string): string {
   return String('000' + (code ? code : '')).slice(-3);
@@ -64,10 +64,8 @@ function hasOwnProperty<T>(
  * @private
  * Pass localeList through a filter and return a newLocaleList obj
  * with the same structure of the old localeList.
- *
- * @param {LocalizedCountryNames} localeList  Local List in raw
- * @param {Function} filter    callback to set filter rule
- * @return {String | String[]} new filtered Local List
+ * @param localeList Local List in raw
+ * @param filter callback to set filter rule
  */
 function localeFilter<T extends GetNameOptions>(
   localeList: LocalizedCountryNames<T>,
@@ -82,12 +80,10 @@ function localeFilter<T extends GetNameOptions>(
 
 /**
  * @private
- * Preserve for getName & getNames
- *
- * @param {GetNameOptions.select} type all | official | alias
- * @param countryNameList  string array of country's
- *                         official name and alias
- * @return {String | String[]} of a country name
+ * Return the country name as list or a single value, depending on the selection
+ * type. Preserve for getName & getNames.
+ * @param type
+ * @param countryNameList string array of country's official name and alias
  */
 function filterNameBy(
   type: GetNameOptions['select'],
@@ -117,10 +113,9 @@ function filterNameBy(
 }
 
 /**
- * Register countries in browsers' environment:
- * @param {object} localeData
+ * Register countries in browsers environment.
+ * @param localeData json modules to load country codes from.
  * @example countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
- * @return void
  */
 export function registerLocale(localeData: LocaleData): void {
   if (!localeData.locale) {
@@ -134,25 +129,25 @@ export function registerLocale(localeData: LocaleData): void {
   registeredLocales[localeData.locale] = localeData.countries;
 }
 
-/*
- * @param code Alpha-3 code
- * @return Alpha-2 code or undefined
+/**
+ * Return the country ISO 3166-1 Alpha-2 code or undefined.
+ * @param code ISO 3166-1 Alpha-3 code to lookup.
  */
 export function alpha3ToAlpha2(code: string | Alpha3Code): string {
   return alpha3[code];
 }
 
-/*
- * @param code Alpha-2 code
- * @return Alpha-3 code or undefined
+/**
+ * Return the country ISO 3166-1 Alpha-3 code or undefined.
+ * @param code ISO 3166-1 Alpha-2 code to lookup.
  */
 export function alpha2ToAlpha3(code: string | Alpha2Code): string {
   return alpha2[code];
 }
 
-/*
- * @param code Alpha-3 code
- * @return Numeric code or undefined
+/**
+ * Return the country ISO 3166-1 numeric code or undefined.
+ * @param code ISO 3166-1 Alpha-3 code to lookup.
  */
 export function alpha3ToNumeric(
   alpha3: string | Alpha3Code
@@ -160,9 +155,9 @@ export function alpha3ToNumeric(
   return invertedNumeric[alpha3ToAlpha2(alpha3)];
 }
 
-/*
- * @param code Alpha-2 code
- * @return Numeric code or undefined
+/**
+ * Return the country ISO 3166-1 numeric code or undefined.
+ * @param code ISO 3166-1 Alpha-2 code to lookup.
  */
 export function alpha2ToNumeric(
   alpha2: string | Alpha2Code
@@ -170,27 +165,27 @@ export function alpha2ToNumeric(
   return invertedNumeric[alpha2];
 }
 
-/*
- * @param code Numeric code
- * @return Alpha-3 code or undefined
+/**
+ * Return the country ISO 3166-1 Alpha-3 code or undefined.
+ * @param code ISO 3166-1 numeric code to lookup.
  */
 export function numericToAlpha3(code: number | string): string | undefined {
   const padded = formatNumericCode(code);
   return alpha2ToAlpha3(numeric[padded]);
 }
 
-/*
- * @param code Numeric code
- * @return Alpha-2 code or undefined
+/**
+ * Return the country ISO 3166-1 Alpha-2 code or undefined.
+ * @param code ISO 3166-1 numeric code to lookup.
  */
 export function numericToAlpha2(code: number | string): string | undefined {
   const padded = formatNumericCode(code);
   return numeric[padded];
 }
 
-/*
- * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
- * @return ISO 3166-1 alpha-3
+/**
+ * Return the country ISO 3166-1 alpha-3 code.
+ * @param alpha2orNumeric ISO 3166-1 alpha-2, alpha-3 or numeric code.
  */
 export function toAlpha3(
   alpha2orNumeric: number | string | Alpha2Code
@@ -212,9 +207,9 @@ export function toAlpha3(
   return undefined;
 }
 
-/*
- * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
- * @return ISO 3166-1 alpha-2
+/**
+ * Return the country ISO 3166-1 alpha-2 code.
+ * @param alpha3orNumeric ISO 3166-1 alpha-2, alpha-3 or numeric code.
  */
 export function toAlpha2(
   alpha3orNumeric: number | string | Alpha3Code
@@ -237,13 +232,20 @@ export function toAlpha2(
 }
 
 /**
- * @param {string | number | Alpha2Code | Alpha3Code} code
- * @param {String} lang          language for country name
- * @param {GetNameOptions} options
- * @return {String | String[] | undefined}  name
+ * Returns the country code mapped to country name for the specified language.
+ * @param countryCode
+ * @param lang language for country name.
+ * @param options map the country names based on the `select` option. Defaults
+ * to 'official'.
+ *  - all: This always return string[].
+ *  - official: This always return string. If the codename is an array, the
+ *    functions return the first element of the array.
+ *  - alias: This always return string. If the codename is just a string, the
+ *    function return it as it is. Otherwise, it will return the second element
+ *    of the codename array.
  */
 export function getName(
-  contryCode: string | number | Alpha2Code | Alpha3Code,
+  countryCode: string | number | Alpha2Code | Alpha3Code,
   lang: string,
   options: GetNameOptions = {
     select: 'official',
@@ -251,7 +253,7 @@ export function getName(
 ): string | string[] | undefined {
   try {
     const codeMaps = registeredLocales[lang.toLowerCase()];
-    const alpha2Code = toAlpha2(contryCode);
+    const alpha2Code = toAlpha2(countryCode);
     if (!alpha2Code) throw Error('Invalid Alpha 2 Code');
     const nameList = codeMaps[alpha2Code];
     return filterNameBy(options.select, nameList);
@@ -261,10 +263,17 @@ export function getName(
 }
 
 /**
- * @param {String} lang             language for country names
- * @param {GetNameOptions} options   getNames Options
- * @return {LocalizedCountryNames}  country code
- *                                  mapped to county name
+ * Returns all the country codes mapped as names for the specified language,
+ * depending on the passed options.
+ * @param lang language for country names.
+ * @param options map the country names based on the `select` option. Defaults
+ * to 'official'.
+ *  - all: This always return string[].
+ *  - official: This always return string. If the codename is an array, the
+ *    functions return the first element of the array.
+ *  - alias: This always return string. If the codename is just a string, the
+ *    function return it as it is. Otherwise, it will return the second element
+ *    of the codename array.
  */
 export function getNames<T extends GetNameOptions>(
   lang: string,
@@ -279,10 +288,10 @@ export function getNames<T extends GetNameOptions>(
   });
 }
 
-/*
- * @param name name
- * @param lang language for country name
- * @return ISO 3166-1 alpha-2 or undefined
+/**
+ * Returns the ISO 3166-1 Alpha-2 code or undefined.
+ * @param name country name.
+ * @param lang language to lookup for country name.
  */
 export function getAlpha2Code(name: string, lang: string): string | undefined {
   const normalizeString = (str: string): string => str.toLowerCase();
@@ -314,10 +323,10 @@ export function getAlpha2Code(name: string, lang: string): string | undefined {
   }
 }
 
-/*
- * @param name name
- * @param lang language for country name
- * @return ISO 3166-1 alpha-2 or undefined
+/**
+ * Returns the ISO 3166-1 Alpha-2 code without diacritics or undefined.
+ * @param name country name
+ * @param lang language to lookup for country name.
  */
 export function getSimpleAlpha2Code(
   name: string,
@@ -353,68 +362,68 @@ export function getSimpleAlpha2Code(
   }
 }
 
-/*
- * @return Object of alpha-2 codes mapped to alpha-3 codes
+/**
+ * A dictionary-like object of alpha-2 codes mapped to alpha-3 codes
  */
 export function getAlpha2Codes(): Record<string, string> {
   return alpha2;
 }
 
-/*
- * @param name name
- * @param lang language for country name
- * @return ISO 3166-1 alpha-3 or undefined
+/**
+ * Returns the ISO 3166-1 Alpha-3 code or undefined.
+ * @param name country name
+ * @param lang language to lookup for country name.
  */
 export function getAlpha3Code(name: string, lang: string): string | undefined {
-  const alpha2 = exports.getAlpha2Code(name, lang);
+  const alpha2 = getAlpha2Code(name, lang);
   if (alpha2) {
-    return exports.toAlpha3(alpha2);
+    return toAlpha3(alpha2);
   } else {
     return undefined;
   }
 }
 
-/*
- * @param name name
- * @param lang language for country name
- * @return ISO 3166-1 alpha-3 or undefined
+/**
+ * Returns the ISO 3166-1 Alpha-3 code without diacritics or undefined.
+ * @param name country name
+ * @param lang language to lookup for country name.
  */
 export function getSimpleAlpha3Code(
   name: string,
   lang: string
 ): string | undefined {
-  const alpha2 = exports.getSimpleAlpha2Code(name, lang);
+  const alpha2 = getSimpleAlpha2Code(name, lang);
   if (alpha2) {
-    return exports.toAlpha3(alpha2);
+    return toAlpha3(alpha2);
   } else {
     return undefined;
   }
 }
 
-/*
- * @return Object of alpha-3 codes mapped to alpha-2 codes
+/**
+ * A dictionary-like object of alpha-3 codes mapped to alpha-2 codes.
  */
 export function getAlpha3Codes(): Record<string, string> {
   return alpha3;
 }
 
-/*
- * @return Object of numeric codes mapped to alpha-2 codes
+/**
+ * A dictionary-like object of numeric codes mapped to alpha-2 codes.
  */
 export function getNumericCodes(): Record<string, string> {
   return numeric;
 }
 
-/*
- * @return Array of supported languages
+/**
+ * Return an array of supported languages.
  */
 export function langs(): string[] {
   return Object.keys(registeredLocales);
 }
 
-/*
- * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
- * @return Boolean
+/**
+ * Validates the passed ISO 3166 country code.
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code.
  */
 export function isValid(code: string | number | null | undefined): boolean {
   if (!code) {
