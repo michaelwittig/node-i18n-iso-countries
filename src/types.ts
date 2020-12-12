@@ -7,7 +7,7 @@ export type CountryName<T extends GetNameOptions> = T extends { select: 'all' }
   : string;
 
 /** The key represents the alpha2Code of the country. */
-type LocalizedCountry<T extends GetNameOptions> = Record<
+export type LocalizedCountry<T extends GetNameOptions> = Record<
   string,
   CountryName<T>
 >;
@@ -17,7 +17,7 @@ export type LocalizedCountryNames<
 > = LocalizedCountry<T>;
 
 /** The key represents the alpha2Code of the country. */
-type LocaleDataCountry = Record<string, string[] | string>;
+type LocaleDataCountry = Record<string, string | string[]>;
 
 export type LocaleData = {
   locale: string;

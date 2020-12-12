@@ -5,6 +5,7 @@ import {
   CountryName,
   GetNameOptions,
   LocaleData,
+  LocalizedCountry,
   LocalizedCountryNames,
 } from './types';
 
@@ -69,7 +70,7 @@ function hasOwnProperty<T>(
  */
 function localeFilter<T extends GetNameOptions>(
   localeList: LocalizedCountryNames<T>,
-  filter: (nameList: CountryName<T>) => string | string[]
+  filter: (nameList: CountryName<T>) => CountryName<T>
 ): LocalizedCountryNames<T> {
   return Object.keys(localeList).reduce((newLocaleList, alpha2) => {
     const nameList = localeList[alpha2];
@@ -283,9 +284,12 @@ export function getNames<T extends GetNameOptions>(
 ): LocalizedCountryNames<T> {
   const localeList = registeredLocales[lang.toLowerCase()];
   if (localeList === undefined) return {};
-  return localeFilter(localeList, (nameList: string | string[]) => {
-    return filterNameBy(options.select, nameList);
-  });
+  return localeFilter(
+    localeList as LocalizedCountry<T>,
+    (nameList: CountryName<T>) => {
+      return filterNameBy(options.select, nameList) as CountryName<T>;
+    }
+  );
 }
 
 /**
