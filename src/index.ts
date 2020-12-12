@@ -304,16 +304,16 @@ export function getAlpha2Code(name: string, lang: string): string | undefined {
       if (!hasOwnProperty(codenames, p)) {
         continue;
       }
-      if (typeof codenames[p] === 'string') {
-        if (areSimilar(codenames[p], name)) {
-          return p;
-        }
-      }
-      if (Array.isArray(codenames[p])) {
-        for (const mappedName of codenames[p]) {
+      const codename = codenames[p];
+      if (Array.isArray(codename)) {
+        for (const mappedName of codename) {
           if (areSimilar(mappedName, name)) {
             return p;
           }
+        }
+      } else {
+        if (areSimilar(codename, name)) {
+          return p;
         }
       }
     }
@@ -343,16 +343,16 @@ export function getSimpleAlpha2Code(
       if (!hasOwnProperty(codenames, p)) {
         continue;
       }
-      if (typeof codenames[p] === 'string') {
-        if (areSimilar(codenames[p], name)) {
-          return p;
-        }
-      }
-      if (Array.isArray(codenames[p])) {
-        for (const mappedName of codenames[p]) {
+      const codename = codenames[p];
+      if (Array.isArray(codename)) {
+        for (const mappedName of codename) {
           if (areSimilar(mappedName, name)) {
             return p;
           }
+        }
+      } else {
+        if (areSimilar(codename, name)) {
+          return p;
         }
       }
     }
