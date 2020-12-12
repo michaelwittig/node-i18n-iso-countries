@@ -10,7 +10,7 @@ circular:
 
 mocha:
 	@echo "mocha"
-	@./node_modules/.bin/mocha test/*.js
+	@./node_modules/.bin/mocha
 	@echo
 
 test: eslint circular mocha
