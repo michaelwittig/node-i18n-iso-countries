@@ -1,19 +1,19 @@
 "use strict";
 
-var codes = require("./codes.json");
-var removeDiacritics = require("diacritics").remove;
-var registeredLocales = {};
+const codes = require("./codes.json");
+const removeDiacritics = require("diacritics").remove;
+const registeredLocales = {};
 
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
-var alpha2 = {},
+const alpha2 = {},
   alpha3 = {},
   numeric = {},
   invertedNumeric = {};
 
 codes.forEach(function (codeInformation) {
-  var s = codeInformation;
+  const s = codeInformation;
   alpha2[s[0]] = s[1];
   alpha3[s[1]] = s[0];
   numeric[s[2]] = s[0];
@@ -147,7 +147,7 @@ exports.alpha2ToNumeric = alpha2ToNumeric;
  * @return Alpha-3 code or undefined
  */
 function numericToAlpha3(code) {
-  var padded = formatNumericCode(code);
+  const padded = formatNumericCode(code);
   return alpha2ToAlpha3(numeric[padded]);
 }
 exports.numericToAlpha3 = numericToAlpha3;
@@ -157,7 +157,7 @@ exports.numericToAlpha3 = numericToAlpha3;
  * @return Alpha-2 code or undefined
  */
 function numericToAlpha2(code) {
-  var padded = formatNumericCode(code);
+  const padded = formatNumericCode(code);
   return numeric[padded];
 }
 exports.numericToAlpha2 = numericToAlpha2;
@@ -237,7 +237,7 @@ exports.getNames = function (lang, options = {}) {
   if (!("select" in options)) {
     options.select = "official";
   }
-  var localeList = registeredLocales[lang.toLowerCase()];
+  const localeList = registeredLocales[lang.toLowerCase()];
   if (localeList === undefined) return {};
   return localeFilter(localeList, function (nameList) {
     return filterNameBy(options.select, nameList);
@@ -325,9 +325,9 @@ exports.getAlpha2Codes = function () {
  * @return ISO 3166-1 alpha-3 or undefined
  */
 exports.getAlpha3Code = function (name, lang) {
-  var alpha2 = this.getAlpha2Code(name, lang);
+  const alpha2 = exports.getAlpha2Code(name, lang);
   if (alpha2) {
-    return this.toAlpha3(alpha2);
+    return exports.toAlpha3(alpha2);
   } else {
     return undefined;
   }
@@ -339,9 +339,9 @@ exports.getAlpha3Code = function (name, lang) {
  * @return ISO 3166-1 alpha-3 or undefined
  */
 exports.getSimpleAlpha3Code = function (name, lang) {
-  var alpha2 = this.getSimpleAlpha2Code(name, lang);
+  const alpha2 = exports.getSimpleAlpha2Code(name, lang);
   if (alpha2) {
-    return this.toAlpha3(alpha2);
+    return exports.toAlpha3(alpha2);
   } else {
     return undefined;
   }
@@ -377,7 +377,7 @@ exports.isValid = function (code) {
     return false;
   }
 
-  var coerced = code.toString().toUpperCase();
+  const coerced = code.toString().toUpperCase();
   return (
     hasOwnProperty(alpha3, coerced) ||
     hasOwnProperty(alpha2, coerced) ||
