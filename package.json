@@ -113,7 +113,7 @@
   },
   "scripts": {
     "test": "make test",
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint **/*.js"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
