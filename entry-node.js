@@ -1,6 +1,20 @@
 var library = require("./index");
 
 var locales = [
+  require("./langs/af.json"),
+  require("./langs/am.json"),
+  require("./langs/ha.json"),
+  require("./langs/ku.json"),
+  require("./langs/ml.json"),
+  require("./langs/no.json"),
+  require("./langs/ps.json"),
+  require("./langs/sd.json"),
+  require("./langs/so.json"),
+  require("./langs/sq.json"),
+  require("./langs/ta.json"),
+  require("./langs/tg.json"),
+  require("./langs/tt.json"),
+  require("./langs/ug.json"),
   require("./langs/ur.json"),
   require("./langs/vi.json"),
   require("./langs/ar.json"),
