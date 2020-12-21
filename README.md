@@ -48,6 +48,8 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 
 > In case you want to add new language, please refer [ISO 639-1 table][iso:639-1].
 
+- `af`: Afrikaans
+- `am`: Amharic
 - `ar`: Arabic
 - `az`: Azerbaijani
 - `be`: Belorussian
@@ -66,6 +68,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `fr`: French
 - `gl`: Galician
 - `el`: Greek
+- `ha`: Hausa
 - `he`: Hebrew
 - `hi`: Hindi
 - `hr`: Croatian
@@ -78,25 +81,36 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `ka`: Georgian
 - `kk`: Kazakh
 - `ko`: Korean
+- `ku`: Kurdish
 - `ky`: Kyrgyz
 - `lt`: Lithuanian
 - `lv`: Latvian
 - `mk`: Macedonian
+- `ml`: Malayalam
 - `mn`: Mongolian
 - `ms`: Malay
 - `nb`: Norwegian Bokmål
 - `nl`: Dutch
 - `nn`: Norwegian Nynorsk
+- `no`: Norwegian
 - `pl`: Polish
+- `ps`: Pashto
 - `pt`: Portuguese
 - `ro`: Romanian
 - `ru`: Russian
+- `sd`: Sindhi
 - `sk`: Slovak
 - `sl`: Slovene
+- `so`: Somali
+- `sq`: Albanian
 - `sr`: Serbian
 - `sv`: Swedish
+- `ta`: Tamil
+- `tg`: Tajik
 - `th`: Thai
 - `tr`: Turkish
+- `tt`: Tatar
+- `ug`: Uyghur
 - `uk`: Ukrainian
 - `ur`: Urdu
 - `uz`: Uzbek
