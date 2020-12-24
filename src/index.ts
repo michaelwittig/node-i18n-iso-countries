@@ -11,8 +11,7 @@ import {
 
 // TODO: Should we replace this package by a modern version like normalize-diacritics?
 // https://github.com/motss/normalize-diacritics
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const removeDiacritics = require('diacritics').remove;
+import * as diacritics from 'diacritics';
 
 const registeredLocales = {} as Record<string, LocaleData['countries']>;
 
@@ -337,7 +336,7 @@ export function getSimpleAlpha2Code(
   lang: string
 ): string | undefined {
   const normalizeString = (str: string): string =>
-    removeDiacritics(str.toLowerCase());
+    diacritics.remove(str.toLowerCase());
   const areSimilar = (a: string, b: string): boolean =>
     normalizeString(a) === normalizeString(b);
 
