@@ -132,7 +132,8 @@
   },
   "scripts": {
     "test": "make test",
-    "lint": "eslint **/*.ts"
+    "lint": "eslint **/*.ts",
+    "build": "tsc -p tsconfig.json"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
