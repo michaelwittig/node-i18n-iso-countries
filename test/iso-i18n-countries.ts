@@ -10,7 +10,8 @@ describe('i18n for iso 3166-1', function () {
   });
   describe('Alpha-2 to Alpha-3 code', function () {
     it('toAlpha3 true => undefined', function () {
-      assert.strictEqual(i18niso.toAlpha3('random'), undefined);
+      // @ts-expect-error passing a boolean yields undefined country data
+      assert.strictEqual(i18niso.toAlpha3(true), undefined);
     });
     it('toAlpha3 XX => undefined', function () {
       assert.strictEqual(i18niso.toAlpha3('XX'), undefined);
@@ -29,7 +30,8 @@ describe('i18n for iso 3166-1', function () {
   });
   describe('Alpha-3 to Alpha-2 code', function () {
     it('toAlpha2 true => undefined', function () {
-      assert.strictEqual(i18niso.toAlpha2('random'), undefined);
+      // @ts-expect-error passing a boolean yields undefined country data
+      assert.strictEqual(i18niso.toAlpha2(true), undefined);
     });
     it('toAlpha2 XXX => undefined', function () {
       assert.strictEqual(i18niso.toAlpha2('XXX'), undefined);
@@ -184,7 +186,8 @@ describe('i18n for iso 3166-1', function () {
   });
   describe('isValid', function () {
     it('isValid true => false', function () {
-      assert.strictEqual(i18niso.isValid('random'), false);
+      // @ts-expect-error passing a boolean yields invalid
+      assert.strictEqual(i18niso.isValid(true), false);
     });
     it('isValid XX => false', function () {
       assert.strictEqual(i18niso.isValid('XX'), false);
