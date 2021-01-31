@@ -41,21 +41,21 @@ export function getAlpha3Codes(): { [alpha3Key: string]: string };
 export function getNumericCodes(): { [numericKey: string]: string };
 
 /**
- * @param contryCode  Alpha2 or Alpha3 or Numeric
+ * @param countryCode  Alpha2 or Alpha3 or Numeric
  * @param lang        ISO 639-1 format string
  */
 export function getName(
-  contryCode: string | number | Alpha2Code | Alpha3Code,
+  countryCode: string | number | Alpha2Code | Alpha3Code,
   lang: string
 ): string;
 
 /**
- * @param contryCode  Alpha2 or Alpha3 or Numeric
+ * @param countryCode  Alpha2 or Alpha3 or Numeric
  * @param lang        ISO 639-1 format string
  * @param options     Optional config of getName
  */
 export function getName<T extends GetNameOptions>(
-  contryCode: string | number | Alpha2Code | Alpha3Code,
+  countryCode: string | number | Alpha2Code | Alpha3Code,
   lang: string,
   options: T
 ): CountryName<T>;
