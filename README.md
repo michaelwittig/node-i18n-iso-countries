@@ -81,6 +81,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `ka`: Georgian
 - `kh`: Khmer
 - `kk`: Kazakh
+- `km`: Khmer
 - `ko`: Korean
 - `ku`: Kurdish
 - `ky`: Kyrgyz
