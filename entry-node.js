@@ -47,6 +47,7 @@ var locales = [
   require("./langs/ja.json"),
   require("./langs/ka.json"),
   require("./langs/kk.json"),
+  require("./langs/km.json"),
   require("./langs/ko.json"),
   require("./langs/ky.json"),
   require("./langs/lt.json"),
