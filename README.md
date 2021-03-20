@@ -63,6 +63,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `en`: English
 - `es`: Spanish
 - `et`: Estonian
+- `eu`: Basque
 - `fa`: Persian
 - `fi`: Finnish
 - `fr`: French
