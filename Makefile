@@ -10,7 +10,7 @@ circular:
 
 mocha:
 	@echo "mocha"
-	@./node_modules/.bin/mocha
+	@TS_NODE_PROJECT='./test/tsconfig.test.json' ./node_modules/.bin/mocha
 	@echo
 
 test: eslint circular mocha
