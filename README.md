@@ -63,6 +63,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `en`: English
 - `es`: Spanish
 - `et`: Estonian
+- `eu`: Basque
 - `fa`: Persian
 - `fi`: Finnish
 - `fr`: French
@@ -80,6 +81,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `ja`: Japanese
 - `ka`: Georgian
 - `kk`: Kazakh
+- `km`: Khmer
 - `ko`: Korean
 - `ku`: Kurdish
 - `ky`: Kyrgyz

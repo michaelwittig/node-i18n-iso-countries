@@ -18,6 +18,7 @@ const locales = [
   require('./langs/en.json'),
   require('./langs/es.json'),
   require('./langs/et.json'),
+  require('./langs/eu.json'),
   require('./langs/fa.json'),
   require('./langs/fi.json'),
   require('./langs/fr.json'),
