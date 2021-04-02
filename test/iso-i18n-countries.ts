@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { library as i18niso } from '../dist/entry-node';
+import { library as i18niso } from '../src/entry-node';
 
 describe('i18n for iso 3166-1', function () {
   'use strict';
