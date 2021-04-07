@@ -60,6 +60,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `cs`: Czech
 - `da`: Danish
 - `de`: German
+- `dv`: Dhivehi
 - `en`: English
 - `es`: Spanish
 - `et`: Estonian
