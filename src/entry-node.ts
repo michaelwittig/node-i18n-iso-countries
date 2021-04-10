@@ -1,4 +1,5 @@
-import { registerLocale } from './index';
+import { registerLocale } from './lib';
+
 import { LocaleAF } from './langs/af';
 import { LocaleAM } from './langs/am';
 import { LocaleAR } from './langs/ar';
@@ -145,4 +146,4 @@ for (let i = 0; i < locales.length; i++) {
   registerLocale(locales[i]);
 }
 
-export * as library from './index';
+export * as library from './lib';
