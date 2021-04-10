@@ -60,6 +60,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `cs`: Czech
 - `da`: Danish
 - `de`: German
+- `dv`: Dhivehi
 - `en`: English
 - `es`: Spanish
 - `et`: Estonian
@@ -107,6 +108,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `sq`: Albanian
 - `sr`: Serbian
 - `sv`: Swedish
+- `sw`: Swahili
 - `ta`: Tamil
 - `tg`: Tajik
 - `th`: Thai

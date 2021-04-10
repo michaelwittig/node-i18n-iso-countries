@@ -12,6 +12,7 @@ import { LocaleCA } from './langs/ca';
 import { LocaleCS } from './langs/cs';
 import { LocaleDA } from './langs/da';
 import { LocaleDE } from './langs/de';
+import { LocaleDV } from './langs/dv';
 import { LocaleEL } from './langs/el';
 import { LocaleEN } from './langs/en';
 import { LocaleES } from './langs/es';
@@ -58,6 +59,7 @@ import { LocaleSO } from './langs/so';
 import { LocaleSQ } from './langs/sq';
 import { LocaleSR } from './langs/sr';
 import { LocaleSV } from './langs/sv';
+import { LocaleSW } from './langs/sw';
 import { LocaleTA } from './langs/ta';
 import { LocaleTG } from './langs/tg';
 import { LocaleTH } from './langs/th';
@@ -83,6 +85,7 @@ const locales = [
   LocaleCS,
   LocaleDA,
   LocaleDE,
+  LocaleDV,
   LocaleEL,
   LocaleEN,
   LocaleES,
@@ -129,6 +132,7 @@ const locales = [
   LocaleSQ,
   LocaleSR,
   LocaleSV,
+  LocaleSW,
   LocaleTA,
   LocaleTG,
   LocaleTH,
