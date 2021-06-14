@@ -58,6 +58,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `bs`: Bosnian
 - `ca`: Catalan
 - `cs`: Czech
+- `cy`: Cymraeg
 - `da`: Danish
 - `de`: German
 - `dv`: Dhivehi
