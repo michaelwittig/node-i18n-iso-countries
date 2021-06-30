@@ -223,7 +223,7 @@
     "UG": "Oeganda",
     "UA": "Oekraïne",
     "AE": "Verenigde Arabische Emiraten",
-    "GB": "Verenigd Koninkrijk",
+    "GB": ["Groot-Brittannië", "Verenigd Koninkrijk"],
     "US": ["Verenigde Staten van Amerika", "Verenigde Staten"],
     "UM": "Ver afgelegen eilandjes van de Verenigde Staten",
     "UY": "Uruguay",
