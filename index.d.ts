@@ -4,7 +4,7 @@ export interface GetNameOptions {
 
 export type CountryName<T extends GetNameOptions> = T extends { select: 'all' } ? string[] : string
 
-export type LocalizedCountryNames<T extends GetNameOptions> = Record<Alpha2Code,  CountryName<T>;
+export type LocalizedCountryNames<T extends GetNameOptions> = Record<Alpha2Code,  CountryName<T>>;
 
 export type LocaleData = {
   locale: string,
@@ -13,13 +13,14 @@ export type LocaleData = {
   }
 };
 
+type Normalize<Input extends string | number> = Input extends string ? Lowercase<Input> : Input;
 
 
 export function registerLocale(localeData: LocaleData): void;
-export function alpha2ToAlpha3<Input extends string>(alpha2: Input): Lowercase<Input> extends Lowercase<Alpha2Code> ? Alpha3Code : Alpha3Code | undefined;
-export function alpha2ToNumeric<Input extends string>(alpha2: Input): Lowercase<Input> extends Lowercase<Alpha2Code> ? StringNumericCode : StringNumericCode | undefined;
-export function alpha3ToAlpha2<Input extends string>(alpha3: Input): Lowercase<Input> extends Lowercase<Alpha3Code> ? Alpha2Code : Alpha2Code | undefined;
-export function alpha3ToNumeric<Input extends string>(alpha3: Input): Lowercase<Input> extends Lowercase<Alpha3Code> ? StringNumericCode : StringNumericCode | undefined;
+export function alpha2ToAlpha3<Input extends string>(alpha2: Input): Normalize<Input> extends Normalize<Alpha2Code> ? Alpha3Code : Alpha3Code | undefined;
+export function alpha2ToNumeric<Input extends string>(alpha2: Input): Normalize<Input> extends Normalize<Alpha2Code> ? StringNumericCode : StringNumericCode | undefined;
+export function alpha3ToAlpha2<Input extends string>(alpha3: Input): Normalize<Input> extends Normalize<Alpha3Code> ? Alpha2Code : Alpha2Code | undefined;
+export function alpha3ToNumeric<Input extends string>(alpha3: Input): Normalize<Input> extends Normalize<Alpha3Code> ? StringNumericCode : StringNumericCode | undefined;
 export function numericToAlpha2<Input extends string | number>(numeric: Input): Input extends NumericCode ? Alpha2Code : Alpha2Code | undefined;
 export function numericToAlpha3<Input extends string | number>(numeric: Input): Input extends NumericCode ? Alpha3Code : Alpha3Code | undefined;
 
@@ -76,10 +77,10 @@ export function getSimpleAlpha3Code(name: string, lang: string): Alpha3Code | un
 export function langs(): string[];
 export function toAlpha3<Input extends string | number>(
   alpha2orNumeric: Input
-): Input extends Alpha2Code | NumericCode ? Alpha3Code : (Alpha3Code| undefined);
+): Normalize<Input> extends Normalize<Alpha2Code> | NumericCode ? Alpha3Code : (Alpha3Code| undefined);
 export function toAlpha2<Input extends string | number>(
   alpha3orNumeric: Input
-): Input extends (Alpha3Code | NumericCode) ? Alpha2Code : (Alpha2Code | undefined);
+): Normalize<Input> extends Normalize<Alpha3Code> | NumericCode ? Alpha2Code : (Alpha2Code | undefined);
 export function isValid(alpha2orAlpha3orNumeric: string | number): alpha2orAlpha3orNumeric is NumericCode | Alpha2Code | Alpha3Code;
 
 export type StringNumericCode =
