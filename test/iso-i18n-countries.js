@@ -267,6 +267,12 @@ describe("i18n for iso 3166-1", function () {
             "US"
           );
         });
+        it("nameToAlpha2 United States => US", function () {
+          assert.strictEqual(
+            i18niso.getAlpha2Code("United States", lang),
+            "US"
+          );
+        });
         it("nameToAlpha2 Brazil => BR", function () {
           assert.strictEqual(i18niso.getAlpha2Code("Brazil", lang), "BR");
         });
