@@ -252,7 +252,7 @@ To add a language:
 - add the language to the `data` object in entry-node.js at the top
 - add language to section **Supported languages** in [README.md](#supported-languages-iso-639-1)
 - add language to keywords in [package.json](package.json)
-- run `npm test` to make sure that tests are passing
+- run `npm run lint` and `npm test`
 - open a PR on GitHub
 
 You can check codes here: https://www.iso.org/obp/ui/#home
