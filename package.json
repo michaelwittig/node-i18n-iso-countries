@@ -1,6 +1,6 @@
 {
   "name": "i18n-iso-countries",
-  "version": "6.9.0",
+  "version": "7.0.0",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.ts",
   "keywords": [
@@ -126,7 +126,7 @@
   "main": "entry-node",
   "browser": "index",
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "scripts": {
     "test": "mocha test/*.js",
