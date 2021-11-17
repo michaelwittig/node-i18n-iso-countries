@@ -42,6 +42,20 @@ var countries = require("i18n-iso-countries");
 console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
 ```
 
+### Get aliases using select
+
+```javascript
+// Some countries have alias names defined. `select` is used to control which
+// name will be returned.
+console.log("GB (select: official) => " + countries.getName("GB", "en", {select: "official"})); // United Kingdom
+console.log("GB (select: alias) => " + countries.getName("GB", "en", {select: "alias"})); // UK
+console.log("GB (select: all) => " + countries.getName("GB", "en", {select: "all"})); // ["United Kingdom", "UK", "Great Britain"]
+// Countries without an alias will always return the offical name
+console.log("LT (select: official) => " + countries.getName("LT", "en", {select: "official"})); // Lithuania
+console.log("LT (select: alias) => " + countries.getName("LT", "en", {select: "alias"})); // Lithuania
+console.log("LT (select: all) => " + countries.getName("LT", "en", {select: "all"})); // ["Lithuania"]
+```
+
 ### Supported languages (ISO 639-1)
 
 > In case you want to add new language, please refer [ISO 639-1 table][iso:639-1].
