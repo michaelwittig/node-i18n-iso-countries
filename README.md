@@ -143,7 +143,7 @@ var countries = require("i18n-iso-countries");
 console.log(
   "List of supported languages => " + countries.getSupportedLanguages()
 );
-// List of supported languages => ["cy","dv", "sw", "eu", "af", "am", ...]
+// List of supported languages => ["cy", "dv", "sw", "eu", "af", "am", ...]
 ```
 
 ### Country to Code

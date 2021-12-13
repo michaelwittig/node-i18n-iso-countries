@@ -5,8 +5,6 @@ const supportedLocales = require("./supportedLocales.json");
 const removeDiacritics = require("diacritics").remove;
 const registeredLocales = {};
 
-exports.supportedLocales = supportedLocales;
-
 /*
  * All codes map to ISO 3166-1 alpha-2
  */
