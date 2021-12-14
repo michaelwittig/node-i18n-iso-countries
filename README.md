@@ -136,6 +136,16 @@ console.log("LT (select: all) => " + countries.getName("LT", "en", {select: "all
 
 [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
+### Get all supported languages (ISO 639-1)
+
+```javascript
+var countries = require("i18n-iso-countries");
+console.log(
+  "List of supported languages => " + countries.getSupportedLanguages()
+);
+// List of supported languages => ["cy", "dv", "sw", "eu", "af", "am", ...]
+```
+
 ### Country to Code
 
 ```javascript
@@ -261,7 +271,7 @@ console.log(
 To add a language:
 
 - add a json file under [langs/](langs)
-- add the language to the `data` object in entry-node.js at the top
+- add the language to the list in supportedLocales.json at the top
 - add language to section **Supported languages** in [README.md](#supported-languages-iso-639-1)
 - add language to keywords in [package.json](package.json)
 - run `npm run lint` and `npm test`

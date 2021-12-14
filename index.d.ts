@@ -79,6 +79,7 @@ export function getSimpleAlpha2Code(name: string, lang: string): string;
 export function getAlpha3Code(name: string, lang: string): string;
 export function getSimpleAlpha3Code(name: string, lang: string): string;
 export function langs(): string[];
+export function getSupportedLanguages(): string[];
 export function toAlpha3(
   alpha2orNumeric: number | string | Alpha2Code
 ): string;

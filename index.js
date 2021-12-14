@@ -1,6 +1,7 @@
 "use strict";
 
 const codes = require("./codes.json");
+const supportedLocales = require("./supportedLocales.json");
 const removeDiacritics = require("diacritics").remove;
 const registeredLocales = {};
 
@@ -362,10 +363,17 @@ exports.getNumericCodes = function () {
 };
 
 /*
- * @return Array of supported languages
+ * @return Array of registered languages
  */
 exports.langs = function () {
   return Object.keys(registeredLocales);
+};
+
+/*
+ * @return Array of supported languages
+ */
+exports.getSupportedLanguages = function () {
+  return supportedLocales;
 };
 
 /*
