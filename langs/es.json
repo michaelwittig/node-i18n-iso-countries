@@ -101,7 +101,7 @@
     "IS": "Islandia",
     "IN": "India",
     "ID": "Indonesia",
-    "IR": "Irán (República Islámica de)",
+    "IR": ["Irán", "República Islámica de Irán"],
     "IQ": "Iraq",
     "IE": "Irlanda",
     "IL": "Israel",
