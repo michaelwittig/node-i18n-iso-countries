@@ -50,7 +50,7 @@
     "CO": "Colombia",
     "KM": "Comoros",
     "CG": "Congo",
-    "CD": "Congo, the Democratic Republic of the",
+    "CD": ["Congo", "Democratic Republic of the Congo"],
     "CK": "Cook Islands",
     "CR": "Costa Rica",
     "CI": "Cote D'Ivoire",
