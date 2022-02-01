@@ -28,24 +28,16 @@ countries.registerLocale(require("i18n-iso-countries/langs/fr.json"));
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log("US (Alpha-2) => " + countries.getName("US", "en", {select: "official"})); // United States of America
-console.log("US (Alpha-2) => " + countries.getName("US", "de", {select: "official"})); // Vereinigte Staaten von Amerika
-console.log("USA (Alpha-3) => " + countries.getName("USA", "en", {select: "official"})); // United States of America
-console.log("USA (Numeric) => " + countries.getName("840", "en", {select: "official"})); // United States of America
+console.log("US (Alpha-2) => " + countries.getName("US", "en")); // United States of America
+console.log("US (Alpha-2) => " + countries.getName("US", "de")); // Vereinigte Staaten von Amerika
+console.log("USA (Alpha-3) => " + countries.getName("USA", "en")); // United States of America
+console.log("USA (Numeric) => " + countries.getName("840", "en")); // United States of America
 ```
 
-### Get all names by their ISO 3166-1 Alpha-2 code
+#### Get aliases/short name using select
 
 ```javascript
-var countries = require("i18n-iso-countries");
-// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
-```
-
-### Get aliases using select
-
-```javascript
-// Some countries have alias names defined. `select` is used to control which
+// Some countries have alias/short names defined. `select` is used to control which
 // name will be returned.
 console.log("GB (select: official) => " + countries.getName("GB", "en", {select: "official"})); // United Kingdom
 console.log("GB (select: alias) => " + countries.getName("GB", "en", {select: "alias"})); // UK
@@ -54,6 +46,14 @@ console.log("GB (select: all) => " + countries.getName("GB", "en", {select: "all
 console.log("LT (select: official) => " + countries.getName("LT", "en", {select: "official"})); // Lithuania
 console.log("LT (select: alias) => " + countries.getName("LT", "en", {select: "alias"})); // Lithuania
 console.log("LT (select: all) => " + countries.getName("LT", "en", {select: "all"})); // ["Lithuania"]
+```
+
+### Get all names by their ISO 3166-1 Alpha-2 code
+
+```javascript
+var countries = require("i18n-iso-countries");
+// in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghanistan', 'AL': 'Albania', [...], 'ZM': 'Zambia', 'ZW': 'Zimbabwe' }
 ```
 
 ### Supported languages (ISO 639-1)
@@ -140,9 +140,7 @@ console.log("LT (select: all) => " + countries.getName("LT", "en", {select: "all
 
 ```javascript
 var countries = require("i18n-iso-countries");
-console.log(
-  "List of supported languages => " + countries.getSupportedLanguages()
-);
+console.log("List of supported languages => " + countries.getSupportedLanguages());
 // List of supported languages => ["cy", "dv", "sw", "eu", "af", "am", ...]
 ```
 
@@ -151,16 +149,10 @@ console.log(
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(
-  "United States of America => " +
-    countries.getAlpha2Code("United States of America", "en")
-);
+console.log("United States of America => " + countries.getAlpha2Code("United States of America", "en"));
 // United States of America => US
 
-console.log(
-  "United States of America => " +
-    countries.getAlpha3Code("United States of America", "en")
-);
+console.log("United States of America => " + countries.getAlpha3Code("United States of America", "en"));
 // United States of America => USA
 ```
 
@@ -171,9 +163,7 @@ console.log(
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(
-  "USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)"
-);
+console.log("USA (Alpha-3) => " + countries.alpha3ToAlpha2("USA") + " (Alpha-2)");
 // USA (Alpha-3) => US (Alpha-2)
 ```
 
@@ -182,9 +172,7 @@ console.log(
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(
-  "840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)"
-);
+console.log("840 (Numeric) => " + countries.numericToAlpha2("840") + " (Alpha-2)");
 // 840 (Numeric) => US (Alpha-2)
 ```
 
@@ -202,9 +190,7 @@ console.log("DE (Alpha-2) => " + countries.alpha2ToAlpha3("DE") + " (Alpha-3)");
 ```javascript
 var countries = require("i18n-iso-countries");
 // in a browser environment: countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-console.log(
-  "840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)"
-);
+console.log("840 (Numeric) => " + countries.numericToAlpha3("840") + " (Alpha-3)");
 // 840 (Numeric) => USA (Alpha-3)
 ```
 
