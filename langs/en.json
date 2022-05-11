@@ -53,7 +53,7 @@
     "CD": ["Democratic Republic of the Congo", "Congo"],
     "CK": "Cook Islands",
     "CR": "Costa Rica",
-    "CI": "Cote D'Ivoire",
+    "CI": ["Cote D'Ivoire","Ivory Coast"],
     "HR": "Croatia",
     "CU": "Cuba",
     "CY": "Cyprus",
