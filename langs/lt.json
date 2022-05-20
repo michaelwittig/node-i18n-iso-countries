@@ -79,7 +79,7 @@
     "GA": "Gabonas",
     "GB": "Jungtinė Karalystė",
     "GD": "Grenada",
-    "GE": "Gruzija",
+    "GE":  ["Sakartvelas", "Gruzija"],
     "GF": "Prancūzijos Gviana",
     "GG": "Gernsis",
     "GH": "Gana",
