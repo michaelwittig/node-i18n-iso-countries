@@ -145,7 +145,10 @@
     "test": "jest",
     "lint": "eslint **/*.ts",
     "prebuild": "rimraf -rf ./dist",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release"
   },
   "bugs": {
     "url": "https://github.com/michaelwittig/node-i18n-iso-countries/issues"
