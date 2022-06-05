@@ -1,13 +1,24 @@
 {
-  "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
   "env": {
     "node": true,
     "es6": true
   },
   "overrides": [
     {
-      "files": ["test/**"],
+      "files": [
+        "test/**"
+      ],
       "env": {
         "mocha": true
       }
@@ -19,6 +30,7 @@
       {
         "endOfLine": "auto"
       }
-    ]
+    ],
+    "@typescript-eslint/explicit-function-return-type": ["error"]
   }
 }
