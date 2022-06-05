@@ -1,5 +1,5 @@
-var assert = require("assert");
-var i18niso = require("../");
+import assert from "assert";
+import { library as i18niso } from "./entry-node";
 
 describe("i18n for iso 3166-1", function () {
   "use strict";
@@ -10,6 +10,7 @@ describe("i18n for iso 3166-1", function () {
   });
   describe("Alpha-2 to Alpha-3 code", function () {
     it("toAlpha3 true => undefined", function () {
+      // @ts-expect-error passing a boolean yields undefined country data
       assert.strictEqual(i18niso.toAlpha3(true), undefined);
     });
     it("toAlpha3 XX => undefined", function () {
@@ -29,6 +30,7 @@ describe("i18n for iso 3166-1", function () {
   });
   describe("Alpha-3 to Alpha-2 code", function () {
     it("toAlpha2 true => undefined", function () {
+      // @ts-expect-error passing a boolean yields undefined country data
       assert.strictEqual(i18niso.toAlpha2(true), undefined);
     });
     it("toAlpha2 XXX => undefined", function () {
@@ -184,6 +186,7 @@ describe("i18n for iso 3166-1", function () {
   });
   describe("isValid", function () {
     it("isValid true => false", function () {
+      // @ts-expect-error passing a boolean yields invalid
       assert.strictEqual(i18niso.isValid(true), false);
     });
     it("isValid XX => false", function () {
@@ -239,7 +242,7 @@ describe("i18n for iso 3166-1", function () {
   });
   describe("langs", function () {
     describe("de", function () {
-      var lang = "de";
+      const lang = "de";
       describe("get name", function () {
         it("for de", function () {
           assert.strictEqual(i18niso.getName("de", lang), "Deutschland");
@@ -259,17 +262,11 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("en", function () {
-      var lang = "en";
+      const lang = "en";
       describe("get Alpha-2 code", function () {
         it("nameToAlpha2 United States of America => US", function () {
           assert.strictEqual(
             i18niso.getAlpha2Code("United States of America", lang),
-            "US"
-          );
-        });
-        it("nameToAlpha2 United States => US", function () {
-          assert.strictEqual(
-            i18niso.getAlpha2Code("United States", lang),
             "US"
           );
         });
@@ -307,7 +304,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("id", function () {
-      var lang = "id";
+      const lang = "id";
       describe("get Alpha-2 code", function () {
         it("nameToAlpha2 Amerika Serika => AS", function () {
           assert.strictEqual(
@@ -349,7 +346,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("pl", function () {
-      var lang = "pl";
+      const lang = "pl";
       describe("get Alpha-2 code", function () {
         it("nameToAlpha2 Brazylia => BR", function () {
           assert.strictEqual(i18niso.getAlpha2Code("Brazylia", lang), "BR");
@@ -394,7 +391,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("el", function () {
-      var lang = "el";
+      const lang = "el";
       describe("get Alpha-2 code", function () {
         it("nameToAlpha2 'Βραζιλία' => BR", function () {
           assert.strictEqual(i18niso.getAlpha2Code("Βραζιλία", lang), "BR");
@@ -439,7 +436,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("fr", function () {
-      var lang = "fr";
+      const lang = "fr";
       describe("get name", function () {
         it("for fr => France", function () {
           assert.strictEqual(i18niso.getName("fr", lang), "France");
@@ -447,7 +444,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("pt", function () {
-      var lang = "pt";
+      const lang = "pt";
       describe("get Alpha-2 code", function () {
         it("nameToAlpha2 Estados Unidos => US", function () {
           assert.strictEqual(
@@ -486,7 +483,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("vi", function () {
-      var lang = "vi";
+      const lang = "vi";
       describe("get name", function () {
         it("for eg => Ai Cập", function () {
           assert.strictEqual(i18niso.getName("eg", lang), "Ai Cập");
@@ -518,7 +515,7 @@ describe("i18n for iso 3166-1", function () {
       });
     });
     describe("unsupported language", function () {
-      var lang = "unsupported";
+      const lang = "unsupported";
       it("get name => undefined", function () {
         assert.strictEqual(i18niso.getName("de", lang), undefined);
       });

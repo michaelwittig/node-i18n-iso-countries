@@ -1,6 +1,0 @@
-{
-    "name": "i18n-iso-countries/langs",
-    "private": true,
-    "main": "../dist/langs/index.js",
-    "typings": "../dist/langs/index.d.ts"
-}
