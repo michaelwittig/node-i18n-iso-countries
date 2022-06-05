@@ -1,0 +1,33 @@
+{
+  "automerge": true,
+  "automergeType": "branch",
+  "branchConcurrentLimit": 2,
+  "extends": ["config:base", "group:allNonMajor", "schedule:weekly", ":pinDependencies"],
+  "labels": ["chore", "dependencies"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "semanticCommits": "enabled",
+  "separateMajorMinor": false,
+  "timezone": "Europe/Berlin",
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  },
+  "packageRules": [
+    {
+      "packageNames": ["@types/jest", "jest", "ts-jest"],
+      "groupName": "jest",
+      "groupSlug": "jest"
+    },
+    {
+      "packageNames": [
+        "semantic-release",
+        "@semantic-release/changelog",
+        "@semantic-release/git",
+        "@semantic-release/npm"
+      ],
+      "groupName": "semantic-release",
+      "groupSlug": "semantic-release"
+    }
+  ]
+}

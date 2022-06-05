@@ -1,31 +1,21 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
-  "env": {
-    "node": true,
-    "es6": true
+  "globals": {
+    "_": "readonly"
   },
-  "overrides": [
-    {
-      "files": ["test/**"],
-      "env": {
-        "mocha": true
-      }
-    }
-  ],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
-    "@typescript-eslint/explicit-function-return-type": ["error"]
-  }
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "no-irregular-whitespace": 0
+  },
+  "parser": "@typescript-eslint/parser"
 }
