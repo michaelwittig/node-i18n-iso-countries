@@ -309,9 +309,9 @@ describe("i18n for iso 3166-1", function () {
     describe("id", function () {
       var lang = "id";
       describe("get Alpha-2 code", function () {
-        it("nameToAlpha2 Amerika Serika => AS", function () {
+        it("nameToAlpha2 Samoa Amerika => AS", function () {
           assert.strictEqual(
-            i18niso.getAlpha2Code("Amerika Serikat", lang),
+            i18niso.getAlpha2Code("Samoa Amerika", lang),
             "AS"
           );
         });
@@ -320,9 +320,9 @@ describe("i18n for iso 3166-1", function () {
         });
       });
       describe("get Alpha-3 code", function () {
-        it("nameToAlpha3 Amerika Serikat => ASM", function () {
+        it("nameToAlpha3 Samoa Amerika => ASM", function () {
           assert.strictEqual(
-            i18niso.getAlpha3Code("Amerika Serikat", lang),
+            i18niso.getAlpha3Code("Samoa Amerika", lang),
             "ASM"
           );
         });
