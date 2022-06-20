@@ -59,6 +59,7 @@
     "mk",
     "ml",
     "mn",
+    "mr",
     "ms",
     "nb",
     "nl",
@@ -106,6 +107,10 @@
     {
       "name": "Johann Behr",
       "email": "behr@oak-labs.com"
+    },
+    {
+      "name": "Omkar Tapale",
+      "email": "omkartapale@gmail.com"
     }
   ],
   "license": "MIT",

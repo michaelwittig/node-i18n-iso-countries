@@ -517,6 +517,33 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("mr", function () {
+      var lang = "mr";
+      describe("get Alpha-2 code", function () {
+        it("nameToAlpha2 अमेरिका => US", function () {
+          assert.strictEqual(i18niso.getAlpha2Code("अमेरिका", lang), "US");
+        });
+        it("nameToAlpha2 Brazil => BR", function () {
+          assert.strictEqual(i18niso.getAlpha2Code("ब्राझील", lang), "BR");
+        });
+      });
+      describe("get Alpha-3 code", function () {
+        it("nameToAlpha3 अमेरिका => USA", function () {
+          assert.strictEqual(i18niso.getAlpha3Code("अमेरिका", lang), "USA");
+        });
+        it("nameToAlpha3 ब्राझील => BRA", function () {
+          assert.strictEqual(i18niso.getAlpha3Code("ब्राझील", lang), "BRA");
+        });
+      });
+      describe("get name", function () {
+        it("for de", function () {
+          assert.strictEqual(i18niso.getName("de", lang), "जर्मनी");
+        });
+        it("for in", function () {
+          assert.strictEqual(i18niso.getName("in", lang), "भारत");
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name => undefined", function () {

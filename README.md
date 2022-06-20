@@ -103,6 +103,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `mk`: Macedonian
 - `ml`: Malayalam
 - `mn`: Mongolian
+- `mr`: Marathi
 - `ms`: Malay
 - `nb`: Norwegian Bokmål
 - `nl`: Dutch
