@@ -57,7 +57,7 @@
     "HR": "Croatia",
     "CU": "Cuba",
     "CY": "Cyprus",
-    "CZ": "Czech Republic",
+    "CZ": ["Czech Republic", "Czechia"],
     "DK": "Denmark",
     "DJ": "Djibouti",
     "DM": "Dominica",
