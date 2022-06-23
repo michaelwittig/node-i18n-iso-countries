@@ -1,6 +1,6 @@
 {
   "name": "i18n-iso-countries",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.ts",
   "keywords": [
