@@ -22,6 +22,7 @@
     "be",
     "bg",
     "bn",
+    "br",
     "bs",
     "ca",
     "cs",
@@ -111,6 +112,10 @@
     {
       "name": "Omkar Tapale",
       "email": "omkartapale@gmail.com"
+    },
+    {
+      "name": "Alexis Launay",
+      "email": "yorunohikage@gmail.com"
     }
   ],
   "license": "MIT",
