@@ -480,6 +480,51 @@ describe("i18n for iso 3166-1", function () {
         it("for br => Brasil", function () {
           assert.strictEqual(i18niso.getName("br", lang), "Brasil");
         });
+        it("for si => Eslovénia", function () {
+          assert.strictEqual(i18niso.getName("si", lang), "Eslovénia");
+        });
+        it("for us => Estados Unidos", function () {
+          assert.strictEqual(i18niso.getName("us", lang), "Estados Unidos");
+        });
+      });
+    });
+    describe("pt-br", function () {
+      var lang = "pt-br";
+      describe("get Alpha-2 code", function () {
+        it("nameToAlpha2 Estados Unidos => US", function () {
+          assert.strictEqual(
+            i18niso.getAlpha2Code("Estados Unidos", lang),
+            "US"
+          );
+        });
+        it("nameToAlpha2 Estados Unidos da América => US", function () {
+          assert.strictEqual(
+            i18niso.getAlpha2Code("Estados Unidos da América", lang),
+            "US"
+          );
+        });
+      });
+      describe("get Alpha-3 code", function () {
+        it("nameToAlpha3 Estados Unidos => USA", function () {
+          assert.strictEqual(
+            i18niso.getAlpha3Code("Estados Unidos", lang),
+            "USA"
+          );
+        });
+        it("nameToAlpha3 Estados Unidos da América => USA", function () {
+          assert.strictEqual(
+            i18niso.getAlpha3Code("Estados Unidos da América", lang),
+            "USA"
+          );
+        });
+      });
+      describe("get name", function () {
+        it("for br => Brasil", function () {
+          assert.strictEqual(i18niso.getName("br", lang), "Brasil");
+        });
+        it("for si => Eslovênia", function () {
+          assert.strictEqual(i18niso.getName("si", lang), "Eslovênia");
+        });
         it("for us => Estados Unidos", function () {
           assert.strictEqual(i18niso.getName("us", lang), "Estados Unidos");
         });
