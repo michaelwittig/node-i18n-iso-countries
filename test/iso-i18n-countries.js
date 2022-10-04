@@ -480,6 +480,9 @@ describe("i18n for iso 3166-1", function () {
         it("for br => Brasil", function () {
           assert.strictEqual(i18niso.getName("br", lang), "Brasil");
         });
+        it("for si => Eslovénia", function () {
+          assert.strictEqual(i18niso.getName("si", lang), "Eslovénia");
+        });
         it("for us => Estados Unidos", function () {
           assert.strictEqual(i18niso.getName("us", lang), "Estados Unidos");
         });
