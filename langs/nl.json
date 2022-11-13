@@ -208,7 +208,7 @@
     "SY": "Syrië",
     "TW": "Taiwan",
     "TJ": "Tadzjikistan",
-    "TZ": "Tanzania, Verenigde Republiek",
+    "TZ": ["Tanzania", "Tanzania, Verenigde Republiek"],
     "TH": "Thailand",
     "TL": "Timor Leste",
     "TG": "Togo",
