@@ -136,6 +136,14 @@ describe("i18n for iso 3166-1", function () {
     it("works", function () {
       assert.strictEqual(i18niso.getSimpleAlpha2Code("belgie", "nl"), "BE");
       assert.strictEqual(i18niso.getSimpleAlpha2Code("België", "nl"), "BE");
+      assert.strictEqual(
+        i18niso.getSimpleAlpha2Code("Republic of Korea", "en"),
+        "KR"
+      );
+      assert.strictEqual(
+        i18niso.getSimpleAlpha2Code("South Korea", "en"),
+        "KR"
+      );
     });
     it("missing name", function () {
       assert.strictEqual(i18niso.getSimpleAlpha2Code("XXX", "de"), undefined);
