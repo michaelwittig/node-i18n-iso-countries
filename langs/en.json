@@ -115,7 +115,7 @@
     "KP": "North Korea",
     "KR": "South Korea",
     "KW": "Kuwait",
-    "KG": "Kyrgyzstan",
+    "KG": ["Kyrgyz Republic", "Kyrgyzstan"],
     "LA": "Lao People's Democratic Republic",
     "LV": "Latvia",
     "LB": "Lebanon",
