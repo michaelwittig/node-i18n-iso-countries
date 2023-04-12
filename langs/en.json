@@ -113,7 +113,7 @@
     "KE": "Kenya",
     "KI": "Kiribati",
     "KP": "North Korea",
-    "KR": "South Korea",
+    "KR": ["South Korea", "Korea, Republic of", "Republic of Korea"],
     "KW": "Kuwait",
     "KG": "Kyrgyzstan",
     "LA": "Lao People's Democratic Republic",
