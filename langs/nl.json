@@ -129,7 +129,7 @@
     "MG": "Madagaskar",
     "MW": "Malawi",
     "MY": "Maleisië",
-    "MV": "Maldiven",
+    "MV": ["Maldiven", "Malediven"],
     "ML": "Mali",
     "MT": "Malta",
     "MH": "Marshalleilanden",
