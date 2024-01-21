@@ -53,7 +53,7 @@
     "CD": "Congo, Gweriniaeth Ddemocrataidd y",
     "CK": "Ynysoedd Cook",
     "CR": "Costa Rica",
-    "CI": "Cote D'Ivoire",
+    "CI": ["Cote d'Ivoire", "Côte d'Ivoire"],
     "HR": "Croatia",
     "CU": "Cuba",
     "CY": "Cyprus",
