@@ -44,7 +44,7 @@
     "CF": "Republik Afrika Tengah",
     "CG": "Congo - Brazzaville",
     "CH": "Switzerland",
-    "CI": "Cote d’Ivoire",
+    "CI": ["Cote d'Ivoire", "Côte d'Ivoire"],
     "CK": "Kepulauan Cook",
     "CL": "Chile",
     "CM": "Cameroon",
