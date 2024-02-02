@@ -83,7 +83,7 @@
     "HT": "Haiti",
     "HM": "Heard und McDonaldinseln",
     "HN": "Honduras",
-    "HK": "Hongkong",
+    "HK": ["Hongkong", "Hong Kong"],
     "IN": "Indien",
     "ID": "Indonesien",
     "IM": "Insel Man",
