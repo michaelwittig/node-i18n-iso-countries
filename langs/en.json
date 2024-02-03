@@ -222,7 +222,7 @@
     "TV": "Tuvalu",
     "UG": "Uganda",
     "UA": "Ukraine",
-    "AE": "United Arab Emirates",
+    "AE": ["United Arab Emirates", "UAE"],
     "GB": ["United Kingdom", "UK", "Great Britain"],
     "US": ["United States of America", "United States", "USA", "U.S.A.", "US", "U.S."],
     "UM": "United States Minor Outlying Islands",
