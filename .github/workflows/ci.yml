@@ -1,29 +1,24 @@
 name: CI
-
 on: [push, pull_request]
-
+defaults:
+  run:
+    shell: bash
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['14', '16', '18']
-
+        node: ['18', '20']
     name: Node ${{ matrix.node }} CI
-
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: npm
-
       - name: dependencies
         run: npm ci
-
       - name: lint
         run: npm run lint
-
       - name: test
         run: npm test
