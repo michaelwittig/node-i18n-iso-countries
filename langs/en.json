@@ -149,7 +149,7 @@
     "NA": "Namibia",
     "NR": "Nauru",
     "NP": "Nepal",
-    "NL": "Netherlands",
+    "NL": ["Netherlands", "The Netherlands", "Netherlands (Kingdom of the)"],
     "NC": "New Caledonia",
     "NZ": "New Zealand",
     "NI": "Nicaragua",
