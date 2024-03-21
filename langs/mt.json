@@ -224,7 +224,7 @@
     "UA": "l-Ukrajna",
     "AE": "l-Emirati Għarab Magħquda",
     "GB": "ir-Renju Unit",
-    "US": "l-Istati Uniti",
+    "US": ["l-Istati Uniti", "l-Istati Uniti tal-Amerka"],
     "UM": "Il-Gżejjer Minuri Mbiegħda tal-Istati Uniti",
     "UY": "l-Urugwaj",
     "UZ": "l-Użbekistan",
