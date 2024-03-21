@@ -555,6 +555,48 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("mt", function () {
+      var lang = "mt";
+      describe("get Alpha-2 code", function () {
+        it("nameToAlpha2 l-Istati Uniti => US", function () {
+          assert.strictEqual(
+            i18niso.getAlpha2Code("l-Istati Uniti", lang),
+            "US"
+          );
+        });
+        it("nameToAlpha2 l-Istati Uniti tal-Amerka => US", function () {
+          assert.strictEqual(
+            i18niso.getAlpha2Code("l-Istati Uniti tal-Amerka", lang),
+            "US"
+          );
+        });
+      });
+      describe("get Alpha-3 code", function () {
+        it("nameToAlpha3 l-Istati Uniti => USA", function () {
+          assert.strictEqual(
+            i18niso.getAlpha3Code("l-Istati Uniti", lang),
+            "USA"
+          );
+        });
+        it("nameToAlpha3 l-Istati Uniti tal-Amerka => USA", function () {
+          assert.strictEqual(
+            i18niso.getAlpha3Code("l-Istati Uniti tal-Amerka", lang),
+            "USA"
+          );
+        });
+      });
+      describe("get name", function () {
+        it("for br => Il-Brażil", function () {
+          assert.strictEqual(i18niso.getName("br", lang), "Il-Brażil");
+        });
+        it("for si => is-Slovenja", function () {
+          assert.strictEqual(i18niso.getName("si", lang), "is-Slovenja");
+        });
+        it("for us => l-Istati Uniti", function () {
+          assert.strictEqual(i18niso.getName("us", lang), "l-Istati Uniti");
+        });
+      });
+    });
     describe("unsupported language", function () {
       var lang = "unsupported";
       it("get name => undefined", function () {
