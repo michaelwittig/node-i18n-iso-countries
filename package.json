@@ -1,6 +1,6 @@
 {
   "name": "@dior/i18n-iso-countries",
-  "version": "4.2.8",
+  "version": "4.2.9",
   "description": "i18n for ISO 3166-1 country codes",
   "typings": "index.d.ts",
   "keywords": [
