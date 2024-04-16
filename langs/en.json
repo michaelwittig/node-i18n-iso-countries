@@ -17,7 +17,7 @@
     "AT": "Austria",
     "AZ": "Azerbaijan",
     "BS": "Bahamas",
-    "BH": "Bahrain",
+    "BH": ["Bahrain", "Kingdom of Bahrain"],
     "BD": "Bangladesh",
     "BB": "Barbados",
     "BY": "Belarus",
