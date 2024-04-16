@@ -17,7 +17,7 @@
     "AT": "Oostenrijk",
     "AZ": "Azerbeidzjan",
     "BS": "Bahama's",
-    "BH": "Bahrein",
+    "BH": ["Bahrein", "Koninkrijk Bahrein"],
     "BD": "Bangladesh",
     "BB": "Barbados",
     "BY": "Wit-Rusland",
