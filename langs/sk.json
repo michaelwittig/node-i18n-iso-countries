@@ -202,7 +202,7 @@
     "SH": "Svätá Helena",
     "SI": "Slovinsko",
     "SJ": "Svalbard a Jan Mayen",
-    "SK": "Slovensko",
+    "SK": ["Slovensko", "Slovenská republika"],
     "SL": "Sierra Leone",
     "SM": "San Maríno",
     "SN": "Senegal",

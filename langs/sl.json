@@ -200,7 +200,7 @@
     "SE": "Švedska",
     "SG": "Singapur",
     "SH": "Sveta Helena",
-    "SI": "Slovenija",
+    "SI": ["Slovenija", "Republika Slovenija"],
     "SJ": "Svalbard in Jan Mayen",
     "SK": "Slovaška",
     "SL": "Sierra Leone",
