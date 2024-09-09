@@ -126,6 +126,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `ta`: Tamil
 - `tg`: Tajik
 - `th`: Thai
+- `tk`: Turkmen
 - `tr`: Turkish
 - `tt`: Tatar
 - `ug`: Uyghur
