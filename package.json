@@ -64,7 +64,9 @@
     "ur",
     "uz",
     "vi",
-    "zh"
+    "zh",
+    "zh_hk",
+    "zh_tw"
   ],
   "author": {
     "name": "Andreas Wittig",
