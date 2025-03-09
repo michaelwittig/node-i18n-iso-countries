@@ -298,19 +298,25 @@ describe("i18n for iso 3166-1", function () {
       });
       describe("get name", function () {
         it("for de", function () {
-          assert.strictEqual(i18niso.getName("de", lang), "Germany");
+          assert.strictEqual(
+            i18niso.getName("de", lang),
+            "Federal Republic of Germany"
+          );
         });
         it("for cl", function () {
-          assert.strictEqual(i18niso.getName("cl", lang), "Chile");
+          assert.strictEqual(i18niso.getName("cl", lang), "Republic of Chile");
         });
         it("for CL", function () {
-          assert.strictEqual(i18niso.getName("CL", lang), "Chile");
+          assert.strictEqual(i18niso.getName("CL", lang), "Republic of Chile");
         });
         it("for cy", function () {
-          assert.strictEqual(i18niso.getName("cy", lang), "Cyprus");
+          assert.strictEqual(i18niso.getName("cy", lang), "Republic of Cyprus");
         });
         it("for af", function () {
-          assert.strictEqual(i18niso.getName("af", lang), "Afghanistan");
+          assert.strictEqual(
+            i18niso.getName("af", lang),
+            "Islamic Emirate of Afghanistan"
+          );
         });
       });
     });
