@@ -135,6 +135,7 @@ console.log(countries.getNames("en", {select: "official"})); // { 'AF': 'Afghani
 - `uz`: Uzbek
 - `zh`: Chinese
 - `vi`: Vietnamese
+- `zh-hant`: Traditional Chinese
 
 [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
