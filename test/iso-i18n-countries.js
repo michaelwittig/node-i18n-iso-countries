@@ -453,6 +453,14 @@ describe("i18n for iso 3166-1", function () {
           assert.strictEqual(i18niso.getName("fr", lang), "France");
         });
       });
+      describe("get Alpha-2 code", function () {
+        it("for US => Etats-Unis alternative", function () {
+          assert.strictEqual(i18niso.getAlpha2Code("Etats Unis", lang), "US");
+          assert.strictEqual(i18niso.getAlpha2Code("Etats-Unis", lang), "US");
+          assert.strictEqual(i18niso.getAlpha2Code("États-Unis", lang), "US");
+          assert.strictEqual(i18niso.getAlpha2Code("Etats-Unis d'Amerique", lang), "US");
+        });
+      });
     });
     describe("pt", function () {
       var lang = "pt";
