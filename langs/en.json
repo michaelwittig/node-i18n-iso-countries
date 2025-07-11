@@ -139,7 +139,7 @@
     "YT": "Mayotte",
     "MX": "Mexico",
     "FM": "Micronesia, Federated States of",
-    "MD": "Moldova, Republic of",
+    "MD": ["Moldova, Republic of", "Moldova"],
     "MC": "Monaco",
     "MN": "Mongolia",
     "MS": "Montserrat",
