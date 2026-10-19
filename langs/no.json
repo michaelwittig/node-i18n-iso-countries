@@ -20,7 +20,7 @@
     "BH": "Bahrain",
     "BD": "Bangladesh",
     "BB": "Barbados",
-    "BY": "Hviterussland",
+    "BY": ["Belarus", "Hviterussland"],
     "BE": "Belgia",
     "BZ": "Belize",
     "BJ": "Benin",
