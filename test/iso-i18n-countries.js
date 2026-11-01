@@ -356,6 +356,20 @@ describe("i18n for iso 3166-1", function () {
         });
       });
     });
+    describe("tk", function () {
+      var lang = "tk";
+      describe("get name", function () {
+        it("for iq", function () {
+          assert.strictEqual(i18niso.getName("iq", lang), "Yrak");
+        });
+        it("for ir", function () {
+          assert.strictEqual(i18niso.getName("ir", lang), "Eýran");
+        });
+        it("for uz", function () {
+          assert.strictEqual(i18niso.getName("uz", lang), "Özbegistan");
+        });
+      });
+    });
     describe("pl", function () {
       var lang = "pl";
       describe("get Alpha-2 code", function () {
